@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://hr3ejr51xyux"]
+
+[ext_resource type="PackedScene" uid="uid://c052crh6e17ge" path="res://assets/prefabs/room_parts/floor.tscn" id="1_5rspi"]
+[ext_resource type="PackedScene" uid="uid://bavvfyood7whp" path="res://assets/prefabs/room_parts/wall_1.tscn" id="2_d4a1x"]
+[ext_resource type="PackedScene" uid="uid://1qsampuw5f3u" path="res://assets/prefabs/room_parts/wall_2.tscn" id="3_utfa7"]
+[ext_resource type="PackedScene" uid="uid://ny55ponoxlby" path="res://assets/prefabs/room_parts/wall_3.tscn" id="4_l5usa"]
+[ext_resource type="PackedScene" uid="uid://csqkawa01ij4v" path="res://assets/prefabs/room_parts/wall_4.tscn" id="5_l81xe"]
+[ext_resource type="PackedScene" uid="uid://ol1te0vxmr7j" path="res://assets/prefabs/room_parts/left_door.tscn" id="6_dpeh3"]
+[ext_resource type="PackedScene" uid="uid://da1rg2ief6g8f" path="res://assets/prefabs/room_parts/right_door.tscn" id="7_5u1mh"]
+[ext_resource type="Material" uid="uid://cgtl8wj1e80ke" path="res://assets/materials/glass_material.tres" id="8_0dnye"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pve2l"]
+
+[node name="room" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_5rspi")]
+
+[node name="Wall1" parent="." instance=ExtResource("2_d4a1x")]
+
+[node name="Wall2" parent="." instance=ExtResource("3_utfa7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Wall3" parent="." instance=ExtResource("4_l5usa")]
+
+[node name="Wall4" parent="." instance=ExtResource("5_l81xe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Door" type="Node3D" parent="."]
+
+[node name="LeftDoor" parent="Door" instance=ExtResource("6_dpeh3")]
+
+[node name="RightDoor" parent="Door" instance=ExtResource("7_5u1mh")]
+
+[node name="glass" type="CSGMesh3D" parent="."]
+transform = Transform3D(-4.42136, 0, -8.80204e-08, 0, 11.1397, 0, 3.86527e-07, 0, -1.00684, 0, 0, 3.18893)
+material_override = ExtResource("8_0dnye")
+calculate_tangents = false
+mesh = SubResource("QuadMesh_pve2l")
+
+[node name="glass2" type="CSGMesh3D" parent="."]
+transform = Transform3D(-9.5276e-08, 0, -1.00684, 0, 2.27152, 0, 2.17966, 0, -4.40102e-08, 3.02654, 2.27987, -7.55702e-10)
+material_override = ExtResource("8_0dnye")
+calculate_tangents = false
+mesh = SubResource("QuadMesh_pve2l")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.63417, 0)
+omni_range = 30.0

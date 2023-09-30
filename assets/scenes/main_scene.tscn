@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=5 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
+[ext_resource type="PackedScene" uid="uid://hr3ejr51xyux" path="res://assets/prefabs/room.tscn" id="3_4ipvi"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -12,3 +13,11 @@ environment = ExtResource("1_ac5gt")
 camera_attributes = SubResource("CameraAttributesPractical_ho8qv")
 
 [node name="Player" parent="." instance=ExtResource("2_e4bg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07548, 0)
+
+[node name="Camera3D" parent="Player" index="0"]
+environment = ExtResource("1_ac5gt")
+
+[node name="room" parent="." instance=ExtResource("3_4ipvi")]
+
+[editable path="Player"]

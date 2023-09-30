@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://sm178v07dmdk"]
+
+[ext_resource type="Texture2D" uid="uid://dooleapm4qtsa" path="res://assets/Room/RoomBaseColor.png" id="1_cebdy"]
+[ext_resource type="Texture2D" uid="uid://dgvic37wgifjo" path="res://assets/Room/RoomBaseNormal.png" id="2_nakoo"]
+
+[resource]
+albedo_texture = ExtResource("1_cebdy")
+normal_texture = ExtResource("2_nakoo")

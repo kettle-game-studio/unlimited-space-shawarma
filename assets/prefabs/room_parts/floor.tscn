@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c052crh6e17ge"]
+
+[ext_resource type="Texture2D" uid="uid://dt15u56khobn5" path="res://assets/Room/Room_RoomBaseColor.png" id="1_nu4ca"]
+[ext_resource type="Texture2D" uid="uid://nij76gfwj3ep" path="res://assets/Room/Room_RoomBaseNormal.png" id="2_gr3g4"]
+[ext_resource type="Material" uid="uid://sm178v07dmdk" path="res://assets/materials/room_base_material.tres" id="3_ok3l6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ugp6"]
+resource_name = "RoomMaterial"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_nu4ca")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_gr3g4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cx872"]
+_surfaces = [{
+"aabb": AABB(-3, -6, -3, 6.00001, 12, 6.00001),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "RoomMaterial",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 64, 64, 0, 0, 192, 192, 0, 0, 64, 64, 0, 0, 64, 64, 0, 0, 192, 64, 0, 0, 64, 64, 0, 0, 64, 64, 0, 0, 192, 192, 0, 0, 64, 192, 0, 0, 64, 64, 0, 0, 192, 64, 0, 0, 64, 192, 0, 0, 64, 192, 0, 0, 192, 192, 0, 0, 64, 64, 0, 0, 64, 192, 0, 0, 192, 64, 0, 0, 64, 64, 0, 0, 64, 192, 0, 0, 192, 192, 0, 0, 64, 192, 0, 0, 64, 192, 0, 0, 192, 64, 0, 0, 64, 192)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_081by"]
+resource_name = "Room_Floor"
+_surfaces = [{
+"aabb": AABB(-3, -6, -3, 6.00001, 12, 6.00001),
+"attribute_data": PackedByteArray(163, 251, 65, 63, 156, 23, 248, 62, 162, 251, 65, 63, 176, 243, 127, 62, 93, 4, 126, 63, 154, 23, 248, 62, 162, 251, 65, 63, 192, 12, 125, 60, 162, 251, 65, 63, 36, 6, 128, 62, 93, 4, 126, 63, 176, 243, 127, 62, 93, 4, 126, 63, 36, 6, 128, 62, 93, 4, 126, 63, 128, 12, 125, 60),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_4ugp6"),
+"name": "RoomMaterial",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 64, 64, 0, 0, 192, 192, 0, 0, 64, 64, 255, 127, 255, 255, 255, 255, 254, 255, 0, 0, 64, 64, 0, 0, 192, 64, 0, 0, 64, 64, 255, 127, 0, 0, 0, 0, 255, 191, 0, 0, 64, 64, 0, 0, 192, 192, 0, 0, 64, 192, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 64, 64, 0, 0, 192, 64, 0, 0, 64, 192, 255, 127, 0, 0, 0, 0, 255, 191, 0, 0, 64, 192, 0, 0, 192, 192, 0, 0, 64, 64, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 64, 192, 0, 0, 192, 64, 0, 0, 64, 64, 255, 127, 0, 0, 0, 0, 255, 191, 0, 0, 64, 192, 0, 0, 192, 192, 0, 0, 64, 192, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 64, 192, 0, 0, 192, 64, 0, 0, 64, 192, 255, 127, 0, 0, 0, 0, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cx872")
+
+[node name="Floor" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_081by")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ok3l6")

@@ -8,3 +8,4 @@ sky_material = ExtResource("1_agf7s")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_8siqt")
+ambient_light_color = Color(1, 1, 1, 1)
