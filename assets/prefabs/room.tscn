@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c052crh6e17ge" path="res://assets/prefabs/room_parts/floor.tscn" id="1_5rspi"]
 [ext_resource type="PackedScene" uid="uid://bavvfyood7whp" path="res://assets/prefabs/room_parts/wall_1.tscn" id="2_d4a1x"]
-[ext_resource type="PackedScene" uid="uid://1qsampuw5f3u" path="res://assets/prefabs/room_parts/wall_2.tscn" id="3_utfa7"]
+[ext_resource type="PackedScene" uid="uid://dx727lulaji88" path="res://assets/prefabs/room_parts/wall_2.tscn" id="3_utfa7"]
 [ext_resource type="PackedScene" uid="uid://ny55ponoxlby" path="res://assets/prefabs/room_parts/wall_3.tscn" id="4_l5usa"]
 [ext_resource type="PackedScene" uid="uid://csqkawa01ij4v" path="res://assets/prefabs/room_parts/wall_4.tscn" id="5_l81xe"]
 [ext_resource type="PackedScene" uid="uid://ol1te0vxmr7j" path="res://assets/prefabs/room_parts/left_door.tscn" id="6_dpeh3"]
