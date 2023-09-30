@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://4h7b3tnixhgm"]
+[gd_scene load_steps=4 format=3 uid="uid://4h7b3tnixhgm"]
 
+[ext_resource type="Script" path="res://assets/prefabs/player.gd" id="1_1yefg"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_75gyu"]
+[ext_resource type="Script" path="res://assets/scripts/player_raycast.gd" id="2_h24xp"]
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("player", "camera")]
-script = ExtResource("1_75gyu")
-player = NodePath(".")
-camera = NodePath("Camera3D")
+[node name="Player" type="Node3D"]
+script = ExtResource("1_1yefg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
+script = ExtResource("1_75gyu")
+player = NodePath("..")
+camera = NodePath("../Camera3D")
+
+[node name="PlayerRaycast" type="Node" parent="." node_paths=PackedStringArray("activatorRaycast", "player")]
+script = ExtResource("2_h24xp")
+activatorRaycast = NodePath("../Camera3D/RayCast3D")
+player = NodePath("..")

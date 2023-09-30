@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://csjp6tg2psdb0"]
+[gd_scene load_steps=5 format=3 uid="uid://csjp6tg2psdb0"]
 
 [ext_resource type="Script" path="res://assets/scripts/door_script.gd" id="1_gjx50"]
 [ext_resource type="PackedScene" uid="uid://ol1te0vxmr7j" path="res://assets/prefabs/room_parts/left_door.tscn" id="1_rli3j"]
 [ext_resource type="PackedScene" uid="uid://da1rg2ief6g8f" path="res://assets/prefabs/room_parts/right_door.tscn" id="2_dniwe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oefqs"]
+size = Vector3(3.87718, 3.32796, 0.366733)
 
 [node name="Door" type="Node3D" node_paths=PackedStringArray("leftDoor", "rightDoor")]
 script = ExtResource("1_gjx50")
@@ -12,3 +15,9 @@ rightDoor = NodePath("RightDoor")
 [node name="LeftDoor" parent="." instance=ExtResource("1_rli3j")]
 
 [node name="RightDoor" parent="." instance=ExtResource("2_dniwe")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895359, -3.37915)
+shape = SubResource("BoxShape3D_oefqs")

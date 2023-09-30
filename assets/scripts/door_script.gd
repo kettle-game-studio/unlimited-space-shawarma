@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var leftDoor: Node3D
 @export var rightDoor: Node3D
