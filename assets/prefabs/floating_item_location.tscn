@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ba1wbu3mtpra5"]
+[gd_scene load_steps=2 format=3 uid="uid://ba1wbu3mtpra5"]
+
+[ext_resource type="Script" path="res://assets/scripts/floating_item_location.gd" id="1_6khl2"]
 
 [node name="FloatingItemLocation" type="Node3D"]
+script = ExtResource("1_6khl2")

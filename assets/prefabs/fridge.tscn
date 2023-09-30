@@ -4,16 +4,13 @@
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_li706"]
 [ext_resource type="Script" path="res://assets/scripts/fridge.gd" id="2_wtsi6"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_pve2l"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_57lwe"]
-size = Vector3(0.71723, 0.626752, 0.665655)
+size = Vector3(3, 8, 0.665655)
 
-[node name="Fridge" type="CSGMesh3D"]
-transform = Transform3D(-4.42136, 0, -8.80204e-08, 0, 11.1397, 0, 3.86527e-07, 0, -1.00684, 0, 0, 3.18893)
-calculate_tangents = false
-mesh = SubResource("QuadMesh_pve2l")
-material = ExtResource("1_hpk8c")
+[sub_resource type="QuadMesh" id="QuadMesh_j243t"]
+
+[node name="Fridge" type="Node3D"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 3.18893)
 script = ExtResource("2_wtsi6")
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
@@ -26,5 +23,11 @@ hint_source = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 0, 0, 1, 0, 0.115479, 0)
 shape = SubResource("BoxShape3D_57lwe")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(4.628, 0, 0, 0, 10.025, 0, 0, 0, 1, 0, 0, 0)
+calculate_tangents = false
+mesh = SubResource("QuadMesh_j243t")
+material = ExtResource("1_hpk8c")
 
 [connection signal="activated" from="Area3D" to="." method="_activated"]

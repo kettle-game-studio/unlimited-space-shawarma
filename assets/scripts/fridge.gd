@@ -15,7 +15,8 @@ func _activated(player: Player):
 	
 	var node = floating_item_prefab.instantiate()
 	add_child(node)
-	node.global_transform.origin = player_pos + vec * 1.6
+	node.global_transform.origin = player_pos + vec * 1.7
+	node.set_origin()
 	
 	item.go_to(node)
 	player.item_manager.item_in_hand = null;
