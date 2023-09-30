@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1akd7swemj4c"]
+[gd_scene load_steps=7 format=3 uid="uid://d1akd7swemj4c"]
 
 [ext_resource type="PackedScene" uid="uid://dioh2fr6ji24r" path="res://assets/prefabs/multifruit/multifruit_tree.tscn" id="1_5svdg"]
 [ext_resource type="Script" path="res://assets/scripts/multifruit_tree.gd" id="1_kyhvo"]
 [ext_resource type="PackedScene" uid="uid://b5srim0eamb8v" path="res://assets/prefabs/machines/growable_item.tscn" id="3_q8xvc"]
+[ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="3_vv10j"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="3_xua7s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qmner"]
@@ -12,6 +13,7 @@ radius = 1.81291
 transform = Transform3D(0.0946044, -0.47647, 0.874086, 0.05127, 0.879191, 0.473704, -0.994194, -4.47035e-08, 0.107604, 0, 0, 0)
 script = ExtResource("1_kyhvo")
 fruit_positions = [NodePath("MultifruitTree/FruitPoint1/growable_item"), NodePath("MultifruitTree/FruitPoint2/growable_item"), NodePath("MultifruitTree/FruitPoint3/growable_item")]
+fruit_item = ExtResource("3_vv10j")
 
 [node name="MultifruitTree" parent="." instance=ExtResource("1_5svdg")]
 transform = Transform3D(0.3, -1.80957e-09, 1.08866e-16, 1.80957e-09, 0.3, 8.94069e-09, -1.62796e-16, -8.94069e-09, 0.3, 0, 0, 0)

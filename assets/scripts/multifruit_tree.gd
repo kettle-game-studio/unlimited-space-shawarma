@@ -5,13 +5,12 @@ enum State { UNWATERED, GROWING, FULLY_GROWN }
 
 @export var fruit_positions: Array[GrowableItem]
 @export var time_to_grow: float = 1
+@export var fruit_item: PackedScene
 
 var state: State = State.UNWATERED
 var rnd = RandomNumberGenerator.new()
 var time_left: float
 var growing_fruit: GrowableItem;
-
-var fruit_item = preload("res://assets/prefabs/items/item_multifruit.tscn")
 
 func _process(delta):
 	if state == State.GROWING:
