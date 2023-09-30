@@ -1,0 +1,10 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cfdjcfoshx56f"]
+
+[ext_resource type="Material" uid="uid://kopq2p6gwveg" path="res://assets/materials/stars_in_the_sky.tres" id="1_agf7s"]
+
+[sub_resource type="Sky" id="Sky_8siqt"]
+sky_material = ExtResource("1_agf7s")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_8siqt")

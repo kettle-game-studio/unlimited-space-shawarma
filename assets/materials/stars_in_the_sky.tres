@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://kopq2p6gwveg"]
+
+[ext_resource type="Shader" path="res://assets/materials/stars_in_the_sky.gdshader" id="1_dm47p"]
+
+[resource]
+shader = ExtResource("1_dm47p")
+shader_parameter/skyColor = Color(1, 1, 1, 1)
+shader_parameter/coldStarColor = Color(0.227451, 0.87451, 0.780392, 1)
+shader_parameter/hotStarColor = Color(0.964706, 0.309804, 0, 1)
