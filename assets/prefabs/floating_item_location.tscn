@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ba1wbu3mtpra5"]
+
+[node name="FloatingItemLocation" type="Node3D"]
