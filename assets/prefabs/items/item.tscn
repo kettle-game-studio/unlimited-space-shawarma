@@ -4,15 +4,17 @@
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_a0gc7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sduei"]
-radius = 0.2
+radius = 0.481484
 
 [sub_resource type="SphereMesh" id="SphereMesh_s0cjd"]
 radius = 0.2
 height = 0.4
 
-[node name="Item" type="Node3D"]
+[node name="Item" type="Node3D" node_paths=PackedStringArray("top_point", "activator")]
 script = ExtResource("1_wwxqe")
 item_name = "Sphere"
+top_point = NodePath("Top")
+activator = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
 script = ExtResource("2_a0gc7")
@@ -24,5 +26,8 @@ shape = SubResource("SphereShape3D_sduei")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 mesh = SubResource("SphereMesh_s0cjd")
+
+[node name="Top" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184994, 0)
 
 [connection signal="activated" from="Area3D" to="." method="_activated"]

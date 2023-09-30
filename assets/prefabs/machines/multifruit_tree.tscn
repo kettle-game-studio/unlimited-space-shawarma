@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1akd7swemj4c"]
+
+[ext_resource type="PackedScene" uid="uid://dioh2fr6ji24r" path="res://assets/prefabs/multifruit/multifruit_tree.tscn" id="1_5svdg"]
+[ext_resource type="Script" path="res://assets/scripts/multifruit_tree.gd" id="1_kyhvo"]
+[ext_resource type="PackedScene" uid="uid://b5srim0eamb8v" path="res://assets/prefabs/machines/growable_item.tscn" id="3_q8xvc"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="3_xua7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qmner"]
+radius = 1.81291
+
+[node name="MultifruitTree" type="Node3D" node_paths=PackedStringArray("fruit_positions")]
+transform = Transform3D(0.0946044, -0.47647, 0.874086, 0.05127, 0.879191, 0.473704, -0.994194, -4.47035e-08, 0.107604, 0, 0, 0)
+script = ExtResource("1_kyhvo")
+fruit_positions = [NodePath("MultifruitTree/FruitPoint1/growable_item"), NodePath("MultifruitTree/FruitPoint2/growable_item"), NodePath("MultifruitTree/FruitPoint3/growable_item")]
+
+[node name="MultifruitTree" parent="." instance=ExtResource("1_5svdg")]
+transform = Transform3D(0.3, -1.80957e-09, 1.08866e-16, 1.80957e-09, 0.3, 8.94069e-09, -1.62796e-16, -8.94069e-09, 0.3, 0, 0, 0)
+
+[node name="FruitPoint1" type="Node3D" parent="MultifruitTree"]
+transform = Transform3D(0.999999, -5.21541e-08, 3.72529e-08, 3.1844e-09, 0.480851, -0.876802, 6.70552e-08, 0.876802, 0.480851, 0.617177, 4.53606, -1.43414)
+
+[node name="growable_item" parent="MultifruitTree/FruitPoint1" instance=ExtResource("3_q8xvc")]
+
+[node name="FruitPoint2" type="Node3D" parent="MultifruitTree"]
+transform = Transform3D(0.936748, 0.347259, -0.043743, -0.134512, 0.241805, -0.960956, -0.323123, 0.906058, 0.273221, 0.321253, 6.13571, 0.71826)
+
+[node name="growable_item" parent="MultifruitTree/FruitPoint2" instance=ExtResource("3_q8xvc")]
+
+[node name="FruitPoint3" type="Node3D" parent="MultifruitTree"]
+transform = Transform3D(-0.751107, 0.658725, -0.043743, -0.148689, -0.233355, -0.960956, -0.643215, -0.715279, 0.273221, -0.446177, 3.25473, -0.463107)
+
+[node name="growable_item" parent="MultifruitTree/FruitPoint3" instance=ExtResource("3_q8xvc")]
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
+transform = Transform3D(0.3, -2.40013e-09, 3.72529e-09, 2.33708e-09, 0.3, -1.56334e-09, 3.72529e-09, -1.62542e-08, 0.3, 0, 0, 0)
+script = ExtResource("3_xua7s")
+hint_source = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999999, -6.76254e-09, 3.72529e-08, 1.73813e-08, 1, 8.55098e-08, 3.72529e-08, -6.41143e-08, 1, -0.036687, 0.184773, -0.338966)
+shape = SubResource("SphereShape3D_qmner")
+
+[connection signal="activated" from="Area3D" to="." method="_activated"]

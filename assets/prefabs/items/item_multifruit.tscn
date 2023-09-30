@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdmqifp834ejp"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_gqjrl"]
+[ext_resource type="PackedScene" uid="uid://di432unbene5j" path="res://assets/prefabs/multifruit/multifruit_2.tscn" id="2_mb4lb"]
+
+[node name="Item" instance=ExtResource("1_gqjrl")]
+item_name = "Multifruit"
+
+[node name="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0680701, 0)
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311089, 0)
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+
+[node name="Multifruit2" parent="." index="2" instance=ExtResource("2_mb4lb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0404049, 0)
+
+[node name="Top" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844031, 0)

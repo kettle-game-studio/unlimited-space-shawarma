@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5srim0eamb8v"]
+
+[ext_resource type="Script" path="res://assets/scripts/growable_item.gd" id="1_s73eo"]
+
+[node name="growable_item" type="Node3D"]
+script = ExtResource("1_s73eo")
