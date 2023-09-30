@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=12 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="7_mo6mv"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
 [ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="9_tpamu"]
+[ext_resource type="PackedScene" uid="uid://2g7ib2rvd6ya" path="res://assets/prefabs/machines/blender.tscn" id="10_kghge"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -72,3 +73,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0
 
 [node name="TreePot3" parent="." instance=ExtResource("9_hq280")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0, 0)
+
+[node name="Blender" parent="." instance=ExtResource("10_kghge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76808, -2.28041, 0.30878)

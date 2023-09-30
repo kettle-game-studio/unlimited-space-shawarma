@@ -9,14 +9,14 @@ signal picked
 
 func go_to(node: Node3D, other: Item = null) -> void:
 	var parent = self.get_parent()
-	var tr = self.transform
+	var trans = self.transform
 	
 	self.global_transform.origin = node.global_transform.origin
 	self.reparent(node, true)
 	
 	if other != null:
 		other.go_to(parent)
-		other.transform = tr
+		other.transform = trans
 	elif parent is FloatingItemLocation:
 		parent.queue_free()
 

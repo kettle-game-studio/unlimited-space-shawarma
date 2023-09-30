@@ -5,8 +5,8 @@ class_name ItemManager
 
 var item_in_hand: Item
 
-func item_is(name: String) -> bool:
-	return item_in_hand && item_in_hand.item_name == name
+func item_is(item_name: String) -> bool:
+	return item_in_hand && item_in_hand.item_name == item_name
 
 func destroy_current_item() -> void:
 	if !item_in_hand:
