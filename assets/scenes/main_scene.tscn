@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=7 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
 [ext_resource type="Script" path="res://assets/scripts/rotate_sky.gd" id="2_kb0nt"]
 [ext_resource type="PackedScene" uid="uid://hr3ejr51xyux" path="res://assets/prefabs/room.tscn" id="3_4ipvi"]
+[ext_resource type="PackedScene" uid="uid://cy20o8tmobnno" path="res://assets/prefabs/ui.tscn" id="5_dyrqf"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -18,7 +19,12 @@ script = ExtResource("2_kb0nt")
 sky = NodePath("..")
 rotation_speed = Vector3(0.03, 0.02, 0.01)
 
-[node name="Player" parent="." instance=ExtResource("2_e4bg4")]
+[node name="Player" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("2_e4bg4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07548, 0)
+ui = NodePath("../Canvas/UI")
 
 [node name="room" parent="." instance=ExtResource("3_4ipvi")]
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="Canvas" instance=ExtResource("5_dyrqf")]

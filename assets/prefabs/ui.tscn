@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy20o8tmobnno"]
+
+[ext_resource type="Script" path="res://assets/prefabs/ui_controller.gd" id="1_cpks1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvk3b"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjnn8"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" node_paths=PackedStringArray("textLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpks1")
+textLabel = NodePath("RichTextLabel")
+
+[node name="Crosshair" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kvk3b")
+
+[node name="Crosshair" type="Panel" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.499
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.489
+offset_top = -5.497
+offset_right = 1.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjnn8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = 18.0
+offset_right = 338.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][/center]"
+scroll_active = false

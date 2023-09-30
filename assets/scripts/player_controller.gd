@@ -1,15 +1,14 @@
-extends Node3D
+extends Node
 
 @export var player: Node3D
 @export var camera: Camera3D
 
 @export var camera_speed: float = 0.01
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _unhandled_input(event: InputEvent):
+func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		rotate_camera(event.relative)	
 
