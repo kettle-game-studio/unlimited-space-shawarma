@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy20o8tmobnno"]
 
-[ext_resource type="Script" path="res://assets/prefabs/ui_controller.gd" id="1_cpks1"]
+[ext_resource type="Script" path="res://assets/scripts/ui_controller.gd" id="1_mknpu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvk3b"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cpks1")
+script = ExtResource("1_mknpu")
 textLabel = NodePath("RichTextLabel")
 
 [node name="Crosshair" type="Panel" parent="."]

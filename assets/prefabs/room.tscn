@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hr3ejr51xyux"]
+[gd_scene load_steps=10 format=3 uid="uid://hr3ejr51xyux"]
 
 [ext_resource type="PackedScene" uid="uid://c052crh6e17ge" path="res://assets/prefabs/room_parts/floor.tscn" id="1_5rspi"]
 [ext_resource type="PackedScene" uid="uid://bavvfyood7whp" path="res://assets/prefabs/room_parts/wall_1.tscn" id="2_d4a1x"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ny55ponoxlby" path="res://assets/prefabs/room_parts/wall_3.tscn" id="4_l5usa"]
 [ext_resource type="PackedScene" uid="uid://csqkawa01ij4v" path="res://assets/prefabs/room_parts/wall_4.tscn" id="5_l81xe"]
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="6_mesk7"]
-[ext_resource type="Material" uid="uid://cgtl8wj1e80ke" path="res://assets/materials/glass_material.tres" id="8_0dnye"]
+[ext_resource type="PackedScene" uid="uid://b3p1nh2cojknk" path="res://assets/prefabs/fridge.tscn" id="7_mtahv"]
+[ext_resource type="Material" uid="uid://cjtprjfix40p3" path="res://assets/materials/glass_material.tres" id="8_0dnye"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pve2l"]
 
@@ -29,17 +30,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192513, 0, 0)
 targetPosition = Vector3(-1, 0, 0)
 seconsToOpen = 3.0
 
-[node name="glass" type="CSGMesh3D" parent="."]
-transform = Transform3D(-4.42136, 0, -8.80204e-08, 0, 11.1397, 0, 3.86527e-07, 0, -1.00684, 0, 0, 3.18893)
-material_override = ExtResource("8_0dnye")
-calculate_tangents = false
-mesh = SubResource("QuadMesh_pve2l")
+[node name="Fridge" parent="." instance=ExtResource("7_mtahv")]
 
 [node name="glass2" type="CSGMesh3D" parent="."]
 transform = Transform3D(-9.5276e-08, 0, -1.00684, 0, 2.27152, 0, 2.17966, 0, -4.40102e-08, 3.02654, 2.27987, -7.55702e-10)
-material_override = ExtResource("8_0dnye")
 calculate_tangents = false
 mesh = SubResource("QuadMesh_pve2l")
+material = ExtResource("8_0dnye")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.63417, 0)

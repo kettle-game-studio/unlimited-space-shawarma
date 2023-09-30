@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdx0kqrt6ryae"]
+
+[ext_resource type="Script" path="res://assets/scripts/item.gd" id="1_wwxqe"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_a0gc7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sduei"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_s0cjd"]
+radius = 0.2
+height = 0.4
+
+[node name="Item" type="Node3D"]
+script = ExtResource("1_wwxqe")
+item_name = "Sphere"
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
+script = ExtResource("2_a0gc7")
+hint = "Take Sphere"
+hint_source = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_sduei")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("SphereMesh_s0cjd")
+
+[connection signal="activated" from="Area3D" to="." method="_activated"]

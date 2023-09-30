@@ -1,26 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://4h7b3tnixhgm"]
+[gd_scene load_steps=5 format=3 uid="uid://4h7b3tnixhgm"]
 
-[ext_resource type="Script" path="res://assets/prefabs/player.gd" id="1_1yefg"]
+[ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_6l13g"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_75gyu"]
 [ext_resource type="Script" path="res://assets/scripts/player_raycast.gd" id="2_h24xp"]
+[ext_resource type="Script" path="res://assets/scripts/item_manager.gd" id="4_hiefl"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_1yefg")
+[node name="Player" type="Node3D" node_paths=PackedStringArray("item_manager", "player_raycast")]
+script = ExtResource("1_6l13g")
+item_manager = NodePath("ItemManager")
+player_raycast = NodePath("PlayerRaycast")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+[node name="ActivatorRay" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -5, 0)
+target_position = Vector3(0, -20, 0)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="FridgeRay" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -20, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Hand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355696, -0.658281, -0.801419)
 
 [node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_75gyu")
 player = NodePath("..")
 camera = NodePath("../Camera3D")
 
-[node name="PlayerRaycast" type="Node" parent="." node_paths=PackedStringArray("activatorRaycast", "player")]
+[node name="PlayerRaycast" type="Node" parent="." node_paths=PackedStringArray("activatorRaycast", "fridgeRaycast", "player")]
 script = ExtResource("2_h24xp")
-activatorRaycast = NodePath("../Camera3D/RayCast3D")
+activatorRaycast = NodePath("../Camera3D/ActivatorRay")
+fridgeRaycast = NodePath("../Camera3D/FridgeRay")
 player = NodePath("..")
+
+[node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("4_hiefl")
+hand = NodePath("../Camera3D/Hand")
