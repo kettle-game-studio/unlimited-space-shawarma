@@ -30,9 +30,10 @@ radius = 0.408195
 height = 1.92765
 radius = 0.422687
 
-[node name="Trading" type="Node3D" node_paths=PackedStringArray("slots")]
+[node name="Trading" type="Node3D" node_paths=PackedStringArray("slots", "computer_ui")]
 script = ExtResource("1_txblf")
 slots = [NodePath("Table/ItemInMachine"), NodePath("Table/ItemInMachine2"), NodePath("Table/ItemInMachine3")]
+computer_ui = NodePath("Computer/Sprite3D/SubViewport/ComputerUI")
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_i4glr")])
 hide_offset = Vector3(0, 0, -10)
 seconds_to_trade = 1.0

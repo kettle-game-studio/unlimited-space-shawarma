@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bgd8rtbc2ek36"]
+
+[ext_resource type="Texture2D" uid="uid://bal1pl7bg0qra" path="res://assets/item_icons/water.png" id="1_ykqg5"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_55obg"]
+
+[resource]
+script = ExtResource("2_55obg")
+item_name = "Water"
+icon = ExtResource("1_ykqg5")
+prefab = "res://assets/prefabs/items/item_water.tscn"

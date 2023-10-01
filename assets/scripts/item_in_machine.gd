@@ -13,8 +13,11 @@ signal placed(Item)
 func _ready():
 	start_position = self.transform.origin
 
-func instantiate_item(res: Resource) -> void:
+func instantiate_item(res: PackedScene) -> void:
 	desctory_current()
+	
+	if !res:
+		return
 	
 	item = res.instantiate() as Item
 	self.add_child(item)

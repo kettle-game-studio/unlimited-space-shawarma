@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d03qgchh1q34j"]
+
+[ext_resource type="Texture2D" uid="uid://bq016labg6jjr" path="res://assets/item_icons/blender.png" id="1_dlsxs"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_fj4ju"]
+
+[resource]
+script = ExtResource("2_fj4ju")
+item_name = "Blender"
+icon = ExtResource("1_dlsxs")
+prefab = "res://assets/prefabs/items/item_blender.tscn"

@@ -1,0 +1,212 @@
+[gd_scene load_steps=3 format=3 uid="uid://46k7pi72w0l4"]
+
+[ext_resource type="Script" path="res://assets/scripts/computer_ui_point.gd" id="1_41lmj"]
+[ext_resource type="Texture2D" uid="uid://di31vekefloj" path="res://assets/item_icons/apple.png" id="1_o23mv"]
+
+[node name="Eq1" type="Label" node_paths=PackedStringArray("in_plus", "in_textures", "out_plus", "out_textures")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -36.0
+offset_right = 14.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "="
+script = ExtResource("1_41lmj")
+in_plus = [NodePath("In/Plus1"), NodePath("In/Plus2")]
+in_textures = [NodePath("In/In1"), NodePath("In/In2"), NodePath("In/In3")]
+out_plus = [NodePath("Out/Plus2"), NodePath("Out/Plus1")]
+out_textures = [NodePath("Out/In3"), NodePath("Out/In2"), NodePath("Out/In1")]
+
+[node name="In" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Plus1" type="Label" parent="In"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.5
+offset_top = -20.0
+offset_right = -141.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="Plus2" type="Label" parent="In"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -20.0
+offset_right = -265.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="In1" type="TextureRect" parent="In"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -31.0
+offset_right = -46.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
+
+[node name="In2" type="TextureRect" parent="In"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -31.0
+offset_right = -188.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
+
+[node name="In3" type="TextureRect" parent="In"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.5
+offset_top = -31.0
+offset_right = -306.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
+
+[node name="Out" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 426.5
+offset_right = 466.5
+offset_bottom = 40.0
+
+[node name="Plus1" type="Label" parent="Out"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.5
+offset_top = -20.0
+offset_right = -141.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="Plus2" type="Label" parent="Out"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -20.0
+offset_right = -265.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="In1" type="TextureRect" parent="Out"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -31.0
+offset_right = -46.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
+
+[node name="In2" type="TextureRect" parent="Out"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -31.0
+offset_right = -188.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
+
+[node name="In3" type="TextureRect" parent="Out"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.5
+offset_top = -31.0
+offset_right = -306.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_o23mv")
+expand_mode = 1
