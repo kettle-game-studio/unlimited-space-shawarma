@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdx0kqrt6ryae"]
+[gd_scene load_steps=7 format=3 uid="uid://bdx0kqrt6ryae"]
 
 [ext_resource type="Script" path="res://assets/scripts/item.gd" id="1_wwxqe"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_a0gc7"]
 [ext_resource type="Resource" uid="uid://ffv8eeua72nu" path="res://assets/prefabs/items/data/unknown.tres" id="2_uyrcd"]
+[ext_resource type="AudioStream" uid="uid://4tw0igjyhhrx" path="res://assets/sounds/get_item.mp3" id="4_rddvy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sduei"]
 radius = 0.481484
@@ -11,11 +12,12 @@ radius = 0.481484
 radius = 0.2
 height = 0.4
 
-[node name="Item" type="Node3D" node_paths=PackedStringArray("top_point", "activator")]
+[node name="Item" type="Node3D" node_paths=PackedStringArray("top_point", "activator", "get_sound")]
 script = ExtResource("1_wwxqe")
 item_data = ExtResource("2_uyrcd")
 top_point = NodePath("Top")
 activator = NodePath("Area3D")
+get_sound = NodePath("GetItemSound")
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
 script = ExtResource("2_a0gc7")
@@ -30,5 +32,9 @@ mesh = SubResource("SphereMesh_s0cjd")
 
 [node name="Top" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184994, 0)
+
+[node name="GetItemSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_rddvy")
+bus = &"Inner"
 
 [connection signal="activated" from="Area3D" to="." method="_activated"]

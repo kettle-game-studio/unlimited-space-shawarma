@@ -7,6 +7,8 @@ signal picked
 @export var top_point: Node3D
 @export var activator: Area3D
 
+@export var get_sound: AudioStreamPlayer3D
+
 var item_name: String : get = _get_item_name
 
 func _get_item_name() -> String:
@@ -31,7 +33,9 @@ func go_to(node: Node3D, other: Item = null) -> void:
 			parent.on_item_swap(other)
 	elif parent is FloatingItemLocation:
 		parent.queue_free()
-
+	if other == null && !(node is FloatingItemLocation):
+		get_sound.play()	
+	
 func _activated(player: Player):
 	var parent = self.get_parent()
 	if parent.has_method("can_take_item") and !parent.can_take_item(player):
