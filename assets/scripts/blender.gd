@@ -10,6 +10,8 @@ enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 @export var hide_position: Vector3 = Vector3(0, -0.3, 0)
 @export var progress_bar: TextureProgressBar
 
+@export var blending_sound: AudioStreamPlayer3D
+
 var state: State = State.EMPTY
 var time_left: float
 
@@ -24,6 +26,7 @@ func _process(delta):
 		if time_left < 0:
 			time_left = 0
 			state = State.SWITCHING
+			blending_sound.stop()
 			animation_tree["parameters/conditions/is_working"] = false
 			animation_tree["parameters/conditions/not_working"] = true
 			show_item()
@@ -58,6 +61,7 @@ func _activated(_player: Player):
 			animation_tree["parameters/conditions/is_working"] = true
 			time_left = time_to_finish
 			state = State.SWITCHING
+			blending_sound.play()
 			item_in_machine.set_pickable(false)
 			hide_item(res)
 
