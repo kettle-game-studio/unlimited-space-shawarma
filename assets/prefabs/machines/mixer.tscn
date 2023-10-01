@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://enrfjd1xwx6h"]
+[gd_scene load_steps=14 format=3 uid="uid://enrfjd1xwx6h"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_l7lvb"]
 [ext_resource type="Resource" uid="uid://dsu35m1jvkkb6" path="res://assets/recipes/mixer_water_and_fruit_to_fruit_tree.tres" id="2_ty2dd"]
@@ -14,9 +14,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwu44"]
 size = Vector3(2.20978, 1.00288, 1.79594)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_fx8gf"]
-height = 0.80925
-radius = 0.824268
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qat6u"]
+height = 1.20193
+radius = 0.707391
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ximds"]
+height = 1.18457
+radius = 0.742081
 
 [node name="Mixer" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
 script = ExtResource("1_l7lvb")
@@ -26,7 +30,7 @@ recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_ty2d
 noun = "Mixer"
 verb = "Mixing"
 animation_tree = NodePath("Mixer/AnimationPlayer/AnimationTree")
-item_in_machine = [NodePath("Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight/ItemInMachine"), NodePath("Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft/ItemInMachine")]
+item_in_machine = [NodePath("Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft/ItemInMachine"), NodePath("Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight/ItemInMachine")]
 hide_position = Vector3(0, 0, 0)
 progress_bar = NodePath("Mixer/Armature/Skeleton3D/BoneAttachment3D/ProgressSprite")
 blending_sound = NodePath("BlendingSound")
@@ -78,16 +82,12 @@ bone_idx = 4
 [node name="ItemPointLeft" type="Node3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft"]
 transform = Transform3D(1.37525e-07, -0.226417, 0.244635, 2.29719e-08, 0.244635, 0.226417, -0.333333, -7.65549e-08, 1.16534e-07, 0.186909, 0.258768, 9.49471e-08)
 
-[node name="ItemInMachine" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft" node_paths=PackedStringArray("activator") instance=ExtResource("10_yxjke")]
-activator = NodePath("../../../BoneAttachmentRight/ItemPointRight/ItemInMachine/Area3D")
-hint_postfix = "in Microwave"
-
-[node name="Area3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft/ItemInMachine" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../BoneAttachmentRight/ItemPointRight/ItemInMachine")
+[node name="ItemInMachine" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft" instance=ExtResource("10_yxjke")]
+transform = Transform3D(1, -2.52437e-29, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft/ItemInMachine/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800741, 0)
-shape = SubResource("CylinderShape3D_fx8gf")
+transform = Transform3D(1, -2.52437e-29, 0, 0, 1, 0, 0, 0, 1, 0, 0.764761, 3.57628e-07)
+shape = SubResource("CylinderShape3D_qat6u")
 
 [node name="BoneAttachmentRight" type="BoneAttachment3D" parent="Mixer/Armature/Skeleton3D" index="3"]
 transform = Transform3D(0.733905, -0.679252, 1.2731e-07, 0.679252, 0.733905, 2.52189e-07, -2.64733e-07, -9.86066e-08, 1, 0, 0.260838, 0)
@@ -98,11 +98,10 @@ bone_idx = 2
 transform = Transform3D(7.75512e-08, 0.226417, 0.244635, 4.27659e-08, 0.244635, -0.226417, -0.333333, 8.40629e-08, 2.78663e-08, -0.195392, 0.279622, -9.58374e-09)
 
 [node name="ItemInMachine" parent="Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight" instance=ExtResource("10_yxjke")]
-hint_postfix = "in Microwave"
 
 [node name="CollisionShape3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight/ItemInMachine/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800741, 0)
-shape = SubResource("CylinderShape3D_fx8gf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.716123, 0.133232)
+shape = SubResource("CylinderShape3D_ximds")
 
 [node name="AnimationTree" type="AnimationTree" parent="Mixer/AnimationPlayer" index="0"]
 tree_root = ExtResource("9_6pi11")

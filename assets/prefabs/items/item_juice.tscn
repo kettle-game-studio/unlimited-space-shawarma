@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddtyo421jmevb"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_5y0km"]
+[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="2_jge1g"]
+[ext_resource type="PackedScene" uid="uid://x6hmfol87ahj" path="res://assets/Room/Bottle.glb" id="3_sf7b4"]
+[ext_resource type="Material" uid="uid://bus7cq4deevk6" path="res://assets/materials/juice_material.tres" id="4_mku48"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bidn2"]
+height = 1.44691
+radius = 0.258075
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uk68q"]
+top_radius = 0.2
+bottom_radius = 0.15
+height = 0.4
+
+[node name="Item" instance=ExtResource("1_5y0km")]
+item_data = ExtResource("2_jge1g")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774518, 0)
+shape = SubResource("CylinderShape3D_bidn2")
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+mesh = SubResource("CylinderMesh_uk68q")
+
+[node name="Bottle" parent="." index="2" instance=ExtResource("3_sf7b4")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Bottle2" parent="Bottle" index="0"]
+surface_material_override/0 = ExtResource("4_mku48")
+
+[node name="Top" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54648, 0)
+
+[editable path="Bottle"]

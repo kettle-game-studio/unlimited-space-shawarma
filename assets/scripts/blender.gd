@@ -43,8 +43,13 @@ func _item_placed(_item: Item):
 	state = State.HAS_INGREDIENT
 
 func _item_picked():
-	state = State.EMPTY
-	progress_bar.set_progress(0)
+	var flag = false
+	for i in self.item_in_machine:
+		if i.item != null:
+			flag = true
+	if !flag:
+		state = State.EMPTY
+		progress_bar.set_progress(0)
 
 func get_hint(_player: Player) -> String:
 	match state:

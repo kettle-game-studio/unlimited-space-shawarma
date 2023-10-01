@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=22 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="5_y71fp"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="7_ipgvi"]
 [ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="7_mo6mv"]
-[ext_resource type="Theme" uid="uid://cmsa4vkamvyi2" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
+[ext_resource type="Theme" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
 [ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="9_tpamu"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]
@@ -17,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://hnrh27wt66pr" path="res://assets/prefabs/items/item_blender.tscn" id="12_wqwnt"]
 [ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="13_31ena"]
 [ext_resource type="PackedScene" uid="uid://bukds5s23wce7" path="res://assets/prefabs/items/item_multivegetable_tree.tscn" id="16_o7b4r"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
+[ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
+[ext_resource type="PackedScene" uid="uid://nw464mch7bk4" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
+[ext_resource type="PackedScene" uid="uid://c4t1l3fkw2e1m" path="res://assets/prefabs/items/item_fruit_paste.tscn" id="20_65aao"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -87,12 +88,6 @@ door = NodePath("../Door")
 [node name="Computer" parent="Trading" index="0"]
 transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0.597247, 8.88178e-16, 0.597247, 0.802057, 0, 0, 0)
 
-[node name="CancelArea" parent="Trading/Computer/CancelButton" index="0" node_paths=PackedStringArray("activation_sound")]
-activation_sound = NodePath("../../ClickSound")
-
-[node name="OkArea" parent="Trading/Computer/OkButton" index="0" node_paths=PackedStringArray("activation_sound")]
-activation_sound = NodePath("../../ClickSound")
-
 [node name="ClickSound" type="AudioStreamPlayer3D" parent="Trading/Computer" index="3"]
 stream = ExtResource("13_31ena")
 volume_db = -5.0
@@ -120,6 +115,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77915, -2.25123, 0.491869)
 
 [node name="Item10" parent="." instance=ExtResource("18_s8t7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37207, -2.244, 1.9432)
+
+[node name="Item11" parent="." instance=ExtResource("20_65aao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28944, -2.2378, -1.04267)
 
 [editable path="Trading"]
 [editable path="Trading/Table/ItemInMachine"]
