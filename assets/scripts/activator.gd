@@ -11,6 +11,8 @@ func get_hint(player: Player) -> String:
 	return hint_source.get_hint(player)
 
 func activate(player: Player) -> void:
+	if hint_source.has_method("blocked") && hint_source.blocked():
+		return
 	activated.emit(player)
 	if activation_sound != null:
 		activation_sound.play()
