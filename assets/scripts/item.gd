@@ -1,11 +1,16 @@
 extends Node3D
 class_name Item
 
-@export var item_name: String
+signal picked
+
+@export var item_data: ItemData
 @export var top_point: Node3D
 @export var activator: Area3D
 
-signal picked
+var item_name: String : get = _get_item_name
+
+func _get_item_name() -> String:
+	return item_data.item_name
 
 func go_to(node: Node3D, other: Item = null) -> void:
 	# print("go_to node = ", node, "item_name = ", item_name)
