@@ -26,7 +26,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Hand" type="Node3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.447757, -0.873576, -1.29824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664274, -0.974591, -1.29824)
 
 [node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
 script = ExtResource("1_75gyu")

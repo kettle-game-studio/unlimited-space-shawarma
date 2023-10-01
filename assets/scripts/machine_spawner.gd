@@ -2,8 +2,20 @@ extends Node3D
 
 @export var spawn_point: Node3D
 @export var allowed_machine_type: MachineItem.MachineType 
+@export var progress_bar: ProgressSprite
 
 var machine: Node3D
+
+func _ready():
+	if !progress_bar:
+		return
+	progress_bar.set_progress(0)
+
+func _process(float):
+	if !progress_bar || !machine:
+		return
+	if machine.has_method("get_progress"):
+		progress_bar.set_progress(machine.get_progress())
 
 func get_hint(player: Player) -> String:
 	if machine:
