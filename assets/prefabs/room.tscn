@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hr3ejr51xyux"]
+[gd_scene load_steps=11 format=3 uid="uid://hr3ejr51xyux"]
 
 [ext_resource type="PackedScene" uid="uid://c052crh6e17ge" path="res://assets/prefabs/room_parts/floor.tscn" id="1_5rspi"]
 [ext_resource type="PackedScene" uid="uid://bavvfyood7whp" path="res://assets/prefabs/room_parts/wall_1.tscn" id="2_d4a1x"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://csqkawa01ij4v" path="res://assets/prefabs/room_parts/wall_4.tscn" id="5_l81xe"]
 [ext_resource type="PackedScene" uid="uid://b3p1nh2cojknk" path="res://assets/prefabs/fridge.tscn" id="7_mtahv"]
 [ext_resource type="Material" uid="uid://cjtprjfix40p3" path="res://assets/materials/glass_material.tres" id="8_0dnye"]
+[ext_resource type="PackedScene" uid="uid://p4xx2r5a6ass" path="res://assets/Room/Models/Stuff/book.tscn" id="8_lwuwi"]
+[ext_resource type="PackedScene" uid="uid://c8irrnadc6ace" path="res://assets/Room/Models/Stuff/marker.tscn" id="9_jua41"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pve2l"]
 
@@ -35,3 +37,24 @@ material = ExtResource("8_0dnye")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.63417, 0)
 omni_range = 30.0
+
+[node name="Book" parent="." instance=ExtResource("8_lwuwi")]
+transform = Transform3D(0.236652, 0, -0.44045, 0, 0.5, 0, 0.44045, 0, 0.236652, -1.67106, -5.82413, -1.74156)
+
+[node name="Book3" parent="." instance=ExtResource("8_lwuwi")]
+transform = Transform3D(-0.11319, -0.486675, 0.0183045, -0.487002, 0.113266, 0, -0.00414656, -0.0178286, -0.499665, 2.7293, -5.44071, 2.00631)
+
+[node name="Book4" parent="." instance=ExtResource("8_lwuwi")]
+transform = Transform3D(-0.36945, -0.33641, 0.0183045, -0.336635, 0.369698, 0, -0.0135343, -0.0123239, -0.499665, 2.22235, -5.59293, 1.88827)
+
+[node name="Book2" parent="." instance=ExtResource("8_lwuwi")]
+transform = Transform3D(0.458443, -0.199575, 0, 0.199575, 0.458443, 0, 0, 0, 0.5, -2.14952, -5.64842, -1.50246)
+
+[node name="Marker" parent="." instance=ExtResource("9_jua41")]
+transform = Transform3D(0.454894, 0, 0.391243, 0, 0.6, 0, -0.391243, 0, 0.454894, -2.55948, -2.18995, -1.68349)
+
+[node name="Marker2" parent="." instance=ExtResource("9_jua41")]
+transform = Transform3D(0.490305, 0, -0.345834, 0, 0.6, 0, 0.345834, 0, 0.490305, 2.03932, -5.97011, -2.02383)
+
+[node name="Marker3" parent="." instance=ExtResource("9_jua41")]
+transform = Transform3D(0.337319, 0, -0.496201, 0, 0.6, 0, 0.496201, 0, 0.337319, 2.0181, -5.97011, -1.64211)

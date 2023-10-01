@@ -89,7 +89,6 @@ hint_postfix = "in Blender"
 
 [node name="BlendingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_iohbe")
-bus = &"Blender"
 
 [connection signal="activated" from="Blender/Area3D" to="." method="_activated"]
 [connection signal="picked" from="Blender/ItemInMachine" to="." method="_item_picked"]
