@@ -23,6 +23,8 @@ func instantiate_item(res: Resource) -> void:
 	item.connect("picked", self._item_picked)
 
 func desctory_current() -> void:
+	if !item:
+		return
 	item.disconnect("picked", self._item_picked)
 	item.queue_free()
 	item = null

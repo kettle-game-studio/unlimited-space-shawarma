@@ -36,7 +36,6 @@ ui = NodePath("../Canvas/UI")
 
 [node name="Door" parent="." instance=ExtResource("5_y71fp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.907683)
-seconsToOpen = 5.0
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
