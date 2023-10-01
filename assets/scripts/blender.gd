@@ -3,7 +3,11 @@ extends Node
 enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 
 @export var time_to_finish: float = 10
+@export var item_animation_target_size: float = 0
 @export var recipes: Array[Recipe]
+
+@export var noun: String = "Blender"
+@export var verb: String = "Blending"
 
 @export var animation_tree: AnimationTree
 @export var item_in_machine: ItemInMachine
@@ -46,11 +50,11 @@ func _item_picked():
 func get_hint(_player: Player) -> String:
 	match state:
 		State.EMPTY:
-			return "Blender"
+			return noun
 		State.HAS_INGREDIENT:
-			return "Start Blending"
+			return "Start %s" % verb
 		State.WORKING:
-			return "Blender Blending"
+			return "%s %s" % [noun, verb]
 	return ""
 
 func _activated(_player: Player):
@@ -82,7 +86,7 @@ func hide_item(new_item: Resource):
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1.0 * i / steps))
-		item_in_machine.scale_item(1 - 1.0 * i / steps)
+		item_in_machine.scale_item(lerp(1.0, item_animation_target_size, 1.0 * i / steps))
 	state = State.WORKING
 	item_in_machine.instantiate_item(new_item)
 
@@ -92,6 +96,6 @@ func show_item():
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1 - 1.0 * i / steps))
-		item_in_machine.scale_item(1.0 * i / steps)
+		item_in_machine.scale_item(lerp(item_animation_target_size, 1.0, 1.0 * i / steps))
 	item_in_machine.set_pickable(true)
 	state = State.HAS_INGREDIENT

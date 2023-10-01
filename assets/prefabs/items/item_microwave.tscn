@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwvn7f4y0eusi"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_aotp7"]
+[ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_fhige"]
+[ext_resource type="PackedScene" uid="uid://dydbdsbyyti3s" path="res://assets/prefabs/machines/microwave.tscn" id="3_qy2dq"]
+[ext_resource type="Resource" uid="uid://cvoevjh1pwyvg" path="res://assets/prefabs/items/data/microwave.tres" id="4_3q44v"]
+[ext_resource type="PackedScene" uid="uid://diygdankoeeyu" path="res://assets/Room/Microwave.glb" id="4_isbhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snxoh"]
+size = Vector3(1, 0.568222, 0.598305)
+
+[node name="Item" instance=ExtResource("1_aotp7")]
+script = ExtResource("2_fhige")
+machine = ExtResource("3_qy2dq")
+machine_type = 1
+item_data = ExtResource("4_3q44v")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333551, 0)
+shape = SubResource("BoxShape3D_snxoh")
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+
+[node name="Microwave" parent="." index="4" instance=ExtResource("4_isbhu")]
+transform = Transform3D(-0.3, 0, 2.62268e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.3, 0, 0, 0)

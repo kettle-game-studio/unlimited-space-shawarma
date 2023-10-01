@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cvoevjh1pwyvg"]
+
+[ext_resource type="Texture2D" uid="uid://1vw687pe2o7q" path="res://assets/item_icons/microwave.png" id="1_b4rom"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_46khb"]
+
+[resource]
+script = ExtResource("2_46khb")
+item_name = "Microwave"
+icon = ExtResource("1_b4rom")
+prefab = "res://assets/prefabs/items/item_microwave.tscn"
