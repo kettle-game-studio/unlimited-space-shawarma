@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dy7byaw71k3nx"]
 
-[ext_resource type="Texture2D" uid="uid://ch7tsd1e4gp2y" path="res://assets/item_icons/unknown.png" id="1_kllgf"]
+[ext_resource type="Texture2D" uid="uid://bc7t7fjscehpu" path="res://assets/item_icons/mixer.png" id="1_wx4gw"]
 [ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_qy4lx"]
 
 [resource]
 script = ExtResource("2_qy4lx")
 item_name = "Mixer"
-icon = ExtResource("1_kllgf")
+icon = ExtResource("1_wx4gw")
 prefab = "res://assets/prefabs/items/item_mixer.tscn"
