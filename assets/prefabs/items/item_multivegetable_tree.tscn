@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bukds5s23wce7"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_jjdk7"]
+[ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_pw1xf"]
+[ext_resource type="PackedScene" uid="uid://cqfw7bxcsnj35" path="res://assets/prefabs/machines/multivegetable_tree.tscn" id="3_oqkdn"]
+[ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="4_uq2ir"]
+[ext_resource type="PackedScene" uid="uid://cwjxwx6iprmqg" path="res://assets/Room/Models/Vegetable/multi_vegetable_tree.tscn" id="5_jl6ds"]
+
+[node name="Item" instance=ExtResource("1_jjdk7")]
+script = ExtResource("2_pw1xf")
+machine = ExtResource("3_oqkdn")
+machine_type = 0
+item_data = ExtResource("4_uq2ir")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.213895, 0)
+
+[node name="CSGMesh3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177732, 0)
+
+[node name="Top" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957279, 0)
+
+[node name="MultiVegetableTree" parent="." index="3" instance=ExtResource("5_jl6ds")]
+transform = Transform3D(0.1, 0, 0, 0, 0.023, 0, 0, 0, 0.1, 0, 0.306567, 0)
