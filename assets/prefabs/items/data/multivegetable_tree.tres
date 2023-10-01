@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://xgmrhlbky15i"]
 
-[ext_resource type="Texture2D" uid="uid://ch7tsd1e4gp2y" path="res://assets/item_icons/unknown.png" id="1_5mcek"]
+[ext_resource type="Texture2D" uid="uid://ble2bm748qcux" path="res://assets/item_icons/multivegetable_tree.png" id="1_0l5l4"]
 [ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_ouuct"]
 
 [resource]
 script = ExtResource("2_ouuct")
 item_name = "Multivegetable Sapling"
-icon = ExtResource("1_5mcek")
+icon = ExtResource("1_0l5l4")
 prefab = "res://assets/prefabs/items/item_multivegetable_tree.tscn"

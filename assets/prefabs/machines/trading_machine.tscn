@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://1q8gbhk1j3hb"]
+[gd_scene load_steps=18 format=3 uid="uid://1q8gbhk1j3hb"]
 
 [ext_resource type="PackedScene" uid="uid://c3ehlp87pmern" path="res://assets/prefabs/room_parts/computer.tscn" id="1_nfvgk"]
 [ext_resource type="Script" path="res://assets/scripts/trading_machine.gd" id="1_txblf"]
 [ext_resource type="Script" path="res://assets/scripts/progress_sprite.gd" id="2_1b5p7"]
 [ext_resource type="Resource" uid="uid://ck8j083r5u238" path="res://assets/recipes/trading_multifruit_to_multifruit_tree.tres" id="2_i4glr"]
 [ext_resource type="PackedScene" uid="uid://7jyaboql1xq3" path="res://assets/prefabs/machines/item_in_machine.tscn" id="2_mjjsg"]
+[ext_resource type="Resource" uid="uid://cw8o2vrw6bdo0" path="res://assets/recipes/trading_water_to_multivegetable_tree.tres" id="3_22cys"]
 [ext_resource type="PackedScene" uid="uid://dnaih8vb3a38r" path="res://assets/prefabs/machines/computer_ui.tscn" id="3_h5j21"]
 [ext_resource type="PackedScene" uid="uid://dvile3d2hrk8m" path="res://assets/prefabs/room_parts/button_1.tscn" id="5_h47gx"]
 [ext_resource type="PackedScene" uid="uid://cm6ni63ele7h2" path="res://assets/prefabs/room_parts/button_2.tscn" id="6_4bk54"]
@@ -34,7 +35,7 @@ radius = 0.422687
 script = ExtResource("1_txblf")
 slots = [NodePath("Table/ItemInMachine"), NodePath("Table/ItemInMachine2"), NodePath("Table/ItemInMachine3")]
 computer_ui = NodePath("Computer/Sprite3D/SubViewport/ComputerUI")
-recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_i4glr")])
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_i4glr"), ExtResource("3_22cys")])
 hide_offset = Vector3(0, 0, -10)
 seconds_to_trade = 1.0
 
