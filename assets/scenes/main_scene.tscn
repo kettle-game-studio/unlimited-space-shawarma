@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=21 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://hnrh27wt66pr" path="res://assets/prefabs/items/item_blender.tscn" id="12_wqwnt"]
 [ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="13_31ena"]
 [ext_resource type="PackedScene" uid="uid://bukds5s23wce7" path="res://assets/prefabs/items/item_multivegetable_tree.tscn" id="16_o7b4r"]
-[ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
-[ext_resource type="PackedScene" uid="uid://nw464mch7bk4" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
