@@ -8,6 +8,10 @@ class_name Item
 signal picked
 
 func go_to(node: Node3D, other: Item = null) -> void:
+	# print("go_to node = ", node, "item_name = ", item_name)
+	# if other:
+	# 	print("other = ", other.item_name)
+		
 	var parent = self.get_parent()
 	var trans = self.transform
 	

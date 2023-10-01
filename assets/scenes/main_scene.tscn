@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 1.2067)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 1.77357)
 
 [node name="Item" parent="." instance=ExtResource("7_ipgvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.78792, -2.27012, -1.3434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91916, -2.49923, -1.06597)
 
 [node name="Item6" parent="." instance=ExtResource("9_tpamu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.513931, -0.827218, -3.29764)

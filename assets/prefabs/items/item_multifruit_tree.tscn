@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfntpuieyiwp4"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_7yh3r"]
-[ext_resource type="Script" path="res://assets/prefabs/items/machine_item.gd" id="2_4pham"]
+[ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_4pham"]
 [ext_resource type="PackedScene" uid="uid://dioh2fr6ji24r" path="res://assets/prefabs/multifruit/multifruit_tree.tscn" id="2_cg4hm"]
 [ext_resource type="PackedScene" uid="uid://d1akd7swemj4c" path="res://assets/prefabs/machines/multifruit_tree.tscn" id="3_jjp8b"]
 

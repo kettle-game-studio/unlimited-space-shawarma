@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7jyaboql1xq3"]
+
+[ext_resource type="Script" path="res://assets/scripts/item_in_machine.gd" id="1_ps168"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_3fosx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wh3et"]
+height = 1.92765
+radius = 0.666308
+
+[node name="ItemInMachine" type="Node3D" node_paths=PackedStringArray("activator")]
+script = ExtResource("1_ps168")
+activator = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
+script = ExtResource("2_3fosx")
+hint_source = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_wh3et")
+
+[connection signal="activated" from="Area3D" to="." method="_activated"]
