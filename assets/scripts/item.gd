@@ -15,21 +15,29 @@ func go_to(node: Node3D, other: Item = null) -> void:
 	var parent = self.get_parent()
 	var trans = self.transform
 	
-	self.global_transform.origin = node.global_transform.origin
+	#self.global_transform.origin = node.global_transform.origin
 	self.reparent(node, true)
+	self.transform = Transform3D()
 	
 	if other != null:
 		other.go_to(parent)
-		other.transform = trans
+		# other.transform = trans
+		if parent.has_method("on_item_swap"):
+			parent.on_item_swap(other)
 	elif parent is FloatingItemLocation:
 		parent.queue_free()
 
 func _activated(player: Player):
+	var parent = self.get_parent()
+	if parent.has_method("can_take_item") and !parent.can_take_item(player):
+		return
+		
+	picked.emit()
+	
 	var hand = player.item_manager.hand
 	go_to(hand, player.item_manager.item_in_hand)
 	self.transform = Transform3D()
 	player.item_manager.item_in_hand = self
-	picked.emit()
 
 func get_hint(_player: Player) -> String:
 	return "Take %s" % item_name

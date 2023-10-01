@@ -25,6 +25,9 @@ func _item_picked():
 	item.disconnect("picked", self._item_picked)
 	item = null
 
+func on_item_swap(new_item: Item):
+	place_item(new_item)
+
 func scale_item(sc: float) -> void:
 	self.scale = Vector3(sc, sc, sc)
 
@@ -35,11 +38,13 @@ func _activated(player: Player):
 	
 	player_item.go_to(self, item)
 	
-	player_item.connect("picked", self._item_picked)
+	place_item(player_item)
 	
-	item = player_item
 	player.item_manager.item_in_hand = null
 
+func place_item(new_item: Item) -> void:
+	new_item.connect("picked", self._item_picked)
+	item = new_item
 	placed.emit(item)
 
 func get_hint(_player: Player) -> String:

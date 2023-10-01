@@ -18,7 +18,6 @@ func _activated(player):
 	var item = player.item_manager.item_in_hand
 	if item && item is MachineItem:
 		machine = item.machine.instantiate()
-		print(spawn_point)
 		spawn_point.add_child(machine)
 		player.item_manager.destroy_current_item()
 		

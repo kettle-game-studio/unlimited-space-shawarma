@@ -21,6 +21,9 @@ func instantiate_fruit(res: Resource) -> void:
 func scale_fruit(sc: float) -> void:
 	self.scale = Vector3(sc, sc, sc)
 
+func can_take_item(player: Player) -> bool:
+	return player.item_manager.item_in_hand == null
+
 func picked():
 	is_picked = true
 	fruit.disconnect("picked", self.picked)

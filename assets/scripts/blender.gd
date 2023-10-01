@@ -28,7 +28,7 @@ func _process(delta):
 		var scale = 1 - time_left / time_to_finish
 		progress_bar.value = scale * 100
 
-func _item_placed(Item):
+func _item_placed(item: Item):
 	state = State.HAS_INGREDIENT
 	item_in_machine.set_activatable(false)
 

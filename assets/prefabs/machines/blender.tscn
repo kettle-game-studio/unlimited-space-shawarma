@@ -65,9 +65,6 @@ parameters/conditions/is_open = false
 parameters/conditions/is_working = false
 parameters/conditions/not_working = false
 
-[node name="ItemInMachine" parent="Blender" instance=ExtResource("6_0flkr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142898, 2.53223, 0)
-
 [node name="Area3D" type="Area3D" parent="Blender" node_paths=PackedStringArray("hint_source")]
 transform = Transform3D(1, -4.11751e-15, 3.55271e-15, -4.11751e-15, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("7_hp2mf")
@@ -81,8 +78,11 @@ shape = SubResource("CylinderShape3D_brysh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498484, 0)
 shape = SubResource("BoxShape3D_iwu44")
 
+[node name="ItemInMachine" parent="Blender" instance=ExtResource("6_0flkr")]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -0.142898, 2.53223, 0)
+
+[connection signal="activated" from="Blender/Area3D" to="." method="_activated"]
 [connection signal="picked" from="Blender/ItemInMachine" to="." method="_item_picked"]
 [connection signal="placed" from="Blender/ItemInMachine" to="." method="_item_placed"]
-[connection signal="activated" from="Blender/Area3D" to="." method="_activated"]
 
 [editable path="Blender"]
