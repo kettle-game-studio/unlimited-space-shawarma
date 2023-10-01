@@ -28,7 +28,6 @@ func stop_trading():
 	set_activatable(false)
 	
 func _is_open():
-	print("is open")
 	state = State.CAN_TRADE
 	set_activatable(true)
 
@@ -51,11 +50,10 @@ func _ok_button_activated(player):
 	if !recipe:
 		return
 	
-	print(recipe.input)
 	for i in slots.size():
 		var out = null;
 		if i < recipe.output.size():
-			out = recipe.output[i];
+			out = recipe.output[i].get_prefab();
 		replace_item(slots[i], out)
 	
 func find_recipe(r: Array[Recipe]) -> Recipe:
@@ -72,20 +70,17 @@ func check_recipe(recipe: Recipe) -> bool:
 			return false
 	return true
 
-func has_enough(recipe: Array[String], item: String) -> bool:
+func has_enough(recipe: Array[ItemData], item: ItemData) -> bool:
 	var count_in_recipe = 0
 	for i in recipe:
-		if i == item:
+		if i.item_name == item.item_name:
 			count_in_recipe += 1
 			
 	var count_on_table = 0
 	for s in slots:
-		print(s.item)
-		if s.item && s.item.item_name == item:
+		if s.item && s.item.item_name == item.item_name:
 			count_on_table += 1
 	
-	print("count_in_recipe = ", count_in_recipe)
-	print("count_on_table = ", count_on_table)
 	return count_in_recipe == count_on_table
 
 func replace_item(item: ItemInMachine, res: Resource):

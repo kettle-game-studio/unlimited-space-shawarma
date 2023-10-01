@@ -8,7 +8,6 @@ class_name ComputerUIPoint
 @export var out_textures: Array[TextureRect]
 
 func set_recipe(recipe: Recipe) -> void:
-	print("self.visible = ", recipe != null)
 	self.visible = recipe != null
 	if recipe == null:
 		return
@@ -23,7 +22,7 @@ func set_recipe(recipe: Recipe) -> void:
 	for i in out_textures.size():
 		out_textures[i].visible = i < recipe.output.size()
 	
-	# for i in recipe.input.size():
-	# 	in_textures[i].texture = recipe.input[i]
-	# for i in recipe.output.size():
-	# 	out_textures[i].texture = recipe.output[i].texture
+	for i in recipe.input.size():
+		in_textures[i].texture = recipe.input[i].icon
+	for i in recipe.output.size():
+		out_textures[i].texture = recipe.output[i].icon

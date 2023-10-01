@@ -50,10 +50,8 @@ func get_hint(_player: Player) -> String:
 func _activated(_player: Player):
 	match state:
 		State.HAS_INGREDIENT:
-			print("HAS_INGREDIENT")
 			var res = get_result_item(item_in_machine.item)
 			if res == null:
-				print("NO RECIPE")
 				return
 			animation_tree["parameters/conditions/not_working"] = false
 			animation_tree["parameters/conditions/is_open"] = false
@@ -64,14 +62,11 @@ func _activated(_player: Player):
 			hide_item(res)
 
 func get_result_item(item: Item) -> Resource:
-	print("item.item_name = ", item.item_name)
 	for recipe in recipes:
-		print("recipe.input = ", recipe.input)
-		if recipe.input.size() > 0 && recipe.input[0] == item.item_name:
+		if recipe.input.size() > 0 && recipe.input[0].item_name == item.item_name:
 			if recipe.output.size() == 0:
 				return null
-			return recipe.output[0]
-	print("non fpund")
+			return recipe.output[0].get_prefab()
 	return null
 
 func hide_item(new_item: Resource):

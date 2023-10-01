@@ -75,43 +75,6 @@ transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0
 [node name="Table" parent="Trading" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840007, -1.73281)
 
-[node name="Trading2" parent="." node_paths=PackedStringArray("door") instance=ExtResource("10_32e7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
-door = NodePath("../Door")
-
-[node name="Computer" parent="Trading2" index="0"]
-transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0.597247, 8.88178e-16, 0.597247, 0.802057, 0, 0, 0)
-
-[node name="ComputerUI" parent="Trading2/Computer/Sprite3D/SubViewport" index="0" node_paths=PackedStringArray("ui_recipe_points")]
-ui_recipe_points = [NodePath("../../../../../Trading/Computer/Sprite3D/SubViewport/ComputerUI/Eq1"), NodePath("../../../../../Trading/Computer/Sprite3D/SubViewport/ComputerUI/Eq2"), NodePath("../../../../../Trading/Computer/Sprite3D/SubViewport/ComputerUI/Eq3")]
-
-[node name="CancelArea" parent="Trading2/Computer/CancelButton" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../Trading/Computer/CancelButton")
-
-[node name="OkArea" parent="Trading2/Computer/OkButton" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../Trading/Computer/OkButton")
-
-[node name="Table" parent="Trading2" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840007, -1.73281)
-
-[node name="ItemInMachine" parent="Trading2/Table" index="0" node_paths=PackedStringArray("activator")]
-activator = NodePath("../../../Trading/Table/ItemInMachine/Area3D")
-
-[node name="Area3D" parent="Trading2/Table/ItemInMachine" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../Trading/Table/ItemInMachine")
-
-[node name="ItemInMachine2" parent="Trading2/Table" index="1" node_paths=PackedStringArray("activator")]
-activator = NodePath("../../../Trading/Table/ItemInMachine2/Area3D")
-
-[node name="Area3D" parent="Trading2/Table/ItemInMachine2" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../Trading/Table/ItemInMachine2")
-
-[node name="ItemInMachine3" parent="Trading2/Table" index="2" node_paths=PackedStringArray("activator")]
-activator = NodePath("../../../Trading/Table/ItemInMachine3/Area3D")
-
-[node name="Area3D" parent="Trading2/Table/ItemInMachine3" index="0" node_paths=PackedStringArray("hint_source")]
-hint_source = NodePath("../../../../Trading/Table/ItemInMachine3")
-
 [node name="TreePot3" parent="." instance=ExtResource("9_hq280")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0, 0)
 
@@ -126,7 +89,3 @@ machine = ExtResource("10_kghge")
 [editable path="Trading/Table/ItemInMachine"]
 [editable path="Trading/Table/ItemInMachine2"]
 [editable path="Trading/Table/ItemInMachine3"]
-[editable path="Trading2"]
-[editable path="Trading2/Table/ItemInMachine"]
-[editable path="Trading2/Table/ItemInMachine2"]
-[editable path="Trading2/Table/ItemInMachine3"]

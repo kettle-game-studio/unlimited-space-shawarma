@@ -7,3 +7,4 @@
 script = ExtResource("2_5s3bb")
 item_name = "Multifruit Sapling"
 icon = ExtResource("1_d36ar")
+prefab = "res://assets/prefabs/items/item_multifruit_tree.tscn"

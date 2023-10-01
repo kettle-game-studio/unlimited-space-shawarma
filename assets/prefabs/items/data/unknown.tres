@@ -7,3 +7,4 @@
 script = ExtResource("1_uihtm")
 item_name = "Unknown"
 icon = ExtResource("1_qmflm")
+prefab = "res://assets/prefabs/items/item.tscn"

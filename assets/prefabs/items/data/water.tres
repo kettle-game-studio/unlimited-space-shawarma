@@ -7,3 +7,4 @@
 script = ExtResource("2_55obg")
 item_name = "Water"
 icon = ExtResource("1_ykqg5")
+prefab = "res://assets/prefabs/items/item_water.tscn"

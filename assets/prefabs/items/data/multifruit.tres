@@ -7,3 +7,4 @@
 script = ExtResource("2_fxfd1")
 item_name = "Multifruit"
 icon = ExtResource("1_ii2q8")
+prefab = "res://assets/prefabs/items/item_multifruit.tscn"

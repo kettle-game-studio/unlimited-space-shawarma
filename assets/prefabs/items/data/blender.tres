@@ -7,3 +7,4 @@
 script = ExtResource("2_fj4ju")
 item_name = "Blender"
 icon = ExtResource("1_dlsxs")
+prefab = "res://assets/prefabs/items/item_blender.tscn"
