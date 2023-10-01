@@ -11,6 +11,8 @@ enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 @export var progress_bar: TextureProgressBar
 
 @export var blending_sound: AudioStreamPlayer3D
+@export var opening_sound: AudioStreamPlayer3D
+@export var closing_sound: AudioStreamPlayer3D
 
 var state: State = State.EMPTY
 var time_left: float
@@ -19,6 +21,7 @@ func _ready():
 	animation_tree["parameters/conditions/is_open"] = true
 	animation_tree["parameters/conditions/not_working"] = false
 	progress_bar.value = 0
+	opening_sound.play()
 
 func _process(delta):
 	if state == State.WORKING:
@@ -75,6 +78,7 @@ func get_result_item(item: Item) -> Resource:
 
 func hide_item(new_item: Resource):
 	const steps = 20
+	closing_sound.play(0.1)
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1.0 * i / steps))
@@ -84,6 +88,7 @@ func hide_item(new_item: Resource):
 
 func show_item():
 	const steps = 20
+	opening_sound.play()
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1 - 1.0 * i / steps))
