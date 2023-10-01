@@ -7,11 +7,10 @@ func get_hint(_player: Player) -> String:
 
 var pressed = false
 
-func blocked() -> bool:
+func blocked(_player) -> bool:
 	return pressed
 
-func _on_area_activated(player):
-	print("Area %s activated!" % hint)
+func _on_area_activated(_player):
 	if pressed:
 		return
 	pressed = true
