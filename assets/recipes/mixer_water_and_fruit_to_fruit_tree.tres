@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dsu35m1jvkkb6"]
+
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="1_ctejm"]
+[ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="1_ylnh7"]
+[ext_resource type="Resource" uid="uid://wct5g8jqil48" path="res://assets/prefabs/items/data/multifruit.tres" id="2_u8g1e"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="3_0gdpm"]
+
+[resource]
+script = ExtResource("1_ctejm")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_ylnh7"), ExtResource("2_u8g1e")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("3_0gdpm")])
