@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://2g7ib2rvd6ya"]
+[gd_scene load_steps=13 format=3 uid="uid://2g7ib2rvd6ya"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_2xnpc"]
 [ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="1_fxwsn"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="2_arb5q"]
 [ext_resource type="Resource" uid="uid://csrxt4n1e88c2" path="res://assets/recipes/blener_multifruit_to_water.tres" id="2_x5d41"]
-[ext_resource type="Script" path="res://assets/scripts/progress_sprite.gd" id="4_byabr"]
-[ext_resource type="Texture2D" uid="uid://cqm5npsslwh7r" path="res://assets/Room/circle.png" id="5_iaxip"]
+[ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="4_mr7ck"]
 [ext_resource type="PackedScene" uid="uid://7jyaboql1xq3" path="res://assets/prefabs/machines/item_in_machine.tscn" id="6_0flkr"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="7_hp2mf"]
 [ext_resource type="AudioStream" uid="uid://cbjcttjcqugyu" path="res://assets/sounds/blender.mp3" id="9_iohbe"]
@@ -24,7 +23,7 @@ time_to_finish = 1.0
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_x5d41")])
 animation_tree = NodePath("Blender/AnimationTree")
 item_in_machine = NodePath("Blender/ItemInMachine")
-progress_bar = NodePath("Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite/SubViewport/TextureProgressBar")
+progress_bar = NodePath("Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite")
 blending_sound = NodePath("BlendingSound")
 opening_sound = NodePath("BlendingSound/OpenSound")
 closing_sound = NodePath("BlendingSound/CloseSound")
@@ -40,31 +39,7 @@ transform = Transform3D(0.973883, -0.227049, -4.24343e-08, 0.227049, 0.973883, 9
 bone_name = "Bone"
 bone_idx = 0
 
-[node name="ProgressSprite" type="Sprite3D" parent="Blender/BlenderArmature/Skeleton3D/BoneAttachment3D"]
-transform = Transform3D(-3.38816e-09, -0.0155022, 0.97089, 6.24663e-09, 0.062836, 0.239527, -0.0547673, 8.12597e-09, -3.2744e-08, 0.548462, 0.433974, 5.88226e-08)
-script = ExtResource("4_byabr")
-
-[node name="SubViewport" type="SubViewport" parent="Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite"]
-transparent_bg = true
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite/SubViewport"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 40.0
-fill_mode = 4
-texture_progress = ExtResource("5_iaxip")
-tint_under = Color(1, 1, 1, 0)
-tint_over = Color(1, 1, 1, 0)
-tint_progress = Color(0.215686, 0.678431, 0, 1)
+[node name="ProgressSprite" parent="Blender/BlenderArmature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_mr7ck")]
 
 [node name="AnimationTree" type="AnimationTree" parent="Blender"]
 tree_root = ExtResource("2_arb5q")
@@ -93,18 +68,15 @@ hint_postfix = "in Blender"
 
 [node name="BlendingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_iohbe")
-bus = &"Blender"
 
 [node name="CloseSound" type="AudioStreamPlayer3D" parent="BlendingSound"]
 stream = ExtResource("10_ea4jb")
 volume_db = -3.892
 max_db = 1.916
-bus = &"Blender"
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="BlendingSound"]
 stream = ExtResource("10_ipmqn")
 volume_db = -1.0
-bus = &"Inner"
 
 [connection signal="activated" from="Blender/Area3D" to="." method="_activated"]
 [connection signal="picked" from="Blender/ItemInMachine" to="." method="_item_picked"]

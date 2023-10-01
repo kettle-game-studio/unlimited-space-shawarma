@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/machine_spawner.gd" id="1_plrmg"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_bs5b7"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vkyx4"]
-bottom_radius = 0.4
-height = 0.7
+[ext_resource type="PackedScene" uid="uid://cdsaydoyb5wfy" path="res://assets/Room/Models/Stuff/pot.tscn" id="2_ofl4o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r06qi"]
 height = 0.779423
@@ -13,22 +10,21 @@ radius = 0.569043
 
 [node name="TreePot" type="Node3D" node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("1_plrmg")
-spawn_point = NodePath("CSGMesh3D/SpawnPoint")
+spawn_point = NodePath("SpawnPoint")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.820631, -0.571459, 0, 0.571459, 0.820631, 0, 0, 0)
-mesh = SubResource("CylinderMesh_vkyx4")
+[node name="Pot" parent="." instance=ExtResource("2_ofl4o")]
+transform = Transform3D(0.7, 0, 0, 0, 0.667679, -0.210249, 0, 0.210249, 0.667679, 0, -0.343328, -0.295059)
 
-[node name="SpawnPoint" type="Node3D" parent="CSGMesh3D"]
-transform = Transform3D(0.00431092, -1.49012e-08, 0.999991, -0.559549, 0.828794, 0.00241224, -0.828785, -0.559555, 0.00357279, -7.77508e-05, 0.210672, 0.0566188)
-
-[node name="Area3D" type="Area3D" parent="CSGMesh3D" node_paths=PackedStringArray("hint_source")]
-transform = Transform3D(1, 0, 0, 0, 0.820631, 0.571459, 0, -0.571459, 0.820631, 0, 0, 0)
+[node name="Area3D" type="Area3D" parent="Pot" node_paths=PackedStringArray("hint_source")]
+transform = Transform3D(1.42857, 0, 0, 0, 1.15314, 0.84326, 0, -0.84326, 1.15314, 0, 0.644717, 0.0507289)
 script = ExtResource("2_bs5b7")
 hint_source = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGMesh3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pot/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 0.826865, -0.562401, 0, 0.562401, 0.826865, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r06qi")
 
-[connection signal="activated" from="CSGMesh3D/Area3D" to="." method="_activated"]
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(-2.91958e-08, -3.25314e-08, -1, -0.74423, 0.667924, 0, 0.667923, 0.744231, -4.37114e-08, -0.0597004, 0.445, -0.049)
+
+[connection signal="activated" from="Pot/Area3D" to="." method="_activated"]
