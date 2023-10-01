@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdx0kqrt6ryae"]
+[gd_scene load_steps=6 format=3 uid="uid://bdx0kqrt6ryae"]
 
 [ext_resource type="Script" path="res://assets/scripts/item.gd" id="1_wwxqe"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_a0gc7"]
+[ext_resource type="Resource" uid="uid://ffv8eeua72nu" path="res://assets/prefabs/items/data/unknown.tres" id="2_uyrcd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sduei"]
 radius = 0.481484
@@ -12,7 +13,7 @@ height = 0.4
 
 [node name="Item" type="Node3D" node_paths=PackedStringArray("top_point", "activator")]
 script = ExtResource("1_wwxqe")
-item_name = "Sphere"
+item_data = ExtResource("2_uyrcd")
 top_point = NodePath("Top")
 activator = NodePath("Area3D")
 

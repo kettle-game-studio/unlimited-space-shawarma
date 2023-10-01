@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hnrh27wt66pr"]
+[gd_scene load_steps=6 format=3 uid="uid://hnrh27wt66pr"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_erpjy"]
 [ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_lblia"]
 [ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="3_5kkrg"]
+[ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="3_mxkio"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aa7yg"]
 height = 1.21495
@@ -12,7 +13,7 @@ radius = 0.267473
 script = ExtResource("2_lblia")
 machine = null
 machine_type = 1
-item_name = "Blender"
+item_data = ExtResource("3_mxkio")
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578007, 0)

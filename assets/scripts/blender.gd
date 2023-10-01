@@ -64,10 +64,11 @@ func _activated(_player: Player):
 			hide_item(res)
 
 func get_result_item(item: Item) -> Resource:
+	print("item.item_name = ", item.item_name)
 	for recipe in recipes:
+		print("recipe.input = ", recipe.input)
 		if recipe.input.size() > 0 && recipe.input[0] == item.item_name:
 			if recipe.output.size() == 0:
-				print("out == 0")
 				return null
 			return recipe.output[0]
 	print("non fpund")

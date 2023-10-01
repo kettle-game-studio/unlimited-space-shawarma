@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfntpuieyiwp4"]
+[gd_scene load_steps=6 format=3 uid="uid://cfntpuieyiwp4"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_7yh3r"]
 [ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_4pham"]
 [ext_resource type="PackedScene" uid="uid://dioh2fr6ji24r" path="res://assets/prefabs/multifruit/multifruit_tree.tscn" id="2_cg4hm"]
 [ext_resource type="PackedScene" uid="uid://d1akd7swemj4c" path="res://assets/prefabs/machines/multifruit_tree.tscn" id="3_jjp8b"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="4_6haxk"]
 
 [node name="Item" instance=ExtResource("1_7yh3r")]
 script = ExtResource("2_4pham")
 machine = ExtResource("3_jjp8b")
 machine_type = 0
-item_name = "Multifruit Tree"
+item_data = ExtResource("4_6haxk")
 
 [node name="CSGMesh3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177732, 0)

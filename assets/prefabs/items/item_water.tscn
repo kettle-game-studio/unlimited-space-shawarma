@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cer2rgxv8v2rn"]
+[gd_scene load_steps=6 format=3 uid="uid://cer2rgxv8v2rn"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_gqkkm"]
 [ext_resource type="PackedScene" uid="uid://x6hmfol87ahj" path="res://assets/Room/Bottle.glb" id="2_80x4j"]
+[ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="2_kfpcw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bidn2"]
 height = 1.44691
@@ -13,7 +14,7 @@ bottom_radius = 0.15
 height = 0.4
 
 [node name="Item" instance=ExtResource("1_gqkkm")]
-item_name = "Water"
+item_data = ExtResource("2_kfpcw")
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774518, 0)
