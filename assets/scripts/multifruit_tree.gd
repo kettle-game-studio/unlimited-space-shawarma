@@ -6,6 +6,7 @@ enum State { UNWATERED, GROWING, FULLY_GROWN }
 @export var fruit_positions: Array[GrowableItem]
 @export var time_to_grow: float = 1
 @export var fruit_item: PackedScene
+@export var growing_sound: AudioStreamPlayer3D
 
 var state: State = State.UNWATERED
 var rnd = RandomNumberGenerator.new()
@@ -40,6 +41,7 @@ func get_hint(player: Player) -> String:
 
 func _activated(player: Player):
 	if state == State.UNWATERED && player.item_manager.item_is("Water"):
+		growing_sound.play()
 		state = State.GROWING
 		time_left = time_to_grow
 		player.item_manager.destroy_current_item()
