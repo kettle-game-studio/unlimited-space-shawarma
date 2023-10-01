@@ -22,7 +22,7 @@ script = ExtResource("1_2xnpc")
 time_to_finish = 1.0
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_x5d41")])
 animation_tree = NodePath("Blender/AnimationTree")
-item_in_machine = NodePath("Blender/ItemInMachine")
+item_in_machine = [NodePath("Blender/ItemInMachine")]
 progress_bar = NodePath("Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite")
 blending_sound = NodePath("BlendingSound")
 opening_sound = NodePath("BlendingSound/OpenSound")
@@ -32,7 +32,7 @@ closing_sound = NodePath("BlendingSound/CloseSound")
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Blender/BlenderArmature" index="0"]
-bones/1/rotation = Quaternion(6.42225e-08, 7.38495e-08, -0.759723, 0.650247)
+bones/1/rotation = Quaternion(1.12639e-07, 7.35523e-09, -0.194894, 0.980824)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Blender/BlenderArmature/Skeleton3D" index="1"]
 transform = Transform3D(0.973883, -0.227049, -4.24343e-08, 0.227049, 0.973883, 9.70326e-08, 1.92949e-08, -1.04133e-07, 1, 0, 0, 0)
@@ -45,7 +45,6 @@ bone_idx = 0
 tree_root = ExtResource("2_arb5q")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/conditions/is_open = false
 parameters/conditions/is_working = false
 parameters/conditions/not_working = false
 

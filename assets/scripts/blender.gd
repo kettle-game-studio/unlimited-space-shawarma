@@ -10,7 +10,7 @@ enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 @export var verb: String = "Blending"
 
 @export var animation_tree: AnimationTree
-@export var item_in_machine: ItemInMachine
+@export var item_in_machine: Array[ItemInMachine]
 @export var hide_position: Vector3 = Vector3(0, -0.3, 0)
 @export var progress_bar: ProgressSprite
 
@@ -22,7 +22,6 @@ var state: State = State.EMPTY
 var time_left: float
 
 func _ready():
-	animation_tree["parameters/conditions/is_open"] = true
 	animation_tree["parameters/conditions/not_working"] = false
 	progress_bar.set_progress(0)
 	opening_sound.play()
@@ -60,42 +59,41 @@ func get_hint(_player: Player) -> String:
 func _activated(_player: Player):
 	match state:
 		State.HAS_INGREDIENT:
-			var res = get_result_item(item_in_machine.item)
+			var res = Recipe.find_recipe(item_in_machine, recipes)
 			if res == null:
 				return
 			animation_tree["parameters/conditions/not_working"] = false
-			animation_tree["parameters/conditions/is_open"] = false
 			animation_tree["parameters/conditions/is_working"] = true
 			time_left = time_to_finish
+			aet_items_pickable(false)
 			state = State.SWITCHING
 			blending_sound.play()
-			item_in_machine.set_pickable(false)
-			hide_item(res)
+			hide_item(res.output[0].get_prefab())
 
-func get_result_item(item: Item) -> Resource:
-	for recipe in recipes:
-		if recipe.input.size() > 0 && recipe.input[0].item_name == item.item_name:
-			if recipe.output.size() == 0:
-				return null
-			return recipe.output[0].get_prefab()
-	return null
+func aet_items_pickable(value: bool):
+	for item in item_in_machine:
+		item.set_pickable(value)
 
 func hide_item(new_item: Resource):
 	const steps = 20
 	closing_sound.play(0.1)
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
-		item_in_machine.move_delta(hide_position * (1.0 * i / steps))
-		item_in_machine.scale_item(lerp(1.0, item_animation_target_size, 1.0 * i / steps))
+		for item in item_in_machine:
+			item.move_delta(hide_position * (1.0 * i / steps))
+			item.scale_item(lerp(1.0, item_animation_target_size, 1.0 * i / steps))
 	state = State.WORKING
-	item_in_machine.instantiate_item(new_item)
+	for item in item_in_machine:
+		item.desctory_current()
+	item_in_machine[0].instantiate_item(new_item)
 
 func show_item():
 	const steps = 20
 	opening_sound.play()
 	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
-		item_in_machine.move_delta(hide_position * (1 - 1.0 * i / steps))
-		item_in_machine.scale_item(lerp(item_animation_target_size, 1.0, 1.0 * i / steps))
-	item_in_machine.set_pickable(true)
+		for item in item_in_machine:
+			item.move_delta(hide_position * (1 - 1.0 * i / steps))
+			item.scale_item(lerp(item_animation_target_size, 1.0, 1.0 * i / steps))
 	state = State.HAS_INGREDIENT
+	aet_items_pickable(true)

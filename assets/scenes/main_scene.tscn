@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://hnrh27wt66pr" path="res://assets/prefabs/items/item_blender.tscn" id="12_wqwnt"]
 [ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="13_31ena"]
 [ext_resource type="PackedScene" uid="uid://bukds5s23wce7" path="res://assets/prefabs/items/item_multivegetable_tree.tscn" id="16_o7b4r"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
+[ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
+[ext_resource type="PackedScene" uid="uid://nw464mch7bk4" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -116,6 +117,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55015, -2.32504, -0.100862
 
 [node name="Item7" parent="." instance=ExtResource("17_myq18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77915, -2.25123, 0.491869)
+
+[node name="Item10" parent="." instance=ExtResource("18_s8t7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37207, -2.244, 1.9432)
 
 [editable path="Trading"]
 [editable path="Trading/Table/ItemInMachine"]

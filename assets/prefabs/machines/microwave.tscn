@@ -25,7 +25,7 @@ recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_yn77
 noun = "Microwave"
 verb = "Microwaving"
 animation_tree = NodePath("Microwave/AnimationPlayer/AnimationTree")
-item_in_machine = NodePath("Node3D/ItemInMachine")
+item_in_machine = [NodePath("Node3D/ItemInMachine")]
 hide_position = Vector3(0, 0, 0)
 progress_bar = NodePath("Microwave/Armature/Skeleton3D/BoneAttachment3D/ProgressSprite")
 blending_sound = NodePath("BlendingSound")
@@ -57,7 +57,7 @@ shape = SubResource("BoxShape3D_iwu44")
 transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Microwave/Armature" index="0"]
-bones/1/rotation = Quaternion(-2.9814e-08, -1.39311e-07, 0.703587, 0.710609)
+bones/1/rotation = Quaternion(6.4218e-08, -1.30252e-07, 0.020812, 0.999783)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Microwave/Armature/Skeleton3D" index="1"]
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 0, 0)
@@ -71,7 +71,6 @@ transform = Transform3D(-3.0598e-09, 0.0233051, -1.22179, -7.09507e-17, 0.079661
 tree_root = ExtResource("5_ls42a")
 anim_player = NodePath("..")
 active = true
-parameters/conditions/is_open = false
 parameters/conditions/is_working = false
 parameters/conditions/not_working = false
 
