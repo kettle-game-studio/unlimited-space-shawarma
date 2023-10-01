@@ -4,6 +4,7 @@ class_name TradingMachine
 enum State { DISABLED, CAN_TRADE, SWITCHING }
 
 @export var slots: Array[ItemInMachine]
+@export var computer_ui: ComputerUI
 @export var door: DoorScript
 @export var recipes: Array[Recipe]
 @export var hide_offset: Vector3
@@ -19,6 +20,7 @@ func _ready():
 
 func start_trading():
 	door.open()
+	computer_ui.set_recipes(recipes)
 
 func stop_trading():
 	door.close()
@@ -50,13 +52,16 @@ func _ok_button_activated(player):
 		return
 	
 	print(recipe.input)
-	for i in recipe.output.size():
-		replace_item(slots[i], recipe.output[i])
+	for i in slots.size():
+		var out = null;
+		if i < recipe.output.size():
+			out = recipe.output[i];
+		replace_item(slots[i], out)
 	
 func find_recipe(r: Array[Recipe]) -> Recipe:
 	var longest_recipe = null
 	var length = -1
-	for recipe in recipes:
+	for recipe in r:
 		if check_recipe(recipe) && recipe.input.size() > length:
 			longest_recipe = recipe
 	return longest_recipe
@@ -65,7 +70,7 @@ func check_recipe(recipe: Recipe) -> bool:
 	for item in recipe.input:
 		if !has_enough(recipe.input, item):
 			return false
-	return true	
+	return true
 
 func has_enough(recipe: Array[String], item: String) -> bool:
 	var count_in_recipe = 0
@@ -75,9 +80,12 @@ func has_enough(recipe: Array[String], item: String) -> bool:
 			
 	var count_on_table = 0
 	for s in slots:
+		print(s.item)
 		if s.item && s.item.item_name == item:
 			count_on_table += 1
-			
+	
+	print("count_in_recipe = ", count_in_recipe)
+	print("count_on_table = ", count_on_table)
 	return count_in_recipe == count_on_table
 
 func replace_item(item: ItemInMachine, res: Resource):
@@ -96,5 +104,7 @@ func replace_item(item: ItemInMachine, res: Resource):
 		time += delta_time
 		await get_tree().create_timer(delta_time).timeout
 		var moved = 1 - time / total_time
+		
 		item.move_delta(hide_offset * moved)
 		item.scale_item(1 - moved)
+
