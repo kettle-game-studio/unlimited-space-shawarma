@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dofxhrsb5v5cx"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_04dhs"]
-[ext_resource type="Resource" uid="uid://wct5g8jqil48" path="res://assets/prefabs/items/data/multifruit.tres" id="2_xaatk"]
+[ext_resource type="Resource" uid="uid://chkci2ijb5oqh" path="res://assets/prefabs/items/data/multivegetable.tres" id="2_joi6g"]
 [ext_resource type="PackedScene" uid="uid://cqabcg27pgve3" path="res://assets/Room/Models/Vegetable/multi_vegetable.tscn" id="4_qk3fs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6um73"]
 height = 1.38827
 
 [node name="Item" instance=ExtResource("1_04dhs")]
-item_data = ExtResource("2_xaatk")
+item_data = ExtResource("2_joi6g")
 
 [node name="Area3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0680701, 0)
