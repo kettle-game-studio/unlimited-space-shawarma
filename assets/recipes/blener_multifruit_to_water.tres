@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://csrxt4n1e88c2"]
+
+[ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="1_0ov73"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="1_myq7q"]
+
+[resource]
+script = ExtResource("1_myq7q")
+input = Array[String](["Multifruit"])
+output = Array[PackedScene]([ExtResource("1_0ov73")])
