@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=24 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="5_y71fp"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="7_ipgvi"]
 [ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="7_mo6mv"]
-[ext_resource type="Theme" uid="uid://cmsa4vkamvyi2" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
+[ext_resource type="Theme" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
 [ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="9_tpamu"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]
@@ -19,8 +19,17 @@
 [ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
 [ext_resource type="PackedScene" uid="uid://nw464mch7bk4" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
 [ext_resource type="PackedScene" uid="uid://c4t1l3fkw2e1m" path="res://assets/prefabs/items/item_fruit_paste.tscn" id="20_65aao"]
+[ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
+
+[sub_resource type="Curve3D" id="Curve3D_tu2v3"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.956787, -0.480698, -112.104, 0, 0, 0, 0, 0, 0, 25, -0.475771, -112.109, 0, 0, 0, 0, 0, 0, 92.3529, -28.9205, -55.825, 0, 0, 0, 0, 0, 0, 101.736, -16.1818, 36.4258, 0, 0, 0, 0, 0, 0, 52.189, -4.16142, 117.148, 0, 0, 0, 0, 0, 0, -27.4565, 5.49452, 200.763, 0, 0, 0, 0, 0, 0, -164.673, 8, 195.209, 0, 0, 0, 0, 0, 0, -289.144, -11.3111, 129.78),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [node name="MainScene" type="Node3D"]
 
@@ -111,6 +120,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37207, -2.244, 1.9432)
 
 [node name="Item11" parent="." instance=ExtResource("20_65aao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28944, -2.2378, -1.04267)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 101.22)
+curve = SubResource("Curve3D_tu2v3")
+
+[node name="SpsaceShip" parent="Path3D" instance=ExtResource("21_2ndht")]
+transform = Transform3D(0.000189781, 0.000192717, -0.999999, -0.999999, 1.94707e-07, -0.000189781, 1.58133e-07, 0.999999, 0.000192718, 3.04306, -0.479939, -112.105)
+progress = 4.0
 
 [editable path="Trading"]
 [editable path="Trading/Table/ItemInMachine"]

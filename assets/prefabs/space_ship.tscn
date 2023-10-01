@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://tqi5dw3n0sam"]
+
+[ext_resource type="Script" path="res://assets/scripts/space_ship.gd" id="1_iaggv"]
+[ext_resource type="Material" uid="uid://ckm1lq8aid5hv" path="res://assets/materials/patricle_fire_material.tres" id="2_k156s"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v52yh"]
+top_radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_ymlqv"]
+material = ExtResource("2_k156s")
+radius = 1.0
+height = 2.0
+radial_segments = 5
+rings = 5
+
+[sub_resource type="Curve" id="Curve_llwu6"]
+_data = [Vector2(0.0851852, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.402135), -2.5181, 0.0, 0, 0]
+point_count = 2
+
+[node name="SpaceShip" type="PathFollow3D"]
+script = ExtResource("1_iaggv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.72826e-07, -10.88, 0, 10.817, -4.7558e-07, 0, 0, 0)
+mesh = SubResource("CylinderMesh_v52yh")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -14.3219)
+amount = 1000
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
