@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dnaih8vb3a38r" path="res://assets/prefabs/machines/computer_ui.tscn" id="3_h5j21"]
 [ext_resource type="PackedScene" uid="uid://dvile3d2hrk8m" path="res://assets/prefabs/room_parts/button_1.tscn" id="5_h47gx"]
 [ext_resource type="PackedScene" uid="uid://cm6ni63ele7h2" path="res://assets/prefabs/room_parts/button_2.tscn" id="6_4bk54"]
-[ext_resource type="Script" path="res://assets/scripts/cancel_hint_script.gd" id="6_ig7vi"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="6_wdhbo"]
-[ext_resource type="Script" path="res://assets/scripts/ok_hint_script.gd" id="8_h0pg8"]
+[ext_resource type="Script" path="res://assets/scripts/button.gd" id="8_1am1l"]
+[ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="12_ax8m8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvntd"]
 size = Vector3(0.868266, 0.426219, 0.0787497)
@@ -51,24 +51,35 @@ size = Vector2i(850, 512)
 
 [node name="ComputerUI" parent="Computer/Sprite3D/SubViewport" instance=ExtResource("3_h5j21")]
 
+[node name="ClickSound" type="AudioStreamPlayer3D" parent="Computer"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+stream = ExtResource("12_ax8m8")
+volume_db = -5.0
+max_db = -1.699
+bus = &"Blender"
+
 [node name="CancelButton" parent="Computer" instance=ExtResource("5_h47gx")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -0.7, -0.75, 0.1)
-script = ExtResource("6_ig7vi")
+script = ExtResource("8_1am1l")
+hint = "CANCEL"
 
-[node name="CancelArea" type="Area3D" parent="Computer/CancelButton" node_paths=PackedStringArray("hint_source")]
+[node name="CancelArea" type="Area3D" parent="Computer/CancelButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
 script = ExtResource("6_wdhbo")
 hint_source = NodePath("..")
+activation_sound = NodePath("../../ClickSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/CancelButton/CancelArea"]
 shape = SubResource("BoxShape3D_lvntd")
 
 [node name="OkButton" parent="Computer" instance=ExtResource("6_4bk54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.75, 0.1)
-script = ExtResource("8_h0pg8")
+script = ExtResource("8_1am1l")
+hint = "OK"
 
-[node name="OkArea" type="Area3D" parent="Computer/OkButton" node_paths=PackedStringArray("hint_source")]
+[node name="OkArea" type="Area3D" parent="Computer/OkButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
 script = ExtResource("6_wdhbo")
 hint_source = NodePath("..")
+activation_sound = NodePath("../../ClickSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/OkButton/OkArea"]
 shape = SubResource("BoxShape3D_74mcu")
@@ -94,7 +105,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.077, 0, 0)
 shape = SubResource("CylinderShape3D_l7w6i")
 
 [connection signal="activated" from="Computer/CancelButton/CancelArea" to="." method="_cancel_button_activated"]
+[connection signal="activated" from="Computer/CancelButton/CancelArea" to="Computer/CancelButton" method="_on_area_activated"]
 [connection signal="activated" from="Computer/OkButton/OkArea" to="." method="_ok_button_activated"]
+[connection signal="activated" from="Computer/OkButton/OkArea" to="Computer/OkButton" method="_on_area_activated"]
 
 [editable path="Table/ItemInMachine"]
 [editable path="Table/ItemInMachine2"]
