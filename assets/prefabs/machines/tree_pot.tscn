@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1oh4kg7bn2ee"]
+[gd_scene load_steps=7 format=3 uid="uid://c1oh4kg7bn2ee"]
 
 [ext_resource type="Script" path="res://assets/scripts/machine_spawner.gd" id="1_plrmg"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="2_bs5b7"]
 [ext_resource type="PackedScene" uid="uid://cdsaydoyb5wfy" path="res://assets/Room/Models/Stuff/pot.tscn" id="2_ofl4o"]
 [ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="4_xvr7u"]
+[ext_resource type="AudioStream" uid="uid://cha3cwunb4qt" path="res://assets/sounds/put_plant.mp3" id="5_e41eh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r06qi"]
 height = 0.779423
@@ -17,10 +18,11 @@ progress_bar = NodePath("Pot/ProgressSprite")
 [node name="Pot" parent="." instance=ExtResource("2_ofl4o")]
 transform = Transform3D(0.7, 0, 0, 0, 0.667679, -0.210249, 0, 0.210249, 0.667679, 0, -0.343328, -0.295059)
 
-[node name="Area3D" type="Area3D" parent="Pot" node_paths=PackedStringArray("hint_source")]
+[node name="Area3D" type="Area3D" parent="Pot" node_paths=PackedStringArray("hint_source", "activation_sound")]
 transform = Transform3D(1.42857, 0, 0, 0, 1.15314, 0.84326, 0, -0.84326, 1.15314, 0, 0.644717, 0.0507289)
 script = ExtResource("2_bs5b7")
 hint_source = NodePath("../..")
+activation_sound = NodePath("../../PutPlantSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pot/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 0.826865, -0.562401, 0, 0.562401, 0.826865, 0, 0, 0)
@@ -31,5 +33,12 @@ transform = Transform3D(0.0547673, 0, 0, 0, 0.0644952, 0.0832774, 0, -0.00538971
 
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(-2.91958e-08, -3.25314e-08, -1, -0.74423, 0.667924, 0, 0.667923, 0.744231, -4.37114e-08, -0.0597004, 0.445, -0.049)
+
+[node name="PutPlantSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.947221, 0.32058, 0, -0.32058, 0.947221, 0, 0.0764703, -0.125637)
+stream = ExtResource("5_e41eh")
+attenuation_model = 3
+volume_db = -0.964
+bus = &"Blender"
 
 [connection signal="activated" from="Pot/Area3D" to="." method="_activated"]

@@ -24,6 +24,10 @@ func get_hint(player: Player) -> String:
 	if item && item is MachineItem && item.machine_type == allowed_machine_type:
 		return "%s %s" % [MachineItem.get_machine_verb(item.machine_type), item.item_name] 
 	return MachineItem.get_spawner_name(allowed_machine_type)
+	
+func blocked(player: Player) -> bool:
+	var item = player.item_manager.item_in_hand
+	return machine != null || !(item && item is MachineItem && item.machine_type == allowed_machine_type)
 
 func _activated(player):
 	if machine:
