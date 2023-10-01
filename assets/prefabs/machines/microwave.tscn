@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dydbdsbyyti3s"]
+
+[ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_anaob"]
+[ext_resource type="Resource" uid="uid://dwf61bdg1wsi7" path="res://assets/recipes/microwave_water_to_multivegetable.tres" id="2_yn77w"]
+[ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="4_wx30t"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="5_ls42a"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="6_2gxv3"]
+[ext_resource type="PackedScene" uid="uid://7jyaboql1xq3" path="res://assets/prefabs/machines/item_in_machine.tscn" id="7_4wry3"]
+[ext_resource type="AudioStream" uid="uid://cbjcttjcqugyu" path="res://assets/sounds/blender.mp3" id="8_lrlag"]
+[ext_resource type="PackedScene" uid="uid://diygdankoeeyu" path="res://assets/Room/Microwave.glb" id="8_mpphl"]
+[ext_resource type="AudioStream" uid="uid://dbl5igebjqcvd" path="res://assets/sounds/blender_close.mp3" id="9_v0enj"]
+[ext_resource type="AudioStream" uid="uid://uv5wj7bhco1a" path="res://assets/sounds/blender_open.mp3" id="10_yp14c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwu44"]
+size = Vector3(2.20978, 1.00288, 1.79594)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbg0j"]
+size = Vector3(2.69933, 1.77495, 2.01742)
+
+[node name="Microwave" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
+script = ExtResource("1_anaob")
+time_to_finish = 1.0
+item_animation_target_size = 1.0
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_yn77w")])
+noun = "Microwave"
+verb = "Microwaving"
+animation_tree = NodePath("Microwave/AnimationPlayer/AnimationTree")
+item_in_machine = [NodePath("Node3D/ItemInMachine")]
+hide_position = Vector3(0, 0, 0)
+progress_bar = NodePath("Microwave/Armature/Skeleton3D/BoneAttachment3D/ProgressSprite")
+blending_sound = NodePath("BlendingSound")
+opening_sound = NodePath("BlendingSound/OpenSound")
+closing_sound = NodePath("BlendingSound/CloseSound")
+
+[node name="BlendingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_lrlag")
+
+[node name="CloseSound" type="AudioStreamPlayer3D" parent="BlendingSound"]
+stream = ExtResource("9_v0enj")
+volume_db = -3.892
+max_db = 1.916
+
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="BlendingSound"]
+stream = ExtResource("10_yp14c")
+volume_db = -1.0
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
+transform = Transform3D(0.7, -2.88226e-15, 2.4869e-15, -2.88226e-15, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("6_2gxv3")
+hint_source = NodePath("..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 4.23516e-22, 0, 1, 0, 0, 0, 1, 4.23516e-22, 0.453742, 0)
+shape = SubResource("BoxShape3D_iwu44")
+
+[node name="Microwave" parent="." instance=ExtResource("8_mpphl")]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Microwave/Armature" index="0"]
+bones/1/rotation = Quaternion(6.4218e-08, -1.30252e-07, 0.020812, 0.999783)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Microwave/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 0, 0)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="ProgressSprite" parent="Microwave/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_wx30t")]
+transform = Transform3D(-3.0598e-09, 0.0233051, -1.22179, -7.09507e-17, 0.079661, 0.357438, 0.07, 1.0187e-09, -5.34061e-08, -1.22218, 0.588921, -2.08913e-07)
+
+[node name="AnimationTree" type="AnimationTree" parent="Microwave/AnimationPlayer" index="0"]
+tree_root = ExtResource("5_ls42a")
+anim_player = NodePath("..")
+active = true
+parameters/conditions/is_working = false
+parameters/conditions/not_working = false
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="ItemInMachine" parent="Node3D" instance=ExtResource("7_4wry3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247529, 0.793446, 0)
+hint_postfix = "in Microwave"
+
+[node name="CollisionShape3D" parent="Node3D/ItemInMachine/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800741, 0)
+shape = SubResource("BoxShape3D_lbg0j")
+
+[connection signal="activated" from="Area3D" to="." method="_activated"]
+[connection signal="picked" from="Node3D/ItemInMachine" to="." method="_item_picked"]
+[connection signal="placed" from="Node3D/ItemInMachine" to="." method="_item_placed"]
+
+[editable path="Microwave"]
+[editable path="Node3D/ItemInMachine"]

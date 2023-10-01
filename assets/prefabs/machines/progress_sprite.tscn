@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehb7xj86h356"]
+
+[ext_resource type="Script" path="res://assets/scripts/progress_sprite.gd" id="1_26fq3"]
+[ext_resource type="Texture2D" uid="uid://cqm5npsslwh7r" path="res://assets/Room/circle.png" id="2_csfs2"]
+
+[node name="ProgressSprite" type="Sprite3D" node_paths=PackedStringArray("progress_bar")]
+transform = Transform3D(-3.38816e-09, -0.0155022, 0.97089, 6.24663e-09, 0.062836, 0.239527, -0.0547673, 8.12597e-09, -3.2744e-08, 0.548462, 0.433974, 5.88226e-08)
+script = ExtResource("1_26fq3")
+progress_bar = NodePath("SubViewport/TextureProgressBar")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 40.0
+fill_mode = 4
+texture_progress = ExtResource("2_csfs2")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(0.215686, 0.678431, 0, 1)

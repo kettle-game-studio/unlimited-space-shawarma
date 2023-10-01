@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/blender.mp3-05cab911d6ab78c34d9306ec37b4ca84.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

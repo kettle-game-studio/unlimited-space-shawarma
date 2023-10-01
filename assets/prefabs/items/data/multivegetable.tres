@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://chkci2ijb5oqh"]
+
+[ext_resource type="Texture2D" uid="uid://b17tfhkhn7gow" path="res://assets/item_icons/multivegetable.png" id="1_wq3da"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_yedjo"]
+
+[resource]
+script = ExtResource("2_yedjo")
+item_name = "Multivegetable"
+icon = ExtResource("1_wq3da")
+prefab = "res://assets/prefabs/items/item_multivegetable.tscn"

@@ -24,6 +24,7 @@ func instantiate_item(res: PackedScene) -> void:
 	item.global_transform.basis = self.global_transform.basis
 	item.global_transform.origin = self.global_transform.origin
 	item.connect("picked", self._item_picked)
+	set_activatable(false)
 
 func desctory_current() -> void:
 	if !item:
@@ -31,6 +32,7 @@ func desctory_current() -> void:
 	item.disconnect("picked", self._item_picked)
 	item.queue_free()
 	item = null
+	set_activatable(true)
 
 func _item_picked():
 	picked.emit()

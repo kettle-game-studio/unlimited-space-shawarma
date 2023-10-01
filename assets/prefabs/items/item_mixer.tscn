@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://nw464mch7bk4"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_bbqf4"]
+[ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_mbbi4"]
+[ext_resource type="Resource" uid="uid://dy7byaw71k3nx" path="res://assets/prefabs/items/data/mixer.tres" id="3_hojhw"]
+[ext_resource type="PackedScene" uid="uid://enrfjd1xwx6h" path="res://assets/prefabs/machines/mixer.tscn" id="3_yj7d8"]
+[ext_resource type="PackedScene" uid="uid://epy2im71peht" path="res://assets/Room/Mixer.glb" id="4_nrbnq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dlqav"]
+height = 0.471201
+radius = 0.431122
+
+[node name="Item" instance=ExtResource("1_bbqf4")]
+script = ExtResource("2_mbbi4")
+machine = ExtResource("3_yj7d8")
+machine_type = 1
+item_data = ExtResource("3_hojhw")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247421, 0)
+shape = SubResource("CylinderShape3D_dlqav")
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+
+[node name="Mixer" parent="." index="4" instance=ExtResource("4_nrbnq")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

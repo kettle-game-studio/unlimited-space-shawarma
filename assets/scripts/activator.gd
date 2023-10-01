@@ -3,6 +3,7 @@ class_name Activator
 
 @export var hint: String
 @export var hint_source: Node
+@export var activation_sound: AudioStreamPlayer3D
 
 signal activated(player: Player)
 
@@ -11,3 +12,5 @@ func get_hint(player: Player) -> String:
 
 func activate(player: Player) -> void:
 	activated.emit(player)
+	if activation_sound != null:
+		activation_sound.play()

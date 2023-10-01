@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cw8o2vrw6bdo0"]
+
+[ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="1_ib5rg"]
+[ext_resource type="Resource" uid="uid://chkci2ijb5oqh" path="res://assets/prefabs/items/data/multivegetable.tres" id="2_gmsop"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_lrg03"]
+[ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="3_rsa0o"]
+
+[resource]
+script = ExtResource("3_lrg03")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_ib5rg")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_gmsop"), ExtResource("3_rsa0o")])

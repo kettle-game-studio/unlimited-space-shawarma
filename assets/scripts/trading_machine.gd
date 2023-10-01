@@ -46,7 +46,7 @@ func _cancel_button_activated(player):
 func _ok_button_activated(player):
 	if state != State.CAN_TRADE:
 		return
-	var recipe = find_recipe(recipes)
+	var recipe = Recipe.find_recipe(slots, recipes)
 	if !recipe:
 		return
 	
@@ -55,33 +55,6 @@ func _ok_button_activated(player):
 		if i < recipe.output.size():
 			out = recipe.output[i].get_prefab();
 		replace_item(slots[i], out)
-	
-func find_recipe(r: Array[Recipe]) -> Recipe:
-	var longest_recipe = null
-	var length = -1
-	for recipe in r:
-		if check_recipe(recipe) && recipe.input.size() > length:
-			longest_recipe = recipe
-	return longest_recipe
-
-func check_recipe(recipe: Recipe) -> bool:
-	for item in recipe.input:
-		if !has_enough(recipe.input, item):
-			return false
-	return true
-
-func has_enough(recipe: Array[ItemData], item: ItemData) -> bool:
-	var count_in_recipe = 0
-	for i in recipe:
-		if i.item_name == item.item_name:
-			count_in_recipe += 1
-			
-	var count_on_table = 0
-	for s in slots:
-		if s.item && s.item.item_name == item.item_name:
-			count_on_table += 1
-	
-	return count_in_recipe == count_on_table
 
 func replace_item(item: ItemInMachine, res: Resource):
 	const delta_time = 1.0 / 60.0
