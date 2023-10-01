@@ -28,7 +28,7 @@ func _process(delta):
 		var scale = 1 - time_left / time_to_finish
 		progress_bar.value = scale * 100
 
-func _item_placed(item: Item):
+func _item_placed(_item: Item):
 	state = State.HAS_INGREDIENT
 	item_in_machine.set_activatable(false)
 
@@ -37,7 +37,7 @@ func _item_picked():
 	item_in_machine.set_activatable(true)
 	progress_bar.value = 0
 
-func get_hint(player: Player) -> String:
+func get_hint(_player: Player) -> String:
 	match state:
 		State.EMPTY:
 			return "Blender"
@@ -47,7 +47,7 @@ func get_hint(player: Player) -> String:
 			return "Blender Blending"
 	return ""
 
-func _activated(player: Player):
+func _activated(_player: Player):
 	match state:
 		State.HAS_INGREDIENT:
 			animation_tree["parameters/conditions/not_working"] = false

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hnrh27wt66pr"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_erpjy"]
+[ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_lblia"]
+[ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="3_5kkrg"]
+
+[node name="Item" instance=ExtResource("1_erpjy")]
+script = ExtResource("2_lblia")
+machine = null
+machine_type = 1
+item_name = "Blender"
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+
+[node name="Blender" parent="." index="3" instance=ExtResource("3_5kkrg")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

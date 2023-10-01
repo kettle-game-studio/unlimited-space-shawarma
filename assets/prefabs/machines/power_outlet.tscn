@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlheukyllgvt5"]
+
+[ext_resource type="Material" uid="uid://bsree2b2u8meu" path="res://assets/materials/power_outlet_black.tres" id="1_8tbaq"]
+[ext_resource type="Script" path="res://assets/scripts/machine_spawner.gd" id="1_vpebl"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="3_umcb6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_prmkm"]
+top_radius = 0.4
+height = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e17u6"]
+top_radius = 0.1
+bottom_radius = 0.12
+height = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1tq0j"]
+height = 0.220152
+radius = 0.412777
+
+[node name="PowerOutlet" type="Node3D" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_vpebl")
+spawn_point = NodePath("SpawnPoint")
+allowed_machine_type = 1
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0533276, 0)
+mesh = SubResource("CylinderMesh_prmkm")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054199, 0)
+material_override = ExtResource("1_8tbaq")
+mesh = SubResource("CylinderMesh_e17u6")
+material = ExtResource("1_8tbaq")
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
+script = ExtResource("3_umcb6")
+hint_source = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.068463, 0)
+shape = SubResource("CylinderShape3D_1tq0j")
+
+[connection signal="activated" from="Area3D" to="." method="_activated"]

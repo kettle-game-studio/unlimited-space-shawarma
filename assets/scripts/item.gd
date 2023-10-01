@@ -13,7 +13,7 @@ func go_to(node: Node3D, other: Item = null) -> void:
 	# 	print("other = ", other.item_name)
 		
 	var parent = self.get_parent()
-	var trans = self.transform
+	var global_origin = self.global_transform.origin
 	
 	#self.global_transform.origin = node.global_transform.origin
 	self.reparent(node, true)
@@ -21,7 +21,7 @@ func go_to(node: Node3D, other: Item = null) -> void:
 	
 	if other != null:
 		other.go_to(parent)
-		# other.transform = trans
+		other.global_transform.origin = global_origin
 		if parent.has_method("on_item_swap"):
 			parent.on_item_swap(other)
 	elif parent is FloatingItemLocation:
