@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://tqi5dw3n0sam"]
+[gd_scene load_steps=18 format=3 uid="uid://tqi5dw3n0sam"]
 
 [ext_resource type="Script" path="res://assets/scripts/space_ship.gd" id="1_iaggv"]
 [ext_resource type="Material" uid="uid://ckm1lq8aid5hv" path="res://assets/materials/patricle_fire_material.tres" id="2_k156s"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_v52yh"]
-top_radius = 0.2
+[ext_resource type="Script" path="res://assets/scripts/random_part_picker.gd" id="3_isc1i"]
+[ext_resource type="PackedScene" uid="uid://bv425u1tsqi3l" path="res://assets/Room/Models/Spaceship/back_001.tscn" id="3_wdvqj"]
+[ext_resource type="PackedScene" uid="uid://27rfvpyxfpiu" path="res://assets/Room/Models/Spaceship/back_002.tscn" id="4_cfvf2"]
+[ext_resource type="PackedScene" uid="uid://dtexwl5tjillq" path="res://assets/Room/Models/Spaceship/base_back.tscn" id="5_830bt"]
+[ext_resource type="PackedScene" uid="uid://bortfw8kye6y4" path="res://assets/Room/Models/Spaceship/engine_001.tscn" id="6_3dtan"]
+[ext_resource type="PackedScene" uid="uid://bbxxwmhsoajps" path="res://assets/Room/Models/Spaceship/engine_002.tscn" id="7_o0mjl"]
+[ext_resource type="PackedScene" uid="uid://d0nigt33q0coj" path="res://assets/Room/Models/Spaceship/engine_003.tscn" id="8_ddwy1"]
+[ext_resource type="PackedScene" uid="uid://da758nyr12njd" path="res://assets/Room/Models/Spaceship/engine_004.tscn" id="9_xi5yd"]
+[ext_resource type="PackedScene" uid="uid://86ey2e31amlp" path="res://assets/Room/Models/Spaceship/face_001.tscn" id="10_sba7b"]
+[ext_resource type="PackedScene" uid="uid://cei48ud4jxxfo" path="res://assets/Room/Models/Spaceship/face_002.tscn" id="11_jpr1c"]
+[ext_resource type="PackedScene" uid="uid://drgtjg2781q84" path="res://assets/Room/Models/Spaceship/glass_001.tscn" id="12_ktuf2"]
+[ext_resource type="PackedScene" uid="uid://ca7e7m6qrqueq" path="res://assets/Room/Models/Spaceship/glass_002.tscn" id="13_jivmy"]
+[ext_resource type="PackedScene" uid="uid://dptlv0dew155x" path="res://assets/Room/Models/Spaceship/sluice.tscn" id="14_7c3is"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ymlqv"]
 material = ExtResource("2_k156s")
@@ -20,13 +30,131 @@ point_count = 2
 [node name="SpaceShip" type="PathFollow3D"]
 script = ExtResource("1_iaggv")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, -4.72826e-07, -10.88, 0, 10.817, -4.7558e-07, 0, 0, 0)
-mesh = SubResource("CylinderMesh_v52yh")
-
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -14.3219)
+visible = false
 amount = 1000
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="ShipRoot" type="Node3D" parent="."]
+transform = Transform3D(-1.64203e-15, 1.55294e-22, -1, 4.37114e-08, 1, -2.45025e-37, 1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="Back" type="Node3D" parent="ShipRoot"]
+script = ExtResource("3_isc1i")
+
+[node name="Back_001" parent="ShipRoot/Back" instance=ExtResource("3_wdvqj")]
+
+[node name="Back_002" parent="ShipRoot/Back" instance=ExtResource("4_cfvf2")]
+visible = false
+
+[node name="BaseBack" parent="ShipRoot/Back" instance=ExtResource("5_830bt")]
+visible = false
+
+[node name="Sluice" parent="ShipRoot" instance=ExtResource("14_7c3is")]
+
+[node name="Glass" type="Node3D" parent="ShipRoot"]
+script = ExtResource("3_isc1i")
+
+[node name="Glass_001" parent="ShipRoot/Glass" instance=ExtResource("12_ktuf2")]
+visible = false
+
+[node name="Glass_002" parent="ShipRoot/Glass" instance=ExtResource("13_jivmy")]
+
+[node name="Face" type="Node3D" parent="ShipRoot"]
+script = ExtResource("3_isc1i")
+
+[node name="Face_001" parent="ShipRoot/Face" instance=ExtResource("10_sba7b")]
+
+[node name="Face_002" parent="ShipRoot/Face" instance=ExtResource("11_jpr1c")]
+visible = false
+
+[node name="Engine" type="Node3D" parent="ShipRoot"]
+script = ExtResource("3_isc1i")
+number = 2
+
+[node name="Engine_001" parent="ShipRoot/Engine" instance=ExtResource("6_3dtan")]
+
+[node name="Fire2" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_001"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.7705, -11.1453, 0)
+amount = 500
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="Engine_002" parent="ShipRoot/Engine" instance=ExtResource("7_o0mjl")]
+
+[node name="Fire" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_002"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.6906, 11.993, 0)
+amount = 500
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="Engine_003" parent="ShipRoot/Engine" instance=ExtResource("8_ddwy1")]
+visible = false
+
+[node name="Fire2" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_003"]
+transform = Transform3D(-0.579992, -0.814622, -4.03579e-08, -0.814622, 0.579992, -7.75499e-08, 8.65811e-08, -1.21019e-08, -1, -12.663, -9.38579, -7.72805e-09)
+amount = 250
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="Fire3" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_003"]
+transform = Transform3D(-0.579992, -0.814622, -4.03579e-08, -0.814622, 0.579992, -7.75499e-08, 8.65811e-08, -1.21019e-08, -1, 4.27656, -9.38579, -0.0270958)
+amount = 250
+lifetime_randomness = 0.5
+mesh = SubResource("SphereMesh_ymlqv")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 5.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 4.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="Engine_004" parent="ShipRoot/Engine" instance=ExtResource("9_xi5yd")]
+visible = false
+
+[node name="Fire" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_004"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.5635, 4.06919, 0)
+amount = 500
 lifetime_randomness = 0.5
 mesh = SubResource("SphereMesh_ymlqv")
 emission_shape = 6
