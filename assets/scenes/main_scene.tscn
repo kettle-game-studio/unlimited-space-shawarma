@@ -61,11 +61,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91916, -2.49923, -1.06597)
 [node name="Item8" parent="." instance=ExtResource("9_tpamu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84087, -2.29399, -0.9819)
 
-[node name="TreePot" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0, -1.5)
+[node name="TreePot1" parent="." instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, -1.5)
 
 [node name="TreePot2" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0, 1.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 1.5)
+
+[node name="TreePot3" parent="." instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 0)
+
+[node name="TreePot4" parent="." instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, -0.747767)
+
+[node name="TreePot5" parent="." instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, 0.796893)
 
 [node name="Trading" parent="." node_paths=PackedStringArray("door") instance=ExtResource("10_32e7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
@@ -76,9 +85,6 @@ transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0
 
 [node name="Table" parent="Trading" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840007, -1.73281)
-
-[node name="TreePot3" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8, 0, 0)
 
 [node name="PowerOutlet" parent="." instance=ExtResource("11_gkti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74905, -2.25209, 1.25715)

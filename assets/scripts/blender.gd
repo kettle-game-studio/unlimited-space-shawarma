@@ -8,7 +8,7 @@ enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 @export var animation_tree: AnimationTree
 @export var item_in_machine: ItemInMachine
 @export var hide_position: Vector3 = Vector3(0, -0.3, 0)
-@export var progress_bar: TextureProgressBar
+@export var progress_bar: ProgressSprite
 
 @export var blending_sound: AudioStreamPlayer3D
 @export var opening_sound: AudioStreamPlayer3D
@@ -20,7 +20,7 @@ var time_left: float
 func _ready():
 	animation_tree["parameters/conditions/is_open"] = true
 	animation_tree["parameters/conditions/not_working"] = false
-	progress_bar.value = 0
+	progress_bar.set_progress(0)
 	opening_sound.play()
 
 func _process(delta):
@@ -34,14 +34,14 @@ func _process(delta):
 			animation_tree["parameters/conditions/not_working"] = true
 			show_item()
 		var scale = 1 - time_left / time_to_finish
-		progress_bar.value = scale * 100
+		progress_bar.set_progress(scale)
 
 func _item_placed(_item: Item):
 	state = State.HAS_INGREDIENT
 
 func _item_picked():
 	state = State.EMPTY
-	progress_bar.value = 0
+	progress_bar.set_progress(0)
 
 func get_hint(_player: Player) -> String:
 	match state:
