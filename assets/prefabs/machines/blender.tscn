@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://2g7ib2rvd6ya"]
+[gd_scene load_steps=11 format=3 uid="uid://2g7ib2rvd6ya"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_2xnpc"]
 [ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="1_fxwsn"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="2_arb5q"]
+[ext_resource type="Resource" uid="uid://csrxt4n1e88c2" path="res://assets/recipes/blener_multifruit_to_water.tres" id="2_x5d41"]
 [ext_resource type="Script" path="res://assets/scripts/progress_sprite.gd" id="4_byabr"]
 [ext_resource type="Texture2D" uid="uid://cqm5npsslwh7r" path="res://assets/Room/circle.png" id="5_iaxip"]
 [ext_resource type="PackedScene" uid="uid://7jyaboql1xq3" path="res://assets/prefabs/machines/item_in_machine.tscn" id="6_0flkr"]
@@ -16,6 +17,8 @@ size = Vector3(1.52979, 1, 1.3773)
 
 [node name="Blender" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar")]
 script = ExtResource("1_2xnpc")
+time_to_finish = 1.0
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_x5d41")])
 animation_tree = NodePath("Blender/AnimationTree")
 item_in_machine = NodePath("Blender/ItemInMachine")
 progress_bar = NodePath("Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite/SubViewport/TextureProgressBar")
@@ -80,6 +83,7 @@ shape = SubResource("BoxShape3D_iwu44")
 
 [node name="ItemInMachine" parent="Blender" instance=ExtResource("6_0flkr")]
 transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -0.142898, 2.53223, 0)
+hint_postfix = "in Blender"
 
 [connection signal="activated" from="Blender/Area3D" to="." method="_activated"]
 [connection signal="picked" from="Blender/ItemInMachine" to="." method="_item_picked"]

@@ -2,8 +2,10 @@ extends Node
 
 enum State { EMPTY, HAS_INGREDIENT, WORKING, SWITCHING }
 
-@export var animation_tree: AnimationTree
 @export var time_to_finish: float = 10
+@export var recipes: Array[Recipe]
+
+@export var animation_tree: AnimationTree
 @export var item_in_machine: ItemInMachine
 @export var hide_position: Vector3 = Vector3(0, -0.3, 0)
 @export var progress_bar: TextureProgressBar
@@ -30,11 +32,9 @@ func _process(delta):
 
 func _item_placed(_item: Item):
 	state = State.HAS_INGREDIENT
-	item_in_machine.set_activatable(false)
 
 func _item_picked():
 	state = State.EMPTY
-	item_in_machine.set_activatable(true)
 	progress_bar.value = 0
 
 func get_hint(_player: Player) -> String:
@@ -50,25 +50,41 @@ func get_hint(_player: Player) -> String:
 func _activated(_player: Player):
 	match state:
 		State.HAS_INGREDIENT:
+			print("HAS_INGREDIENT")
+			var res = get_result_item(item_in_machine.item)
+			if res == null:
+				print("NO RECIPE")
+				return
 			animation_tree["parameters/conditions/not_working"] = false
 			animation_tree["parameters/conditions/is_open"] = false
 			animation_tree["parameters/conditions/is_working"] = true
 			time_left = time_to_finish
 			state = State.SWITCHING
 			item_in_machine.set_pickable(false)
-			hide_item()
+			hide_item(res)
 
-func hide_item():
+func get_result_item(item: Item) -> Resource:
+	for recipe in recipes:
+		if recipe.input.size() > 0 && recipe.input[0] == item.item_name:
+			if recipe.output.size() == 0:
+				print("out == 0")
+				return null
+			return recipe.output[0]
+	print("non fpund")
+	return null
+
+func hide_item(new_item: Resource):
 	const steps = 20
-	for i in steps:
+	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1.0 * i / steps))
 		item_in_machine.scale_item(1 - 1.0 * i / steps)
 	state = State.WORKING
+	item_in_machine.instantiate_item(new_item)
 
 func show_item():
 	const steps = 20
-	for i in steps:
+	for i in range(1, steps):
 		await get_tree().create_timer(0.01).timeout
 		item_in_machine.move_delta(hide_position * (1 - 1.0 * i / steps))
 		item_in_machine.scale_item(1.0 * i / steps)
