@@ -12,6 +12,8 @@ signal arrived
 @export var textures: Array[Texture]
 @export var colors: Array[Color]
 
+@export var fly_sound: AudioStreamPlayer3D
+
 var time = 0.0 
 var rng = RandomNumberGenerator.new()
 
@@ -34,6 +36,7 @@ func fly():
 	var time = 0;
 	var speed = 1
 	var progress = 0
+	fly_sound.play()
 	while progress < 1:
 		time += delta_time
 		await get_tree().create_timer(delta_time).timeout
@@ -41,6 +44,7 @@ func fly():
 		self.progress_ratio = 1 - progress
 		speed = clamp(speed - 0.7 * delta_time, 0.1, 1)
 	self.progress_ratio = 0
+	fly_sound.stop()	
 	await get_tree().create_timer(1.0).timeout
 	arrived.emit()
 	door.open()

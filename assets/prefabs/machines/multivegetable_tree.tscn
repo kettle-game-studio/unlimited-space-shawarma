@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://b5srim0eamb8v" path="res://assets/prefabs/machines/growable_item.tscn" id="4_2ee35"]
 [ext_resource type="PackedScene" uid="uid://cwjxwx6iprmqg" path="res://assets/Room/Models/Vegetable/multi_vegetable_tree.tscn" id="5_7b3h4"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="5_18e61"]
-[ext_resource type="AudioStream" uid="uid://crg0loi35lf3f" path="res://assets/sounds/growning.mp3" id="6_pkye2"]
+[ext_resource type="AudioStream" uid="uid://dojdd1wk3p2wy" path="res://assets/sounds/water_plant.mp3" id="7_nbaeg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qmner"]
 radius = 1.81291
 
-[node name="MultivegetableTree" type="Node3D" node_paths=PackedStringArray("fruit_positions", "growing_sound")]
+[node name="MultivegetableTree" type="Node3D" node_paths=PackedStringArray("fruit_positions", "drink_sound")]
 transform = Transform3D(0.0946044, -0.47647, 0.874086, 0.05127, 0.879191, 0.473704, -0.994194, -4.47035e-08, 0.107604, 0, 0, 0)
 script = ExtResource("1_rdy0m")
 fruit_positions = [NodePath("Node3D/growable_item")]
 fruit_item = ExtResource("2_f8b5b")
-growing_sound = NodePath("Growing")
+drink_sound = NodePath("Drink")
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("hint_source")]
 transform = Transform3D(0.3, -2.40013e-09, 3.72529e-09, 2.33708e-09, 0.3, -1.56334e-09, 3.72529e-09, -1.62542e-08, 0.3, 0, 0, 0)
@@ -26,9 +26,6 @@ hint_source = NodePath("..")
 transform = Transform3D(0.999999, -6.76254e-09, 3.72529e-08, 1.73813e-08, 1, 8.55098e-08, 3.72529e-08, -6.41143e-08, 1, -0.036687, 0.184773, -0.338966)
 shape = SubResource("SphereShape3D_qmner")
 
-[node name="Growing" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_pkye2")
-
 [node name="MultiVegetableTree" parent="." instance=ExtResource("5_7b3h4")]
 transform = Transform3D(0.3, 2.2577e-09, -3.72529e-09, 2.05066e-08, 0.071, -3.12668e-09, 7.45058e-09, -5.71953e-10, 0.3, 0.0612011, 3.13092e-09, -0.00662394)
 
@@ -37,5 +34,9 @@ transform = Transform3D(-0.231144, -0.0364539, -0.187733, -0.0390146, 0.297294, 
 
 [node name="growable_item" parent="Node3D" instance=ExtResource("4_2ee35")]
 transform = Transform3D(1, -7.45058e-09, 0, -1.49012e-08, 1, 1.49012e-08, 5.96046e-08, 0, 1, 0, 0, 0)
+
+[node name="Drink" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_nbaeg")
+bus = &"Inner"
 
 [connection signal="activated" from="Area3D" to="." method="_activated"]
