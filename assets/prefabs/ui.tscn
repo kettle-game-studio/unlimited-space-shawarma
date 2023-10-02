@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy20o8tmobnno"]
+[gd_scene load_steps=6 format=3 uid="uid://cy20o8tmobnno"]
 
 [ext_resource type="Script" path="res://assets/scripts/ui_controller.gd" id="1_mknpu"]
 [ext_resource type="Theme" uid="uid://bary8s8khgg7l" path="res://assets/scenes/main_theme.theme" id="2_bbbfb"]
@@ -9,7 +9,14 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjnn8"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="UI" type="Control" node_paths=PackedStringArray("textLabel", "dialog_box")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j12sq"]
+bg_color = Color(0.737242, 0.517788, 0.186518, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="UI" type="Control" node_paths=PackedStringArray("textLabel", "dialog_box", "hunger_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_mknpu")
 textLabel = NodePath("HintBox")
 dialog_box = NodePath("VBoxContainer/MarginContainer/DialogBox")
+hunger_bar = NodePath("ProgressBar")
 
 [node name="Crosshair" type="Panel" parent="."]
 layout_mode = 1
@@ -75,6 +83,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -111.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -93,3 +103,34 @@ text = "[center]You: Foo[/center]
 "
 fit_content = true
 scroll_active = false
+
+[node name="HungerLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -65.0
+offset_right = 156.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme = ExtResource("2_bbbfb")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Hunger:
+"
+scroll_active = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 142.0
+offset_top = -56.0
+offset_right = 389.0
+offset_bottom = -29.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_j12sq")
+value = 50.0
+show_percentage = false

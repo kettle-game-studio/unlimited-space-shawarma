@@ -5,11 +5,21 @@ extends Node
 
 @export var camera_speed: float = 0.01
 @export var eating_sounds_root: Node
+@export var max_hunger: float = 10.0
+@export var hunger_seconds_total: float = 5 * 60
+
+var hunger: float = 5
 
 var eating_sounds: Array[Node]
 
 func _ready():
 	eating_sounds = eating_sounds_root.get_children()
+
+func _process(delta: float):
+	hunger -= (max_hunger / hunger_seconds_total) * delta
+	player.ui.hunger_bar.value = hunger / max_hunger * 100.0
+	if hunger < 0:
+		get_tree().change_scene_to_file("res://assets/scenes/YouLose.tscn")
 
 func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
@@ -26,6 +36,7 @@ func _input(event: InputEvent):
 		if item && item.item_data.food > 0:
 			eating_sounds.pick_random().play()
 			player.items_eaten += 1
+			hunger = min(item.item_data.food + hunger, max_hunger)
 			player.item_manager.destroy_current_item()
 
 func rotate_camera(vector: Vector2):
