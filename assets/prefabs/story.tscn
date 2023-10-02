@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwbl33sryefuw"]
+[gd_scene load_steps=49 format=3 uid="uid://cwbl33sryefuw"]
 
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="1_j04x4"]
 [ext_resource type="Resource" uid="uid://bxetr3h06krdl" path="res://assets/recipes/encounters/enc_free_fruit_tree.tres" id="2_alqry"]
@@ -14,10 +14,122 @@
 [ext_resource type="Resource" uid="uid://bc3r4hn1pxhk4" path="res://assets/recipes/encounters/enc_sandbox_rand_2.tres" id="12_eji1w"]
 [ext_resource type="Resource" uid="uid://djf8pmo8esq0f" path="res://assets/recipes/encounters/enc_sandbox_rand_3.tres" id="13_xg6eu"]
 [ext_resource type="Resource" uid="uid://2xo7ayen2y86" path="res://assets/recipes/encounters/enc_sandbox_rand_4.tres" id="14_pxf7u"]
+[ext_resource type="Resource" uid="uid://d1wukeqqtr2le" path="res://assets/prefabs/items/data/shawarma_fruit.tres" id="15_wo4af"]
+[ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="16_kgoxr"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="17_0piu8"]
+[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="18_jnpaj"]
+[ext_resource type="Resource" uid="uid://cbfnu75g32d0b" path="res://assets/prefabs/items/data/baked_multivegetable.tres" id="19_t3u7v"]
+[ext_resource type="Resource" uid="uid://dy7byaw71k3nx" path="res://assets/prefabs/items/data/mixer.tres" id="20_7exar"]
+[ext_resource type="Resource" uid="uid://cn6v1534340qn" path="res://assets/prefabs/items/data/shawarma_vegetable.tres" id="21_jsecv"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="22_yoesr"]
+[ext_resource type="Resource" uid="uid://j13874feu2cb" path="res://assets/prefabs/items/data/soup.tres" id="23_6njo3"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="24_k3vab"]
+[ext_resource type="Resource" uid="uid://rch5e0yp7pl" path="res://assets/prefabs/items/data/flatbread.tres" id="25_so73i"]
+[ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="26_tnnhn"]
+[ext_resource type="Resource" uid="uid://cvoevjh1pwyvg" path="res://assets/prefabs/items/data/microwave.tres" id="27_nfpx7"]
+[ext_resource type="Resource" uid="uid://bkotdxrahxusa" path="res://assets/prefabs/items/data/baked_multifruit.tres" id="28_2qsqp"]
+[ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="29_to7ts"]
+[ext_resource type="Resource" uid="uid://b1qjs5ckwbhlo" path="res://assets/prefabs/items/data/fruit_paste.tres" id="30_6ogqy"]
+
+[sub_resource type="Resource" id="Resource_ngwic"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("15_wo4af")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("16_kgoxr"), ExtResource("16_kgoxr"), ExtResource("16_kgoxr")])
+
+[sub_resource type="Resource" id="Resource_1ohs1"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("18_jnpaj"), ExtResource("19_t3u7v")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("20_7exar")])
+
+[sub_resource type="Resource" id="Resource_iekhk"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("20_7exar")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("15_wo4af"), ExtResource("21_jsecv")])
+
+[sub_resource type="Resource" id="Resource_4x0ms"]
+script = ExtResource("22_yoesr")
+recipes = Array[ExtResource("17_0piu8")]([SubResource("Resource_ngwic"), SubResource("Resource_1ohs1"), SubResource("Resource_iekhk")])
+alien_says = ""
+player_says = ""
+
+[sub_resource type="Resource" id="Resource_80bv0"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("23_6njo3"), ExtResource("18_jnpaj")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("19_t3u7v"), ExtResource("19_t3u7v"), ExtResource("19_t3u7v")])
+
+[sub_resource type="Resource" id="Resource_7y2hg"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("24_k3vab")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("25_so73i")])
+
+[sub_resource type="Resource" id="Resource_tvmt8"]
+script = ExtResource("22_yoesr")
+recipes = Array[ExtResource("17_0piu8")]([SubResource("Resource_80bv0"), SubResource("Resource_7y2hg")])
+alien_says = ""
+player_says = ""
+
+[sub_resource type="Resource" id="Resource_20ggb"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("26_tnnhn"), ExtResource("27_nfpx7"), ExtResource("20_7exar")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("16_kgoxr")])
+
+[sub_resource type="Resource" id="Resource_yw4ec"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("18_jnpaj")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("23_6njo3")])
+
+[sub_resource type="Resource" id="Resource_tm38w"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("23_6njo3")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("18_jnpaj")])
+
+[sub_resource type="Resource" id="Resource_dyhbu"]
+script = ExtResource("22_yoesr")
+recipes = Array[ExtResource("17_0piu8")]([SubResource("Resource_20ggb"), SubResource("Resource_yw4ec"), SubResource("Resource_tm38w")])
+alien_says = ""
+player_says = ""
+
+[sub_resource type="Resource" id="Resource_i3pb6"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("28_2qsqp"), ExtResource("18_jnpaj"), ExtResource("15_wo4af")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("20_7exar")])
+
+[sub_resource type="Resource" id="Resource_vd3y7"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("19_t3u7v"), ExtResource("23_6njo3"), ExtResource("21_jsecv")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("26_tnnhn")])
+
+[sub_resource type="Resource" id="Resource_chgdp"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("29_to7ts"), ExtResource("30_6ogqy"), ExtResource("25_so73i")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("27_nfpx7")])
+
+[sub_resource type="Resource" id="Resource_ioo4d"]
+script = ExtResource("22_yoesr")
+recipes = Array[ExtResource("17_0piu8")]([SubResource("Resource_i3pb6"), SubResource("Resource_vd3y7"), SubResource("Resource_chgdp")])
+alien_says = ""
+player_says = ""
+
+[sub_resource type="Resource" id="Resource_8yhbn"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("21_jsecv")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("25_so73i"), ExtResource("25_so73i"), ExtResource("25_so73i")])
+
+[sub_resource type="Resource" id="Resource_ls8vd"]
+script = ExtResource("17_0piu8")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("28_2qsqp")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("25_so73i"), ExtResource("25_so73i"), ExtResource("25_so73i")])
+
+[sub_resource type="Resource" id="Resource_onhyp"]
+script = ExtResource("22_yoesr")
+recipes = Array[ExtResource("17_0piu8")]([SubResource("Resource_8yhbn"), SubResource("Resource_ls8vd")])
+alien_says = ""
+player_says = ""
 
 [node name="Story" type="Node3D"]
 script = ExtResource("1_j04x4")
 free_fruit_tree = ExtResource("2_alqry")
-blender_encounters = Array[Resource("res://assets/scripts/encounter.gd")]([ExtResource("3_8vp6l"), ExtResource("4_curgh")])
-sandbox_encounters = Array[Resource("res://assets/scripts/encounter.gd")]([ExtResource("5_0ishh"), ExtResource("6_k661i"), ExtResource("7_dfku3"), ExtResource("8_3k6cg"), ExtResource("9_ptf18"), ExtResource("10_cvq64")])
-sandbox_random_encounters = Array[Resource("res://assets/scripts/encounter.gd")]([ExtResource("11_vyg5g"), ExtResource("12_eji1w"), ExtResource("13_xg6eu"), ExtResource("14_pxf7u")])
+blender_encounters = Array[ExtResource("22_yoesr")]([ExtResource("3_8vp6l"), ExtResource("4_curgh")])
+sandbox_encounters = Array[ExtResource("22_yoesr")]([ExtResource("5_0ishh"), ExtResource("6_k661i"), ExtResource("7_dfku3"), ExtResource("8_3k6cg"), ExtResource("9_ptf18"), ExtResource("10_cvq64")])
+sandbox_random_encounters = Array[ExtResource("22_yoesr")]([ExtResource("11_vyg5g"), ExtResource("12_eji1w"), ExtResource("13_xg6eu"), ExtResource("14_pxf7u")])
+freeplay_encounters = Array[ExtResource("22_yoesr")]([SubResource("Resource_4x0ms"), SubResource("Resource_tvmt8"), SubResource("Resource_dyhbu"), SubResource("Resource_ioo4d"), SubResource("Resource_onhyp")])

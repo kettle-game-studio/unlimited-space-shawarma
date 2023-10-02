@@ -16,6 +16,7 @@ func story_routine():
 	await part_2()
 	await part_3()
 	await part_4()
+	await freeplay()
 
 # Eating our first apple
 func part_1():
@@ -90,6 +91,19 @@ func part_4():
 	
 		await get_tree().create_timer(10.0).timeout
 		await play_encounter(sandbox_random_encounters.pick_random())
+		await wait_for_ship_fly_away()
+
+@export var freeplay_encounters: Array[Encounter]
+
+func freeplay():
+	freeplay_encounters.append_array(sandbox_random_encounters)
+	while true:
+		await get_tree().create_timer(7.0).timeout
+		await play_encounter(freeplay_encounters.pick_random())
+		await wait_for_ship_fly_away()
+		
+		await get_tree().create_timer(10.0).timeout
+		await play_encounter(freeplay_encounters.pick_random())
 		await wait_for_ship_fly_away()
 
 func wait_for(f: Callable, time_limit: float) -> bool:

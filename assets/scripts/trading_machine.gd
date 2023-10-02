@@ -22,7 +22,7 @@ var last_encounter_result: bool
 func _ready():
 	door.connect("is_open", _is_open)
 	door.connect("is_closed", _is_closed)
-	set_activatable(false)
+	set_activatable(true)
 	
 	ship.connect("arrived", _on_ship_arrived)
 	ship.connect("disappeared", _on_ship_disappeared)
@@ -50,13 +50,13 @@ func stop_trading():
 	door.close()
 	ship.fly_away()
 	state = State.SWITCHING
-	set_activatable(false)
+	#set_activatable(false)
 	computer_ui.disable()
 	ship.person.set_talking(false)
 	
 func _is_open():
 	state = State.CAN_TRADE
-	set_activatable(true)
+	#set_activatable(true)
 
 func _is_closed():
 	print("is closed")
