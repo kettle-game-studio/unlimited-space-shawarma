@@ -8,4 +8,4 @@
 [resource]
 script = ExtResource("1_fwtnr")
 input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_goa0s")])
-output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_u5g2x"), ExtResource("3_t2qwo")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_u5g2x"), ExtResource("3_t2qwo"), ExtResource("3_t2qwo")])

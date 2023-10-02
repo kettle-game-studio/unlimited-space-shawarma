@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cwbl33sryefuw"]
+[gd_scene load_steps=51 format=3 uid="uid://cwbl33sryefuw"]
 
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="1_j04x4"]
 [ext_resource type="Resource" uid="uid://bxetr3h06krdl" path="res://assets/recipes/encounters/enc_free_fruit_tree.tres" id="2_alqry"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bc3r4hn1pxhk4" path="res://assets/recipes/encounters/enc_sandbox_rand_2.tres" id="12_eji1w"]
 [ext_resource type="Resource" uid="uid://djf8pmo8esq0f" path="res://assets/recipes/encounters/enc_sandbox_rand_3.tres" id="13_xg6eu"]
 [ext_resource type="Resource" uid="uid://2xo7ayen2y86" path="res://assets/recipes/encounters/enc_sandbox_rand_4.tres" id="14_pxf7u"]
+[ext_resource type="Resource" uid="uid://c1u8q1jmvb0b1" path="res://assets/recipes/encounters/enc_sandbox_rand_5.tres" id="15_kwbx3"]
 [ext_resource type="Resource" uid="uid://d1wukeqqtr2le" path="res://assets/prefabs/items/data/shawarma_fruit.tres" id="15_wo4af"]
 [ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="16_kgoxr"]
 [ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="17_0piu8"]
@@ -130,8 +131,8 @@ player_says = ""
 [node name="Story" type="Node3D"]
 script = ExtResource("1_j04x4")
 free_fruit_tree = ExtResource("2_alqry")
-blender_encounters = Array[ExtResource("22_yoesr")]([ExtResource("3_8vp6l"), ExtResource("4_curgh")])
+blender_encounters = Array[ExtResource("22_yoesr")]([ExtResource("3_8vp6l"), ExtResource("15_kwbx3"), ExtResource("4_curgh")])
 sandbox_encounters = Array[ExtResource("22_yoesr")]([ExtResource("5_0ishh"), ExtResource("6_k661i"), ExtResource("7_dfku3"), ExtResource("8_3k6cg"), ExtResource("9_ptf18"), ExtResource("10_cvq64")])
-sandbox_random_encounters = Array[ExtResource("22_yoesr")]([ExtResource("11_vyg5g"), ExtResource("12_eji1w"), ExtResource("13_xg6eu"), ExtResource("14_pxf7u")])
-freeplay_encounters = Array[ExtResource("22_yoesr")]([SubResource("Resource_4x0ms"), SubResource("Resource_tvmt8"), SubResource("Resource_dyhbu"), SubResource("Resource_ioo4d"), SubResource("Resource_onhyp")])
+sandbox_random_encounters = Array[ExtResource("22_yoesr")]([ExtResource("11_vyg5g"), ExtResource("12_eji1w"), ExtResource("13_xg6eu"), ExtResource("14_pxf7u"), ExtResource("15_kwbx3"), ExtResource("15_kwbx3")])
+freeplay_encounters = Array[ExtResource("22_yoesr")]([SubResource("Resource_4x0ms"), SubResource("Resource_tvmt8"), SubResource("Resource_dyhbu"), SubResource("Resource_ioo4d"), SubResource("Resource_onhyp"), ExtResource("15_kwbx3"), ExtResource("15_kwbx3")])
 save_encounter = ExtResource("31_pnhxr")
