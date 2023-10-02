@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://b8n1dvndphit1"]
+
+[ext_resource type="Resource" uid="uid://rch5e0yp7pl" path="res://assets/prefabs/items/data/flatbread.tres" id="1_ucx2x"]
+[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="2_3uoa2"]
+[ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="3_vj5ff"]
+[ext_resource type="Resource" uid="uid://wct5g8jqil48" path="res://assets/prefabs/items/data/multifruit.tres" id="4_ko2d6"]
+[ext_resource type="Resource" uid="uid://chkci2ijb5oqh" path="res://assets/prefabs/items/data/multivegetable.tres" id="5_lidg6"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="7_3ee63"]
+
+[resource]
+script = ExtResource("7_3ee63")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_ucx2x"), ExtResource("2_3uoa2"), ExtResource("3_vj5ff")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("4_ko2d6"), ExtResource("5_lidg6")])
