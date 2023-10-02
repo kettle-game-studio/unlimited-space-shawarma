@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=37 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -25,7 +25,8 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
-[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="Texture2D" uid="uid://cosr0ho4wwkx0" path="res://assets/writings/store_items_here.png" id="23_tec54"]
 [ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="29_msbef"]
@@ -185,6 +186,10 @@ notes = [NodePath("BlenderRecipes"), NodePath("MixerRecipes"), NodePath("Microwa
 [node name="BlenderRecipes" type="Sprite3D" parent="Notes"]
 transform = Transform3D(-1.31625e-08, 4.26112e-12, 1, 0.0259694, 0.298874, 3.78386e-09, -0.298874, 0.0259694, -4.37114e-08, -4.36019, 1.62224, 1.01557)
 texture = ExtResource("13_5tiix")
+
+[node name="StoreItemsHere" type="Sprite3D" parent="Notes"]
+transform = Transform3D(-1.31134e-08, 0, -1, -0.0842805, 0.287918, 1.228e-08, 0.287918, 0.0842805, -4.1951e-08, 2.94967, 3.76168, 1.94968)
+texture = ExtResource("23_tec54")
 
 [node name="MicrowaveRecipes" type="Sprite3D" parent="Notes"]
 transform = Transform3D(-1.30018e-08, -2.05009e-09, 1, -0.0209948, 0.299264, 3.78386e-09, -0.299264, -0.0209948, -4.37114e-08, -4.36019, 1.67717, -1.12849)
