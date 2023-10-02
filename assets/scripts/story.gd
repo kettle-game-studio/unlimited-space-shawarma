@@ -12,10 +12,10 @@ func _ready():
 	story_routine()
 
 func story_routine():
-	# await part_1()
-	# await part_2()
-	# await part_3()
-	part_4()
+	await part_1()
+	await part_2()
+	await part_3()
+	await part_4()
 
 # Eating our first apple
 func part_1():
@@ -77,18 +77,18 @@ var vegetable_item_data = preload("res://assets/prefabs/items/data/multivegetabl
 # sandboxing
 func part_4():
 	while sandbox_encounters.size() != 0:
-		# sandbox_encounte_idx = sandbox_encounte_idx % sandbox_encounters.size()
-		# # await get_tree().create_timer(10.0).timeout
-		# await play_encounter(sandbox_encounters[sandbox_encounte_idx])
-		# await wait_for_ship_fly_away()
-		# 
-		# if trading_machine.last_encounter_result:
-		# 	sandbox_encounters.remove_at(sandbox_encounte_idx)
-		# 	print("sandbox_encounters.size() = ", sandbox_encounters.size())
-		# else:
-		# 	sandbox_encounte_idx += 1
-			
+		sandbox_encounte_idx = sandbox_encounte_idx % sandbox_encounters.size()
 		# await get_tree().create_timer(10.0).timeout
+		await play_encounter(sandbox_encounters[sandbox_encounte_idx])
+		await wait_for_ship_fly_away()
+		
+		if trading_machine.last_encounter_result:
+			sandbox_encounters.remove_at(sandbox_encounte_idx)
+			print("sandbox_encounters.size() = ", sandbox_encounters.size())
+		else:
+			sandbox_encounte_idx += 1
+	
+		await get_tree().create_timer(10.0).timeout
 		await play_encounter(sandbox_random_encounters.pick_random())
 		await wait_for_ship_fly_away()
 
