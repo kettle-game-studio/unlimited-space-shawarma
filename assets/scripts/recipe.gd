@@ -14,6 +14,9 @@ static func find_recipe(slots: Array[ItemInMachine], r: Array[Recipe]) -> Recipe
 	return longest_recipe
 
 static func check_recipe(slots: Array[ItemInMachine], recipe: Recipe) -> bool:
+	if recipe.input.size() == 0 && recipe.output.size() == 0:
+		return true
+	
 	var slots_items: Array[ItemData] = []
 	for slot in slots:
 		if slot.item:

@@ -8,7 +8,7 @@ class_name ComputerUIPoint
 @export var out_textures: Array[TextureRect]
 
 func set_recipe(recipe: Recipe) -> void:
-	self.visible = recipe != null
+	self.visible = recipe != null && (recipe.input.size() != 0 || recipe.output.size() != 0)
 	if recipe == null:
 		return
 	

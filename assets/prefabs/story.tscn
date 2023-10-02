@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cwbl33sryefuw"]
+[gd_scene load_steps=50 format=3 uid="uid://cwbl33sryefuw"]
 
 [ext_resource type="Script" path="res://assets/scripts/story.gd" id="1_j04x4"]
 [ext_resource type="Resource" uid="uid://bxetr3h06krdl" path="res://assets/recipes/encounters/enc_free_fruit_tree.tres" id="2_alqry"]
@@ -30,6 +30,7 @@
 [ext_resource type="Resource" uid="uid://bkotdxrahxusa" path="res://assets/prefabs/items/data/baked_multifruit.tres" id="28_2qsqp"]
 [ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="29_to7ts"]
 [ext_resource type="Resource" uid="uid://b1qjs5ckwbhlo" path="res://assets/prefabs/items/data/fruit_paste.tres" id="30_6ogqy"]
+[ext_resource type="Resource" uid="uid://7ihoxbxhtgdl" path="res://assets/recipes/encounters/enc_save.tres" id="31_pnhxr"]
 
 [sub_resource type="Resource" id="Resource_ngwic"]
 script = ExtResource("17_0piu8")
@@ -133,3 +134,4 @@ blender_encounters = Array[ExtResource("22_yoesr")]([ExtResource("3_8vp6l"), Ext
 sandbox_encounters = Array[ExtResource("22_yoesr")]([ExtResource("5_0ishh"), ExtResource("6_k661i"), ExtResource("7_dfku3"), ExtResource("8_3k6cg"), ExtResource("9_ptf18"), ExtResource("10_cvq64")])
 sandbox_random_encounters = Array[ExtResource("22_yoesr")]([ExtResource("11_vyg5g"), ExtResource("12_eji1w"), ExtResource("13_xg6eu"), ExtResource("14_pxf7u")])
 freeplay_encounters = Array[ExtResource("22_yoesr")]([SubResource("Resource_4x0ms"), SubResource("Resource_tvmt8"), SubResource("Resource_dyhbu"), SubResource("Resource_ioo4d"), SubResource("Resource_onhyp")])
+save_encounter = ExtResource("31_pnhxr")
