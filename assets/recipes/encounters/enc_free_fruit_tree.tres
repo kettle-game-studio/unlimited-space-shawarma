@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=3 format=3 uid="uid://bxetr3h06krdl"]
+
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="1_566o3"]
+[ext_resource type="Resource" uid="uid://dvwpyhv3eqbm" path="res://assets/recipes/encounters/recipe_free_fruit_tree.tres" id="1_t52qu"]
+
+[resource]
+script = ExtResource("1_566o3")
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("1_t52qu")])
+alien_says = "I have heared your S.O.S. I'm son sorry that I can't take you on my ship right now. But I can give you this multifruit sapling and some water"
+player_says = "Well, thank you for that"

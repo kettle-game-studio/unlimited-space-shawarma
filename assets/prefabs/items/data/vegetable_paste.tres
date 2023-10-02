@@ -8,3 +8,4 @@ script = ExtResource("2_6apir")
 item_name = "Vegetable Paste"
 icon = ExtResource("1_0pdv0")
 prefab = "res://assets/prefabs/items/item_vegetable_paste.tscn"
+food = 0.0

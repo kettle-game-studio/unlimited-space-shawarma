@@ -8,3 +8,4 @@ script = ExtResource("2_qy4lx")
 item_name = "Mixer"
 icon = ExtResource("1_wx4gw")
 prefab = "res://assets/prefabs/items/item_mixer.tscn"
+food = 0.0
