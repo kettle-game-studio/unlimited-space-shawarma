@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://46k7pi72w0l4"]
+[gd_scene load_steps=4 format=3 uid="uid://46k7pi72w0l4"]
 
 [ext_resource type="Script" path="res://assets/scripts/computer_ui_point.gd" id="1_41lmj"]
+[ext_resource type="LabelSettings" uid="uid://b3nr5c3t73iur" path="res://assets/prefabs/machines/computer_ui_point_labels_settings.tres" id="1_kgt1q"]
 [ext_resource type="Texture2D" uid="uid://di31vekefloj" path="res://assets/item_icons/apple.png" id="1_o23mv"]
 
 [node name="Eq1" type="Label" node_paths=PackedStringArray("in_plus", "in_textures", "out_plus", "out_textures")]
@@ -18,12 +19,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "="
 script = ExtResource("1_41lmj")
 in_plus = [NodePath("In/Plus1"), NodePath("In/Plus2")]
 in_textures = [NodePath("In/In1"), NodePath("In/In2"), NodePath("In/In3")]
 out_plus = [NodePath("Out/Plus2"), NodePath("Out/Plus1")]
 out_textures = [NodePath("Out/In3"), NodePath("Out/In2"), NodePath("Out/In1")]
+
+[node name="Plus3" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -38.0
+offset_right = 22.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "→"
+label_settings = ExtResource("1_kgt1q")
 
 [node name="In" type="Control" parent="."]
 use_parent_material = true
@@ -48,6 +67,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "+"
+label_settings = ExtResource("1_kgt1q")
 
 [node name="Plus2" type="Label" parent="In"]
 use_parent_material = true
@@ -66,6 +86,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "+"
+label_settings = ExtResource("1_kgt1q")
 
 [node name="In1" type="TextureRect" parent="In"]
 use_parent_material = true
@@ -148,6 +169,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "+"
+label_settings = ExtResource("1_kgt1q")
 
 [node name="Plus2" type="Label" parent="Out"]
 use_parent_material = true
@@ -166,6 +188,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "+"
+label_settings = ExtResource("1_kgt1q")
 
 [node name="In1" type="TextureRect" parent="Out"]
 use_parent_material = true
