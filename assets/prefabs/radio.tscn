@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/radio.gd" id="1_ij06s"]
 [ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="2_sdxu4"]
-[ext_resource type="Texture2D" uid="uid://b2vp3gpxgnbya" path="res://assets/Room/Radio_RadioColor.png" id="4_nkgvh"]
+[ext_resource type="Texture2D" uid="uid://b3djk1xmtdj7i" path="res://assets/Room/RadioColor.png" id="4_e323g"]
 [ext_resource type="Script" path="res://assets/scripts/button.gd" id="4_pmeq8"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="5_7jc0b"]
 [ext_resource type="AudioStream" uid="uid://c607x0sf17vna" path="res://assets/music/ambient1.mp3" id="6_hmxft"]
@@ -12,7 +12,7 @@
 resource_name = "RadioMaterial"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_nkgvh")
+albedo_texture = ExtResource("4_e323g")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qcfh5"]
@@ -170,7 +170,7 @@ max_db = -1.699
 bus = &"Blender"
 
 [node name="PlayButton2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000281096, -0.364881, -0.0012517)
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -0.000281096, -0.364881, -0.0012517)
 mesh = SubResource("ArrayMesh_uqifx")
 skeleton = NodePath("")
 script = ExtResource("4_pmeq8")
@@ -188,15 +188,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000268246, 7.45058e-09, -0
 shape = SubResource("BoxShape3D_feqi4")
 
 [node name="ProgressSprite" parent="." instance=ExtResource("9_stcsm")]
-transform = Transform3D(-2.39395e-09, 0, 1, 0, 0.06472, 0, -0.0547673, 0, -4.37114e-08, 0.152181, 0.231886, 0.51246)
+transform = Transform3D(-2.39395e-09, 0, 1, 0, 0.06472, 0, -0.0547673, 0, -4.37114e-08, 0.211581, 0.858187, -0.740142)
 
 [node name="Radio2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000281096, -0.364881, -0.0012517)
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -0.000281096, -0.364881, -0.0012517)
 mesh = SubResource("ArrayMesh_yj05m")
 skeleton = NodePath("")
 
 [node name="IncButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000281096, -0.364881, -0.0012517)
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -0.000281096, -0.364881, -0.0012517)
 mesh = SubResource("ArrayMesh_nt1ml")
 skeleton = NodePath("")
 script = ExtResource("4_pmeq8")
@@ -214,7 +214,7 @@ transform = Transform3D(1, 2.5411e-21, -7.57306e-29, 0, -4.37114e-08, -1, -2.541
 shape = SubResource("CylinderShape3D_6g8xo")
 
 [node name="DecButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000281096, -0.364881, -0.0012517)
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -0.000281096, -0.364881, -0.0012517)
 mesh = SubResource("ArrayMesh_lyxh1")
 skeleton = NodePath("")
 script = ExtResource("4_pmeq8")
