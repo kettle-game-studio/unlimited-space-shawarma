@@ -4,7 +4,7 @@ extends Node
 @export var camera: Camera3D
 
 @export var camera_speed: float = 0.01
-@export var eating_sounds_root: Node;
+@export var eating_sounds_root: Node
 
 var eating_sounds: Array[Node]
 

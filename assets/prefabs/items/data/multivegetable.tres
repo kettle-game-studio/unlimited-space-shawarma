@@ -8,3 +8,4 @@ script = ExtResource("2_yedjo")
 item_name = "Multivegetable"
 icon = ExtResource("1_wq3da")
 prefab = "res://assets/prefabs/items/item_multivegetable.tscn"
+food = 2.0

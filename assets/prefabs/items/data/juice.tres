@@ -8,3 +8,4 @@ script = ExtResource("2_lmo87")
 item_name = "Juice"
 icon = ExtResource("1_ywxs2")
 prefab = "res://assets/prefabs/items/item_juice.tscn"
+food = 2.0

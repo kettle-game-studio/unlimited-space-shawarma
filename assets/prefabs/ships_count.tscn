@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://di02oa08re6wu"]
+
+[ext_resource type="Script" path="res://assets/scripts/ships_count.gd" id="1_bk64m"]
+[ext_resource type="Texture2D" uid="uid://cer2wmfogcabt" path="res://assets/writings/ships_passed_by.png" id="1_is1ng"]
+[ext_resource type="PackedScene" uid="uid://bmjprhxriyekc" path="res://assets/prefabs/line_count.tscn" id="2_cl8l6"]
+
+[node name="ShipsCount" type="Node3D" node_paths=PackedStringArray("line_counts", "header")]
+script = ExtResource("1_bk64m")
+line_counts = [NodePath("LineCount"), NodePath("LineCount2"), NodePath("LineCount3")]
+header = NodePath("Header")
+
+[node name="Header" type="Sprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.274192, 0)
+texture = ExtResource("1_is1ng")
+
+[node name="LineCount" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.294893, -0.0551185, 0, 0.0551185, 0.294893, 0, 0, 0, 1, -0.242747, -0.611877, 0)
+
+[node name="LineCount2" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.286925, -0.0876013, 0, 0.0876013, 0.286925, 0, 0, 0, 1, 0.394863, -0.632712, 0)
+
+[node name="LineCount3" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.293453, 0.0623325, 0, -0.0623325, 0.293453, 0, 0, 0, 1, 0, -0.914008, 0)
+
+[node name="LineCount4" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.297378, -0.0395783, 0, 0.0395783, 0.297378, 0, 0, 0, 1, -0.245988, -1.29462, 0)
+
+[node name="LineCount5" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.296069, -0.0484088, 0, 0.0484088, 0.296069, 0, 0, 0, 1, 0.393005, -1.10482, 0)
+
+[node name="LineCount6" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.292649, 0.0660049, 0, -0.0660049, 0.292649, 0, 0, 0, 1, 0.130291, -1.37881, 0)
+
+[node name="LineCount7" parent="." instance=ExtResource("2_cl8l6")]
+transform = Transform3D(0.295121, 0.0538828, 0, -0.0538828, 0.295121, 0, 0, 0, 1, -0.0692137, -1.60279, 0)

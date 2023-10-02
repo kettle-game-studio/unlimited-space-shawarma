@@ -11,6 +11,7 @@ enum State { DISABLED, CAN_TRADE, SWITCHING }
 @export var seconds_to_trade: float = 2.0
 @export var ship: SpaceShip
 @export var ui_controller: UIController
+@export var ships_count: ShipsCount
 
 var state = State.DISABLED
 var can_decline: bool = true
@@ -22,7 +23,7 @@ var last_encounter_result: bool
 func _ready():
 	door.connect("is_open", _is_open)
 	door.connect("is_closed", _is_closed)
-	set_activatable(false)
+	set_activatable(true)
 	
 	ship.connect("arrived", _on_ship_arrived)
 	ship.connect("disappeared", _on_ship_disappeared)
@@ -47,16 +48,17 @@ func start_trading():
 	computer_ui.set_recipes(recipes)
 
 func stop_trading():
+	ships_count.inc_count()
 	door.close()
 	ship.fly_away()
 	state = State.SWITCHING
-	set_activatable(false)
+	#set_activatable(false)
 	computer_ui.disable()
 	ship.person.set_talking(false)
 	
 func _is_open():
 	state = State.CAN_TRADE
-	set_activatable(true)
+	#set_activatable(true)
 
 func _is_closed():
 	print("is closed")
