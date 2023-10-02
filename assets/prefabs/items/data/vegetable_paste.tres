@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c4d8gk1vunjee"]
+
+[ext_resource type="Texture2D" uid="uid://y552j55ih12y" path="res://assets/item_icons/vegetable_paste.png" id="1_0pdv0"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_6apir"]
+
+[resource]
+script = ExtResource("2_6apir")
+item_name = "Vegetable Paste"
+icon = ExtResource("1_0pdv0")
+prefab = "res://assets/prefabs/items/item_vegetable_paste.tscn"

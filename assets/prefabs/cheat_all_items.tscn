@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx4jk77acdqos"]
+[gd_scene load_steps=15 format=3 uid="uid://bx4jk77acdqos"]
 
 [ext_resource type="PackedScene" uid="uid://hnrh27wt66pr" path="res://assets/prefabs/items/item_blender.tscn" id="1_4boix"]
 [ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="2_3g86r"]
@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dofxhrsb5v5cx" path="res://assets/prefabs/items/item_multivegetable.tscn" id="6_ihnsa"]
 [ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="7_u5gjx"]
 [ext_resource type="PackedScene" uid="uid://bukds5s23wce7" path="res://assets/prefabs/items/item_multivegetable_tree.tscn" id="8_wudie"]
+[ext_resource type="PackedScene" uid="uid://cap00wrrv05ph" path="res://assets/prefabs/items/item_baked_multifruit.tscn" id="9_2dn8v"]
+[ext_resource type="PackedScene" uid="uid://ddtyo421jmevb" path="res://assets/prefabs/items/item_juice.tscn" id="10_vcqha"]
+[ext_resource type="PackedScene" uid="uid://cgqdntuamn3bo" path="res://assets/prefabs/items/item_soup.tscn" id="11_24ntx"]
+[ext_resource type="PackedScene" uid="uid://cv7jv6w3s10pc" path="res://assets/prefabs/items/item_vegetable_paste.tscn" id="12_srlvs"]
+[ext_resource type="PackedScene" uid="uid://c4t1l3fkw2e1m" path="res://assets/prefabs/items/item_fruit_paste.tscn" id="13_jllmj"]
+[ext_resource type="PackedScene" uid="uid://u0voh8rdoldi" path="res://assets/prefabs/items/item_flatbread.tscn" id="14_n562m"]
 
 [node name="CheatAllItems" type="Node3D"]
 
@@ -51,3 +57,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73434, 0, 0.570922)
 
 [node name="Item14" parent="." instance=ExtResource("8_wudie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72921, 0, -0.413647)
+
+[node name="Item15" parent="." instance=ExtResource("9_2dn8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20157, 0, -2.01927)
+
+[node name="Item16" parent="." instance=ExtResource("10_vcqha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12543, 0, -1.98966)
+
+[node name="Item17" parent="." instance=ExtResource("11_24ntx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13618, 0, -2.67633)
+
+[node name="Item18" parent="." instance=ExtResource("12_srlvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03789, 0, -2.06866)
+
+[node name="Item19" parent="." instance=ExtResource("13_jllmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58075, 0, -2.0134)
+
+[node name="Item20" parent="." instance=ExtResource("14_n562m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74499, 0, -1.93564)

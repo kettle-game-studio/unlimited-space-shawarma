@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://cmbeq48ygvn62"]
+
+[ext_resource type="Resource" uid="uid://chkci2ijb5oqh" path="res://assets/prefabs/items/data/multivegetable.tres" id="1_sk5yw"]
+[ext_resource type="Resource" uid="uid://cbfnu75g32d0b" path="res://assets/prefabs/items/data/baked_multivegetable.tres" id="2_4dvq5"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_80kvm"]
+
+[resource]
+script = ExtResource("3_80kvm")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_sk5yw")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_4dvq5")])

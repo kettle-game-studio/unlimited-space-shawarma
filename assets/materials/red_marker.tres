@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccq4s3h0ohy1j"]
+
+[ext_resource type="Texture2D" uid="uid://cytkh6pokywg" path="res://assets/Room/RedMarkerColor.png" id="1_r5xdu"]
+
+[resource]
+albedo_texture = ExtResource("1_r5xdu")

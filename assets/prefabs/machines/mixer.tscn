@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://enrfjd1xwx6h"]
+[gd_scene load_steps=17 format=3 uid="uid://enrfjd1xwx6h"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_l7lvb"]
-[ext_resource type="Resource" uid="uid://dsu35m1jvkkb6" path="res://assets/recipes/mixer_water_and_fruit_to_fruit_tree.tres" id="2_ty2dd"]
+[ext_resource type="Resource" uid="uid://da1p6htrya3i2" path="res://assets/recipes/mixer_juice.tres" id="2_5n6vb"]
+[ext_resource type="Resource" uid="uid://cssomq4j8px62" path="res://assets/recipes/mixer_soup.tres" id="3_bu3sv"]
 [ext_resource type="AudioStream" uid="uid://cbjcttjcqugyu" path="res://assets/sounds/blender.mp3" id="3_jq708"]
 [ext_resource type="AudioStream" uid="uid://dbl5igebjqcvd" path="res://assets/sounds/blender_close.mp3" id="4_74b2y"]
+[ext_resource type="Resource" uid="uid://hn4dows71pi1" path="res://assets/recipes/mixer_fruit_shawarma.tres" id="4_ukua6"]
 [ext_resource type="AudioStream" uid="uid://uv5wj7bhco1a" path="res://assets/sounds/blender_open.mp3" id="5_lsr0a"]
+[ext_resource type="Resource" uid="uid://bc53f6c83na3a" path="res://assets/recipes/mixer_vegetable_shawarma.tres" id="5_qs7ga"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="6_sollg"]
 [ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="8_ij2ob"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="9_6pi11"]
@@ -26,7 +29,7 @@ radius = 0.742081
 script = ExtResource("1_l7lvb")
 time_to_finish = 1.0
 item_animation_target_size = 1.0
-recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_ty2dd")])
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_5n6vb"), ExtResource("3_bu3sv"), ExtResource("4_ukua6"), ExtResource("5_qs7ga")])
 noun = "Mixer"
 verb = "Mixing"
 animation_tree = NodePath("Mixer/AnimationPlayer/AnimationTree")
@@ -75,7 +78,7 @@ bone_idx = 0
 transform = Transform3D(0.03, 8.98589e-17, 2.68234e-15, -1.66533e-16, 0.0161872, 0.48321, 1.88041e-21, -0.0310318, 0.252058, 7.99361e-15, 0.33426, 0.0814948)
 
 [node name="BoneAttachmentLeft" type="BoneAttachment3D" parent="Mixer/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.733905, 0.679252, 3.93312e-07, -0.679252, 0.733905, -2.29664e-07, -4.44654e-07, -9.86065e-08, 1, 0, 0.260838, 0)
+transform = Transform3D(0.733905, 0.679252, 3.93313e-07, -0.679252, 0.733905, -2.29665e-07, -4.44654e-07, -9.86066e-08, 1, 0, 0.260838, 0)
 bone_name = "B1.R"
 bone_idx = 4
 
@@ -84,6 +87,7 @@ transform = Transform3D(1.37525e-07, -0.226417, 0.244635, 2.29719e-08, 0.244635,
 
 [node name="ItemInMachine" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft" instance=ExtResource("10_yxjke")]
 transform = Transform3D(1, -2.52437e-29, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+hint_postfix = "in Mixer"
 
 [node name="CollisionShape3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentLeft/ItemPointLeft/ItemInMachine/Area3D" index="0"]
 transform = Transform3D(1, -2.52437e-29, 0, 0, 1, 0, 0, 0, 1, 0, 0.764761, 3.57628e-07)
@@ -98,6 +102,7 @@ bone_idx = 2
 transform = Transform3D(7.75512e-08, 0.226417, 0.244635, 4.27659e-08, 0.244635, -0.226417, -0.333333, 8.40629e-08, 2.78663e-08, -0.195392, 0.279622, -9.58374e-09)
 
 [node name="ItemInMachine" parent="Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight" instance=ExtResource("10_yxjke")]
+hint_postfix = "in Mixer"
 
 [node name="CollisionShape3D" parent="Mixer/Armature/Skeleton3D/BoneAttachmentRight/ItemPointRight/ItemInMachine/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.716123, 0.133232)

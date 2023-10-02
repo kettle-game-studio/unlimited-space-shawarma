@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://moc0lngc1uk7"]
+
+[ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="1_b8phi"]
+[ext_resource type="Resource" uid="uid://rch5e0yp7pl" path="res://assets/prefabs/items/data/flatbread.tres" id="2_k0jtb"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_jc865"]
+
+[resource]
+script = ExtResource("3_jc865")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_b8phi")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_k0jtb")])

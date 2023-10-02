@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bkotdxrahxusa"]
+
+[ext_resource type="Texture2D" uid="uid://ilmv4pn31s6j" path="res://assets/item_icons/baked_multifruit.png" id="1_mmw7h"]
+[ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_tia0d"]
+
+[resource]
+script = ExtResource("2_tia0d")
+item_name = "Baked Multifruit"
+icon = ExtResource("1_mmw7h")
+prefab = "res://assets/prefabs/items/item_baked_multifruit.tscn"

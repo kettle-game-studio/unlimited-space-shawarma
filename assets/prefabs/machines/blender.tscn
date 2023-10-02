@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://2g7ib2rvd6ya"]
+[gd_scene load_steps=14 format=3 uid="uid://2g7ib2rvd6ya"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_2xnpc"]
 [ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="1_fxwsn"]
+[ext_resource type="Resource" uid="uid://c1p6p3kqh6tqk" path="res://assets/recipes/blender_fruit.tres" id="2_18hhh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="2_arb5q"]
-[ext_resource type="Resource" uid="uid://csrxt4n1e88c2" path="res://assets/recipes/blener_multifruit_to_water.tres" id="2_x5d41"]
+[ext_resource type="Resource" uid="uid://1rr3qlq7wler" path="res://assets/recipes/blender_vegetable.tres" id="3_8jddn"]
 [ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="4_mr7ck"]
 [ext_resource type="PackedScene" uid="uid://7jyaboql1xq3" path="res://assets/prefabs/machines/item_in_machine.tscn" id="6_0flkr"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="7_hp2mf"]
@@ -20,7 +21,7 @@ size = Vector3(1.52979, 1, 1.3773)
 [node name="Blender" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
 script = ExtResource("1_2xnpc")
 time_to_finish = 1.0
-recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_x5d41")])
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_18hhh"), ExtResource("3_8jddn")])
 animation_tree = NodePath("Blender/AnimationTree")
 item_in_machine = [NodePath("Blender/ItemInMachine")]
 progress_bar = NodePath("Blender/BlenderArmature/Skeleton3D/BoneAttachment3D/ProgressSprite")
