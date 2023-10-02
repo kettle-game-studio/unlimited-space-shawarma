@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=30 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]
 [ext_resource type="PackedScene" uid="uid://dlheukyllgvt5" path="res://assets/prefabs/machines/power_outlet.tscn" id="11_gkti0"]
-[ext_resource type="PackedScene" uid="uid://bx4jk77acdqos" path="res://assets/prefabs/cheat_all_items.tscn" id="12_w1oj3"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/cheat_all_items.tscn" id="12_w1oj3"]
 [ext_resource type="Texture2D" uid="uid://cviu82m1t6crm" path="res://assets/writings/blender_recipes.png" id="13_5tiix"]
 [ext_resource type="Script" path="res://assets/scripts/notes.gd" id="13_77kc1"]
 [ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="14_od37p"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
+[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -189,6 +190,9 @@ texture = ExtResource("15_on2cj")
 [node name="WaterThePlants" type="Sprite3D" parent="Notes"]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.98411, 3.03582, -2.17482)
 texture = ExtResource("20_t0j0i")
+
+[node name="radio" parent="." instance=ExtResource("23_fj5av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.472, -2.90766)
 
 [connection signal="item_placed" from="TreePots/TreePot1" to="Notes" method="_on_item_placed"]
 [connection signal="item_placed" from="TreePots/TreePot2" to="Notes" method="_on_item_placed"]
