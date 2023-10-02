@@ -1,12 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://tqi5dw3n0sam"]
+[gd_scene load_steps=25 format=3 uid="uid://tqi5dw3n0sam"]
 
 [ext_resource type="Script" path="res://assets/scripts/space_ship.gd" id="1_iaggv"]
 [ext_resource type="Material" uid="uid://ckm1lq8aid5hv" path="res://assets/materials/patricle_fire_material.tres" id="2_k156s"]
+[ext_resource type="Texture2D" uid="uid://da7bype8dsq0s" path="res://assets/Room/SpaceshipColor1.png" id="3_16wnf"]
 [ext_resource type="Script" path="res://assets/scripts/random_part_picker.gd" id="3_isc1i"]
+[ext_resource type="Material" uid="uid://dffhbp2tygb2w" path="res://assets/materials/spaceship_color_material.tres" id="3_r1lqj"]
 [ext_resource type="PackedScene" uid="uid://bv425u1tsqi3l" path="res://assets/Room/Models/Spaceship/back_001.tscn" id="3_wdvqj"]
+[ext_resource type="Texture2D" uid="uid://cxkittmasy8ik" path="res://assets/Room/SpaceshipColor2.png" id="4_6u5pb"]
 [ext_resource type="PackedScene" uid="uid://27rfvpyxfpiu" path="res://assets/Room/Models/Spaceship/back_002.tscn" id="4_cfvf2"]
-[ext_resource type="PackedScene" uid="uid://dtexwl5tjillq" path="res://assets/Room/Models/Spaceship/base_back.tscn" id="5_830bt"]
+[ext_resource type="Texture2D" uid="uid://by5ekespj1cdj" path="res://assets/Room/SpaceshipColor3.png" id="5_mkcor"]
+[ext_resource type="Material" uid="uid://klac3ha5cttp" path="res://assets/materials/spaceship_material.tres" id="5_yf08s"]
 [ext_resource type="PackedScene" uid="uid://bortfw8kye6y4" path="res://assets/Room/Models/Spaceship/engine_001.tscn" id="6_3dtan"]
+[ext_resource type="Texture2D" uid="uid://bpvl8p3ofrbt1" path="res://assets/Room/SpaceshipColor4.png" id="6_hu564"]
 [ext_resource type="PackedScene" uid="uid://bbxxwmhsoajps" path="res://assets/Room/Models/Spaceship/engine_002.tscn" id="7_o0mjl"]
 [ext_resource type="PackedScene" uid="uid://d0nigt33q0coj" path="res://assets/Room/Models/Spaceship/engine_003.tscn" id="8_ddwy1"]
 [ext_resource type="PackedScene" uid="uid://da758nyr12njd" path="res://assets/Room/Models/Spaceship/engine_004.tscn" id="9_xi5yd"]
@@ -15,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://drgtjg2781q84" path="res://assets/Room/Models/Spaceship/glass_001.tscn" id="12_ktuf2"]
 [ext_resource type="PackedScene" uid="uid://ca7e7m6qrqueq" path="res://assets/Room/Models/Spaceship/glass_002.tscn" id="13_jivmy"]
 [ext_resource type="PackedScene" uid="uid://dptlv0dew155x" path="res://assets/Room/Models/Spaceship/sluice.tscn" id="14_7c3is"]
+[ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="21_6h77k"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ymlqv"]
 material = ExtResource("2_k156s")
@@ -27,8 +33,18 @@ rings = 5
 _data = [Vector2(0.0851852, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.402135), -2.5181, 0.0, 0, 0]
 point_count = 2
 
-[node name="SpaceShip" type="PathFollow3D"]
+[sub_resource type="QuadMesh" id="QuadMesh_4kpeq"]
+
+[node name="SpaceShip" type="PathFollow3D" node_paths=PackedStringArray("door", "random_parts")]
+visible = false
 script = ExtResource("1_iaggv")
+door = NodePath("ShipRoot/Door")
+random_parts = [NodePath("ShipRoot/Back"), NodePath("ShipRoot/Glass"), NodePath("ShipRoot/Face"), NodePath("ShipRoot/Engine")]
+seconds_to_fly = 1.0
+material = ExtResource("5_yf08s")
+color_material = ExtResource("3_r1lqj")
+textures = Array[Texture]([ExtResource("3_16wnf"), ExtResource("4_6u5pb"), ExtResource("6_hu564"), ExtResource("5_mkcor")])
+colors = Array[Color]([Color(0.25098, 0.635294, 0.529412, 1), Color(0.203922, 0.243137, 0.670588, 1), Color(0.792157, 0.729412, 0.25098, 1), Color(0.882353, 0.12549, 0.215686, 1)])
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -14.3219)
@@ -53,36 +69,42 @@ transform = Transform3D(-1.64203e-15, 1.55294e-22, -1, 4.37114e-08, 1, -2.45025e
 script = ExtResource("3_isc1i")
 
 [node name="Back_001" parent="ShipRoot/Back" instance=ExtResource("3_wdvqj")]
+visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Back_002" parent="ShipRoot/Back" instance=ExtResource("4_cfvf2")]
-visible = false
-
-[node name="BaseBack" parent="ShipRoot/Back" instance=ExtResource("5_830bt")]
-visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Sluice" parent="ShipRoot" instance=ExtResource("14_7c3is")]
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Glass" type="Node3D" parent="ShipRoot"]
 script = ExtResource("3_isc1i")
 
 [node name="Glass_001" parent="ShipRoot/Glass" instance=ExtResource("12_ktuf2")]
 visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Glass_002" parent="ShipRoot/Glass" instance=ExtResource("13_jivmy")]
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Face" type="Node3D" parent="ShipRoot"]
 script = ExtResource("3_isc1i")
 
 [node name="Face_001" parent="ShipRoot/Face" instance=ExtResource("10_sba7b")]
+visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Face_002" parent="ShipRoot/Face" instance=ExtResource("11_jpr1c")]
-visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Engine" type="Node3D" parent="ShipRoot"]
 script = ExtResource("3_isc1i")
 number = 2
 
 [node name="Engine_001" parent="ShipRoot/Engine" instance=ExtResource("6_3dtan")]
+visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Fire2" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_001"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.7705, -11.1453, 0)
@@ -100,6 +122,8 @@ initial_velocity_max = 20.0
 scale_amount_curve = SubResource("Curve_llwu6")
 
 [node name="Engine_002" parent="ShipRoot/Engine" instance=ExtResource("7_o0mjl")]
+visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Fire" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_002"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.6906, 11.993, 0)
@@ -118,6 +142,7 @@ scale_amount_curve = SubResource("Curve_llwu6")
 
 [node name="Engine_003" parent="ShipRoot/Engine" instance=ExtResource("8_ddwy1")]
 visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Fire2" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_003"]
 transform = Transform3D(-0.579992, -0.814622, -4.03579e-08, -0.814622, 0.579992, -7.75499e-08, 8.65811e-08, -1.21019e-08, -1, -12.663, -9.38579, -7.72805e-09)
@@ -151,6 +176,7 @@ scale_amount_curve = SubResource("Curve_llwu6")
 
 [node name="Engine_004" parent="ShipRoot/Engine" instance=ExtResource("9_xi5yd")]
 visible = false
+surface_material_override/0 = ExtResource("5_yf08s")
 
 [node name="Fire" type="CPUParticles3D" parent="ShipRoot/Engine/Engine_004"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.5635, 4.06919, 0)
@@ -166,3 +192,22 @@ gravity = Vector3(0, 0, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 20.0
 scale_amount_curve = SubResource("Curve_llwu6")
+
+[node name="Interior" type="CSGMesh3D" parent="ShipRoot"]
+transform = Transform3D(-13.356, 0, -8.74228e-08, 5.68434e-14, 7.7447, 4.23516e-22, 1.16762e-06, -3.02923e-28, -1, 5.24509e-08, 1.19994, 1.00217e-22)
+mesh = SubResource("QuadMesh_4kpeq")
+material = ExtResource("3_r1lqj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ShipRoot/Interior"]
+transform = Transform3D(0.0748727, -2.22045e-16, 1.77636e-15, 4.44089e-16, 0.129121, 1.58819e-22, -2.84217e-14, -1.69407e-21, 1, -1.01944e-08, 0.281906, 0.465804)
+
+[node name="Door" parent="ShipRoot" instance=ExtResource("21_6h77k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12752e-15, -9.29968e-23, -1.11348)
+
+[node name="LeftDoor" parent="ShipRoot/Door" index="0"]
+surface_material_override/0 = ExtResource("3_r1lqj")
+
+[node name="RightDoor" parent="ShipRoot/Door" index="1"]
+surface_material_override/0 = ExtResource("3_r1lqj")
+
+[editable path="ShipRoot/Door"]

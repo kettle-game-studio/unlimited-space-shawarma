@@ -9,6 +9,7 @@ enum State { DISABLED, CAN_TRADE, SWITCHING }
 @export var recipes: Array[Recipe]
 @export var hide_offset: Vector3
 @export var seconds_to_trade: float = 2.0
+@export var ship: SpaceShip
 
 var state = State.DISABLED
 
@@ -16,6 +17,12 @@ func _ready():
 	door.connect("is_open", _is_open)
 	door.connect("is_closed", _is_closed)
 	set_activatable(false)
+	
+	ship.connect("arrived", _on_ship_arrived)
+	ship.random_ship()
+	ship.fly()
+
+func _on_ship_arrived():
 	start_trading()
 
 func start_trading():
@@ -24,6 +31,7 @@ func start_trading():
 
 func stop_trading():
 	door.close()
+	ship.fly_away()
 	state = State.DISABLED
 	set_activatable(false)
 	
