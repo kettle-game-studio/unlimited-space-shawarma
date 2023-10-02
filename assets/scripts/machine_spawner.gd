@@ -1,5 +1,7 @@
 extends Node3D
 
+signal item_placed(ItemData)
+
 @export var spawn_point: Node3D
 @export var allowed_machine_type: MachineItem.MachineType 
 @export var progress_bar: ProgressSprite
@@ -36,5 +38,6 @@ func _activated(player):
 	if item && item is MachineItem && item.machine_type == allowed_machine_type:
 		machine = item.machine.instantiate()
 		spawn_point.add_child(machine)
+		item_placed.emit(item.item_data)
 		player.item_manager.destroy_current_item()
 		
