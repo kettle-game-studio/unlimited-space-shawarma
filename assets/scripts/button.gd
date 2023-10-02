@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var hint: String
+@export var shiftDir: Vector3 = Vector3(0, 0, 1)
 
 func get_hint(_player: Player) -> String:
 	return "Press '%s'" % hint
@@ -21,12 +22,12 @@ func _on_area_activated(_player):
 	while time < total_time:
 		time += delta_time
 		var moved = time / total_time
-		self.translate(Vector3(0, 0, -moved*delta_move))
+		self.translate(shiftDir*(-moved*delta_move))
 		await get_tree().create_timer(delta_time).timeout
 	time = 0;
 	while time < total_time:
 		time += delta_time
 		var moved = time / total_time
-		self.translate(Vector3(0, 0, moved*delta_move))
+		self.translate(shiftDir*moved*delta_move)
 		await get_tree().create_timer(delta_time).timeout
 	pressed = false
