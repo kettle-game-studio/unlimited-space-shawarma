@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=4 format=3 uid="uid://b0u58edqmbvb6"]
+
+[ext_resource type="Resource" uid="uid://bu0alv1i7w0al" path="res://assets/recipes/encounters/recipe_belnder.tres" id="1_ox3ir"]
+[ext_resource type="Resource" uid="uid://vnoynyo8ikcx" path="res://assets/recipes/encounters/recipe_free_water.tres" id="2_resxp"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="3_rbmgv"]
+
+[resource]
+script = ExtResource("3_rbmgv")
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("1_ox3ir"), ExtResource("2_resxp")])
+alien_says = "Hi, I've heared from a friend, that you are here. My car is too old, it can't take two passanggers. But I can give you this blender in exchange for a multifruit"
+player_says = ""

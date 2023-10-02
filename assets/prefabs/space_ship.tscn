@@ -218,7 +218,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.2644
 
 [node name="Fly" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("22_kyr6o")
-volume_db = -0.964
+volume_db = 10.0
 bus = &"Ship"
 
 [editable path="ShipRoot/Door"]

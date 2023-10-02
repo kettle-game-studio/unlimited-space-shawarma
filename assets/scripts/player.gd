@@ -6,3 +6,6 @@ class_name Player
 @export var player_raycast: PlayerRaycast
 
 var items_eaten: int = 0
+var trees_taken: int = 0
+
+var items_taken: Dictionary = Dictionary()

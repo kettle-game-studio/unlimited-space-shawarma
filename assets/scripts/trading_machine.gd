@@ -15,6 +15,8 @@ enum State { DISABLED, CAN_TRADE, SWITCHING }
 var state = State.DISABLED
 var can_decline: bool = true
 
+var items_recieved: Dictionary = {}
+
 func _ready():
 	door.connect("is_open", _is_open)
 	door.connect("is_closed", _is_closed)
@@ -32,7 +34,7 @@ func _on_ship_arrived():
 	start_trading()
 
 func _on_ship_disappeared():
-	pass
+	state = State.DISABLED
 
 func _process(float):
 	if state == State.CAN_TRADE:
@@ -45,7 +47,7 @@ func start_trading():
 func stop_trading():
 	door.close()
 	ship.fly_away()
-	state = State.DISABLED
+	state = State.SWITCHING
 	set_activatable(false)
 	computer_ui.disable()
 	ship.person.set_talking(false)
@@ -67,8 +69,10 @@ func _cancel_button_activated(player):
 	if !can_decline:
 		self.ui_controller.add_dialog("You", "I don't think I can decline such an offer")
 		return
+		
+	state = State.SWITCHING
 	stop_trading()
-	
+
 func _ok_button_activated(player):
 	if state != State.CAN_TRADE:
 		return
@@ -76,13 +80,19 @@ func _ok_button_activated(player):
 	if !recipe:
 		return
 	
+	state = State.SWITCHING
 	for i in slots.size():
 		var out = null;
 		if i < recipe.output.size():
-			out = recipe.output[i].get_prefab();
+			out = recipe.output[i];
 		replace_item(slots[i], out, i == 0)
 
-func replace_item(item: ItemInMachine, res: Resource, must_stop_trading: bool):
+func replace_item(item: ItemInMachine, res: ItemData, must_stop_trading: bool):
+	if res:
+		if !items_recieved.has(res.item_name):
+			items_recieved[res.item_name] = 0
+		items_recieved[res.item_name] += 1
+	
 	const delta_time = 1.0 / 60.0
 	var total_time = seconds_to_trade / 2.0
 	var time = 0;
@@ -92,7 +102,8 @@ func replace_item(item: ItemInMachine, res: Resource, must_stop_trading: bool):
 		var moved = time / total_time
 		item.move_delta(hide_offset * moved)
 		item.scale_item(1 - moved)
-	item.instantiate_item(res)
+	if res:
+		item.instantiate_item(res.get_prefab())
 	time = 0;
 	while time < total_time:
 		time += delta_time
