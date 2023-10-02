@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6m7tei73njfm"]
+[gd_scene load_steps=8 format=3 uid="uid://c6m7tei73njfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_gvxau"]
 [ext_resource type="Resource" uid="uid://d1wukeqqtr2le" path="res://assets/prefabs/items/data/shawarma_fruit.tres" id="2_bbpct"]
 [ext_resource type="Material" uid="uid://b7syrbsti7uyd" path="res://assets/materials/fruit_paste_material.tres" id="3_6funa"]
 [ext_resource type="PackedScene" uid="uid://b4p2l6q3o526p" path="res://assets/Room/Models/Sawarma/shawarma.tscn" id="4_65tfi"]
+[ext_resource type="Material" uid="uid://bkocv6uk64m73" path="res://assets/materials/fruit_shawarma_material.tres" id="5_wvduh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tml63"]
 height = 1.43929
@@ -32,3 +33,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844031, 0)
 
 [node name="Shawarma" parent="." index="4" instance=ExtResource("4_65tfi")]
 transform = Transform3D(-0.7, 6.11959e-08, -3.0598e-08, -3.0598e-08, 1.33748e-15, 0.7, 6.11959e-08, 0.7, 1.33748e-15, 0, 0.541776, 0)
+surface_material_override/0 = ExtResource("5_wvduh")

@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
-[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="PackedScene" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
 [ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="29_msbef"]
