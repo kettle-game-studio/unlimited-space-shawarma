@@ -1,7 +1,10 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://b3nr5c3t73iur"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b3nr5c3t73iur"]
+
+[ext_resource type="FontFile" uid="uid://c8uok1f60aplw" path="res://assets/fonts/Chakra_Petch/ChakraPetch-Bold.ttf" id="1_ne5ft"]
 
 [resource]
 line_spacing = 0.0
+font = ExtResource("1_ne5ft")
 font_size = 58
 font_color = Color(0, 0, 0, 1)
 outline_size = 7
