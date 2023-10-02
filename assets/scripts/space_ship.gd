@@ -5,6 +5,7 @@ signal arrived
 
 @export var door: DoorScript
 @export var random_parts: Array[RandomPartPicker]
+@export var paths: Array[Path3D]
 
 @export var seconds_to_fly: float = 0.1
 @export var material: StandardMaterial3D
@@ -23,6 +24,11 @@ func _ready():
 func random_ship():
 	for part in random_parts:
 		part.random_part()
+	
+	self.position = Vector3()
+	var path_idx = rng.randi_range(0, textures.size() - 1)
+	self.reparent(self.paths[path_idx])
+	
 	var idx = rng.randi_range(0, textures.size() - 1)
 	material.set_texture(BaseMaterial3D.TEXTURE_ALBEDO, textures[idx])
 	color_material.albedo_color = colors[idx]
@@ -31,15 +37,12 @@ func random_ship():
 func fly():
 	self.visible = true
 	const delta_time = 1.0 / 60.0
-	var time = 0;
-	var speed = 1
 	var progress = 0
 	while progress < 1:
 		time += delta_time
 		await get_tree().create_timer(delta_time).timeout
-		progress = clamp(progress + speed * delta_time, 0, 1)
+		progress += delta_time / seconds_to_fly
 		self.progress_ratio = 1 - progress
-		speed = clamp(speed - 0.7 * delta_time, 0.1, 1)
 	self.progress_ratio = 0
 	await get_tree().create_timer(1.0).timeout
 	arrived.emit()
