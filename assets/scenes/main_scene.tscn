@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
+[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -193,6 +194,9 @@ texture = ExtResource("15_on2cj")
 [node name="WaterThePlants" type="Sprite3D" parent="Notes"]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.98411, 3.03582, -2.17482)
 texture = ExtResource("20_t0j0i")
+
+[node name="radio" parent="." instance=ExtResource("23_fj5av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.472, -2.90766)
 
 [connection signal="item_placed" from="TreePots/TreePot1" to="Notes" method="_on_item_placed"]
 [connection signal="item_placed" from="TreePots/TreePot2" to="Notes" method="_on_item_placed"]

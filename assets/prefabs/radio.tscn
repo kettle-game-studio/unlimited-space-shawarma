@@ -1,0 +1,127 @@
+[gd_scene load_steps=18 format=3 uid="uid://rb3q3dmggp12"]
+
+[ext_resource type="Script" path="res://assets/scripts/radio.gd" id="1_ij06s"]
+[ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="2_sdxu4"]
+[ext_resource type="PackedScene" uid="uid://cm6ni63ele7h2" path="res://assets/prefabs/room_parts/button_2.tscn" id="3_helkm"]
+[ext_resource type="Material" uid="uid://cjtprjfix40p3" path="res://assets/materials/glass_material.tres" id="3_w5uym"]
+[ext_resource type="Script" path="res://assets/scripts/button.gd" id="4_pmeq8"]
+[ext_resource type="Script" path="res://assets/scripts/activator.gd" id="5_7jc0b"]
+[ext_resource type="AudioStream" uid="uid://c607x0sf17vna" path="res://assets/music/ambient1.mp3" id="6_hmxft"]
+[ext_resource type="FontFile" uid="uid://c8uok1f60aplw" path="res://assets/fonts/Chakra_Petch/ChakraPetch-Bold.ttf" id="7_26ppa"]
+[ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="9_stcsm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_42t7y"]
+lightmap_size_hint = Vector2i(6, 10)
+size = Vector3(2, 1, 0.25)
+subdivide_width = 2
+subdivide_height = 2
+subdivide_depth = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_feqi4"]
+size = Vector3(0.868266, 0.426219, 0.0787497)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvday"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obios"]
+albedo_color = Color(0, 1, 0.670588, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_bnc47"]
+material = SubResource("StandardMaterial3D_obios")
+text = "+"
+font = ExtResource("7_26ppa")
+font_size = 40
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01sll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qovjw"]
+albedo_color = Color(1, 0.215686, 0.0941176, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_xde44"]
+material = SubResource("StandardMaterial3D_qovjw")
+text = "-"
+font = ExtResource("7_26ppa")
+font_size = 36
+
+[node name="radio" type="Node3D" node_paths=PackedStringArray("music", "progress_sprite")]
+script = ExtResource("1_ij06s")
+music = NodePath("Music")
+progress_sprite = NodePath("ProgressSprite")
+
+[node name="Music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_hmxft")
+volume_db = -3.254
+panning_strength = 0.0
+bus = &"Inner"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000281096, 0.127002, -0.0012517)
+mesh = SubResource("BoxMesh_42t7y")
+surface_material_override/0 = ExtResource("3_w5uym")
+
+[node name="ClickSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+stream = ExtResource("2_sdxu4")
+volume_db = -5.0
+max_db = -1.699
+bus = &"Blender"
+
+[node name="PlayButton" parent="." instance=ExtResource("3_helkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462333, 0.380208, 0.1)
+script = ExtResource("4_pmeq8")
+hint = "Play"
+
+[node name="PlayArea" type="Area3D" parent="PlayButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
+script = ExtResource("5_7jc0b")
+hint_source = NodePath("..")
+activation_sound = NodePath("../../ClickSound")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayButton/PlayArea"]
+shape = SubResource("BoxShape3D_feqi4")
+
+[node name="LouderButton" parent="." instance=ExtResource("3_helkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, 0.383, 0.1)
+surface_material_override/0 = SubResource("StandardMaterial3D_wvday")
+script = ExtResource("4_pmeq8")
+hint = "Louder"
+
+[node name="+" type="MeshInstance3D" parent="LouderButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0.0792266)
+mesh = SubResource("TextMesh_bnc47")
+skeleton = NodePath("../..")
+
+[node name="LouderArea" type="Area3D" parent="LouderButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
+script = ExtResource("5_7jc0b")
+hint_source = NodePath("..")
+activation_sound = NodePath("../../ClickSound")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LouderButton/LouderArea"]
+shape = SubResource("BoxShape3D_feqi4")
+
+[node name="QuietButton" parent="." instance=ExtResource("3_helkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469887, -0.113282, 0.1)
+surface_material_override/0 = SubResource("StandardMaterial3D_01sll")
+script = ExtResource("4_pmeq8")
+hint = "Quiet"
+
+[node name="-" type="MeshInstance3D" parent="QuietButton"]
+transform = Transform3D(1.57008, 0, 0, 0, 1, 0, 0, 0, 1, 2.14577e-06, 0.0352523, 0.0786452)
+mesh = SubResource("TextMesh_xde44")
+skeleton = NodePath("../..")
+
+[node name="QuietArea" type="Area3D" parent="QuietButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
+script = ExtResource("5_7jc0b")
+hint_source = NodePath("..")
+activation_sound = NodePath("../../ClickSound")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QuietButton/QuietArea"]
+shape = SubResource("BoxShape3D_feqi4")
+
+[node name="ProgressSprite" parent="." instance=ExtResource("9_stcsm")]
+transform = Transform3D(0.0547673, 0, 0, 0, 0.06472, 0, 0, 0, 1, -0.475902, -0.100144, 0.138033)
+
+[connection signal="activated" from="PlayButton/PlayArea" to="." method="_on_play_area_activated"]
+[connection signal="activated" from="PlayButton/PlayArea" to="PlayButton" method="_on_area_activated"]
+[connection signal="activated" from="LouderButton/LouderArea" to="LouderButton" method="_on_area_activated"]
+[connection signal="activated" from="LouderButton/LouderArea" to="." method="_on_change_volume" binds= [1]]
+[connection signal="activated" from="QuietButton/QuietArea" to="QuietButton" method="_on_area_activated"]
+[connection signal="activated" from="QuietButton/QuietArea" to="." method="_on_change_volume" binds= [-1]]
