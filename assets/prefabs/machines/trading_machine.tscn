@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1q8gbhk1j3hb"]
+[gd_scene load_steps=23 format=3 uid="uid://1q8gbhk1j3hb"]
 
 [ext_resource type="PackedScene" uid="uid://c3ehlp87pmern" path="res://assets/prefabs/room_parts/computer.tscn" id="1_nfvgk"]
 [ext_resource type="Script" path="res://assets/scripts/trading_machine.gd" id="1_txblf"]
@@ -11,10 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://cm6ni63ele7h2" path="res://assets/prefabs/room_parts/button_2.tscn" id="6_4bk54"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="6_wdhbo"]
 [ext_resource type="Script" path="res://assets/scripts/button.gd" id="8_1am1l"]
+[ext_resource type="FontFile" uid="uid://c8uok1f60aplw" path="res://assets/fonts/Chakra_Petch/ChakraPetch-Bold.ttf" id="10_j705p"]
 [ext_resource type="AudioStream" uid="uid://dmv61vgxcgtqb" path="res://assets/sounds/click_button.mp3" id="12_ax8m8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6wll"]
+albedo_color = Color(1, 0.917647, 0.905882, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_fw4ov"]
+material = SubResource("StandardMaterial3D_a6wll")
+text = "Cancel"
+font = ExtResource("10_j705p")
+font_size = 22
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvntd"]
 size = Vector3(0.868266, 0.426219, 0.0787497)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6g04"]
+albedo_color = Color(0.870588, 0.870588, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_f30l0"]
+material = SubResource("StandardMaterial3D_u6g04")
+text = "OK"
+font = ExtResource("10_j705p")
+font_size = 22
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74mcu"]
 size = Vector3(0.868266, 0.426219, 0.0787497)
@@ -63,6 +82,11 @@ transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -0.7, 
 script = ExtResource("8_1am1l")
 hint = "CANCEL"
 
+[node name="Text" type="MeshInstance3D" parent="Computer/CancelButton"]
+transform = Transform3D(0.999993, 0.00368449, -0.000892264, -0.00368394, 0.999993, 0.000611407, 0.000894517, -0.000608107, 0.999999, 0, 0, 0.054)
+mesh = SubResource("TextMesh_fw4ov")
+skeleton = NodePath("../../OkButton")
+
 [node name="CancelArea" type="Area3D" parent="Computer/CancelButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
 script = ExtResource("6_wdhbo")
 hint_source = NodePath("..")
@@ -75,6 +99,10 @@ shape = SubResource("BoxShape3D_lvntd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.75, 0.1)
 script = ExtResource("8_1am1l")
 hint = "OK"
+
+[node name="Text" type="MeshInstance3D" parent="Computer/OkButton"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.0536457)
+mesh = SubResource("TextMesh_f30l0")
 
 [node name="OkArea" type="Area3D" parent="Computer/OkButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
 script = ExtResource("6_wdhbo")

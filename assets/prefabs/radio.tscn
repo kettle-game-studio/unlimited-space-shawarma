@@ -68,7 +68,7 @@ bus = &"Blender"
 [node name="PlayButton" parent="." instance=ExtResource("3_helkm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462333, 0.380208, 0.1)
 script = ExtResource("4_pmeq8")
-hint = "Play"
+hint = "Play/Pause"
 
 [node name="PlayArea" type="Area3D" parent="PlayButton" node_paths=PackedStringArray("hint_source", "activation_sound")]
 script = ExtResource("5_7jc0b")
