@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="5_y71fp"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="7_ipgvi"]
 [ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="7_mo6mv"]
-[ext_resource type="Theme" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
+[ext_resource type="Theme" uid="uid://bary8s8khgg7l" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
 [ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="9_tpamu"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]

@@ -20,11 +20,10 @@ var time = 0.0
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	random_ship()
-	fly()
 	door.connect("is_closed", _on_door_is_closed)
 
 func random_ship():
+	print("Random ship")
 	for part in random_parts:
 		part.random_part()
 	

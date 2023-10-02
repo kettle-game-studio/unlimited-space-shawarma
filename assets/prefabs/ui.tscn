@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy20o8tmobnno"]
+[gd_scene load_steps=5 format=3 uid="uid://cy20o8tmobnno"]
 
 [ext_resource type="Script" path="res://assets/scripts/ui_controller.gd" id="1_mknpu"]
+[ext_resource type="Theme" uid="uid://bary8s8khgg7l" path="res://assets/scenes/main_theme.theme" id="2_bbbfb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvk3b"]
 bg_color = Color(0, 0, 0, 1)
@@ -8,7 +9,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjnn8"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="UI" type="Control" node_paths=PackedStringArray("textLabel")]
+[node name="UI" type="Control" node_paths=PackedStringArray("textLabel", "dialog_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +17,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mknpu")
-textLabel = NodePath("RichTextLabel")
+textLabel = NodePath("HintBox")
+dialog_box = NodePath("VBoxContainer/MarginContainer/DialogBox")
 
 [node name="Crosshair" type="Panel" parent="."]
 layout_mode = 1
@@ -48,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rjnn8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="HintBox" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +63,33 @@ offset_right = 338.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_bbbfb")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center][/center]"
+text = "[center]Hint[/center]"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="DialogBox" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_bbbfb")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]You: Foo[/center]
+"
+fit_content = true
 scroll_active = false
