@@ -34,7 +34,7 @@ func part_1():
 		while !await wait_for(player_have_eaten , 6.0):
 			ui_controller.add_dialog("Hint", "Use <E> or <LMB> to pick an item. Use <Space> to eat it.", Color.BLUE)	
 	
-	ui_controller.add_dialog("You", "Mmm, delicios")
+	ui_controller.add_dialog("You", "Mmm, delicious")
 
 @export var free_fruit_tree: Encounter
 
