@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmjprhxriyekc"]
+
+[ext_resource type="Script" path="res://assets/scripts/line_count.gd" id="1_1nwwv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qtbps"]
+load_path = "res://.godot/imported/lines_1.png-a71070857ce2d2d62b0ae6f90b3d1f86.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_farba"]
+load_path = "res://.godot/imported/lines_2.png-63378a197527a9d9c675eb5c0dfe4045.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bvatt"]
+load_path = "res://.godot/imported/lines_3.png-b7dbd819a2bc602c7d2fdf44e5a1dbb6.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d4062"]
+load_path = "res://.godot/imported/lines_4.png-d7d7691484dd4316d6b93678151ddfde.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uv8nu"]
+load_path = "res://.godot/imported/lines_5.png-7f15eebc6929c169730f0c1253933238.s3tc.ctex"
+
+[node name="LineCount" type="Node3D" node_paths=PackedStringArray("lines")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_1nwwv")
+lines = [NodePath("Line1"), NodePath("Line2"), NodePath("Line3"), NodePath("Line4"), NodePath("Line5")]
+
+[node name="Line1" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_qtbps")
+
+[node name="Line2" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_farba")
+
+[node name="Line3" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_bvatt")
+
+[node name="Line4" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_d4062")
+
+[node name="Line5" type="Sprite3D" parent="."]
+texture = SubResource("CompressedTexture2D_uv8nu")
