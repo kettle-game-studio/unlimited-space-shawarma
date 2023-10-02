@@ -2,6 +2,7 @@ extends Node3D
 class_name RandomPartPicker
 
 @export var number: int = 1
+@export var default: Node = null
 
 var children: Array[Node]
 
@@ -13,4 +14,9 @@ func random_part():
 	children.shuffle()
 	for i in children.size():
 		children[i].visible = i < number
-	
+
+func set_default():
+	if default:
+		for i in children.size():
+			children[i].visible = false
+		default.visible = true

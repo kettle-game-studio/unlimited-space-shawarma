@@ -10,6 +10,7 @@ enum State { DISABLED, CAN_TRADE, SWITCHING }
 @export var hide_offset: Vector3
 @export var seconds_to_trade: float = 2.0
 @export var ship: SpaceShip
+@export var ui_controller: UIController
 
 var state = State.DISABLED
 
@@ -28,17 +29,20 @@ func _on_ship_arrived():
 func _on_ship_disappeared():
 	ship.fly()
 
+func _process(float):
+	if state == State.CAN_TRADE:
+		ship.person.set_talking(ui_controller.is_npc_talking())
+
 func start_trading():
 	door.open()
 	computer_ui.set_recipes(recipes)
-	ship.start_speech()
 
 func stop_trading():
 	door.close()
 	ship.fly_away()
 	state = State.DISABLED
 	set_activatable(false)
-	ship.stop_speech()
+	ship.person.set_talking(false)
 	
 func _is_open():
 	state = State.CAN_TRADE

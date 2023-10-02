@@ -97,15 +97,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.907683)
 [node name="UI" parent="Canvas" instance=ExtResource("5_dyrqf")]
 theme = ExtResource("7_rkjf5")
 
-[node name="Trading" parent="." node_paths=PackedStringArray("door", "ship") instance=ExtResource("10_32e7o")]
+[node name="TradingMachine" parent="." node_paths=PackedStringArray("door", "ship", "ui_controller") instance=ExtResource("10_32e7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
 door = NodePath("../Door")
 ship = NodePath("../Paths/Path5/SpaceShip")
+ui_controller = NodePath("../Canvas/UI")
 
-[node name="Computer" parent="Trading" index="0"]
+[node name="Computer" parent="TradingMachine" index="0"]
 transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0.597247, 8.88178e-16, 0.597247, 0.802057, 0, 0, 0)
 
-[node name="Table" parent="Trading" index="1"]
+[node name="Table" parent="TradingMachine" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840007, -1.73281)
 
 [node name="Paths" type="Node3D" parent="."]
@@ -186,7 +187,7 @@ texture = ExtResource("15_on2cj")
 [connection signal="item_placed" from="PowerOutlets/PowerOutlet2" to="Notes" method="_on_item_placed"]
 [connection signal="item_placed" from="PowerOutlets/PowerOutlet3" to="Notes" method="_on_item_placed"]
 
-[editable path="Trading"]
-[editable path="Trading/Table/ItemInMachine"]
-[editable path="Trading/Table/ItemInMachine2"]
-[editable path="Trading/Table/ItemInMachine3"]
+[editable path="TradingMachine"]
+[editable path="TradingMachine/Table/ItemInMachine"]
+[editable path="TradingMachine/Table/ItemInMachine2"]
+[editable path="TradingMachine/Table/ItemInMachine3"]

@@ -20,6 +20,12 @@ func _process(delta: float):
 	dialog_text = tmp
 	build_text()
 
+func is_npc_talking() -> bool:
+	for text in dialog_text:
+		if text.name != "You":
+			return true
+	return false
+
 class DialogNode:
 	var name: String
 	var text: String
