@@ -19,6 +19,7 @@ var can_decline: bool = true
 var items_recieved: Dictionary = {}
 
 var last_encounter_result: bool
+var positive_ships: int = 0
 
 func _ready():
 	door.connect("is_open", _is_open)
@@ -85,7 +86,8 @@ func _ok_button_activated(player):
 	if !recipe:
 		self.ui_controller.add_dialog("You", "I don't think this is a valid trade")
 		return
-	
+		
+	positive_ships += 1
 	last_encounter_result = true
 	state = State.SWITCHING
 	for i in slots.size():

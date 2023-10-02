@@ -100,7 +100,7 @@ func part_4():
 
 func part_5():
 	freeplay_encounters.append_array(sandbox_random_encounters)
-	while trading_machine.ships_count.lines < ships_to_win:
+	while trading_machine.positive_ships < ships_to_win:
 		await get_tree().create_timer(7.0).timeout
 		await play_encounter(freeplay_encounters.pick_random())
 		await wait_for_ship_fly_away()
