@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv7jv6w3s10pc"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_sgd4i"]
+[ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="2_gw2ww"]
+[ext_resource type="PackedScene" uid="uid://183u850fxjx2" path="res://assets/Room/Models/Stuff/tube.tscn" id="3_xlvpy"]
+[ext_resource type="Material" uid="uid://gmos0f2reu4n" path="res://assets/materials/vegetable_paste_material.tres" id="4_l2mdv"]
+[ext_resource type="Texture2D" uid="uid://d02odqvi5i324" path="res://assets/Room/FruitPasteColor.png" id="4_n1fpo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bidn2"]
+height = 1.22794
+radius = 0.258075
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uk68q"]
+top_radius = 0.2
+bottom_radius = 0.15
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fbft"]
+albedo_texture = ExtResource("4_n1fpo")
+
+[node name="Item" instance=ExtResource("1_sgd4i")]
+item_data = ExtResource("2_gw2ww")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.636841, 0)
+shape = SubResource("CylinderShape3D_bidn2")
+
+[node name="CSGMesh3D" parent="." index="1"]
+visible = false
+mesh = SubResource("CylinderMesh_uk68q")
+
+[node name="Top" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31528, 0)
+
+[node name="Tube" parent="." index="4" instance=ExtResource("3_xlvpy")]
+transform = Transform3D(-3.0598e-08, -0.7, -3.0598e-08, 0, -3.0598e-08, 0.7, -0.7, 3.0598e-08, 1.33748e-15, 0, 0.536496, 0)
+material_override = ExtResource("4_l2mdv")
+surface_material_override/0 = SubResource("StandardMaterial3D_1fbft")

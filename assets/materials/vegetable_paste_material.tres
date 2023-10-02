@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://gmos0f2reu4n"]
+
+[ext_resource type="Texture2D" uid="uid://dtwp6iwb21p1r" path="res://assets/Room/VegetablePaste.png" id="1_kannb"]
+
+[resource]
+albedo_texture = ExtResource("1_kannb")

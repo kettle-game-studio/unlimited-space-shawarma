@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dydbdsbyyti3s"]
+[gd_scene load_steps=15 format=3 uid="uid://dydbdsbyyti3s"]
 
 [ext_resource type="Script" path="res://assets/scripts/blender.gd" id="1_anaob"]
-[ext_resource type="Resource" uid="uid://dwf61bdg1wsi7" path="res://assets/recipes/microwave_water_to_multivegetable.tres" id="2_yn77w"]
+[ext_resource type="Resource" uid="uid://c67fdqyywefu3" path="res://assets/recipes/microwave_fruit.tres" id="2_o7o27"]
+[ext_resource type="Resource" uid="uid://cmbeq48ygvn62" path="res://assets/recipes/microwave_vegetable.tres" id="3_b1ilj"]
+[ext_resource type="Resource" uid="uid://moc0lngc1uk7" path="res://assets/recipes/microwave_vegetable_paste.tres" id="4_2et5x"]
 [ext_resource type="PackedScene" uid="uid://ehb7xj86h356" path="res://assets/prefabs/machines/progress_sprite.tscn" id="4_wx30t"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3b6xi7bmpdwu" path="res://assets/animations/blender_state_machine.tres" id="5_ls42a"]
 [ext_resource type="Script" path="res://assets/scripts/activator.gd" id="6_2gxv3"]
@@ -21,7 +23,7 @@ size = Vector3(2.69933, 1.77495, 2.01742)
 script = ExtResource("1_anaob")
 time_to_finish = 1.0
 item_animation_target_size = 1.0
-recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_yn77w")])
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_o7o27"), ExtResource("3_b1ilj"), ExtResource("4_2et5x")])
 noun = "Microwave"
 verb = "Microwaving"
 animation_tree = NodePath("Microwave/AnimationPlayer/AnimationTree")

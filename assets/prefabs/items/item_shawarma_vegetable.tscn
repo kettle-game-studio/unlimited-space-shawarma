@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dor3e4m7tixih"]
+
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_5ii74"]
+[ext_resource type="Resource" uid="uid://cn6v1534340qn" path="res://assets/prefabs/items/data/shawarma_vegetable.tres" id="2_7k814"]
+[ext_resource type="Material" uid="uid://gmos0f2reu4n" path="res://assets/materials/vegetable_paste_material.tres" id="3_70u45"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u83tv"]
+
+[node name="Item" instance=ExtResource("1_5ii74")]
+item_data = ExtResource("2_7k814")
+
+[node name="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0680701, 0)
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311089, 0)
+
+[node name="CSGMesh3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.174156, 0, 0, 0, 1, 0, 0.218413, 0)
+mesh = SubResource("CylinderMesh_u83tv")
+material = ExtResource("3_70u45")
+
+[node name="Top" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844031, 0)
