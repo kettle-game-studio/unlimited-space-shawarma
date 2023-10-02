@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://hnrh27wt66pr"]
+[gd_scene load_steps=7 format=3 uid="uid://hnrh27wt66pr"]
 
 [ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_erpjy"]
 [ext_resource type="Script" path="res://assets/scripts/machine_item.gd" id="2_lblia"]
 [ext_resource type="PackedScene" uid="uid://l7mkfb58c3n7" path="res://assets/Room/Blender.glb" id="3_5kkrg"]
+[ext_resource type="PackedScene" uid="uid://2g7ib2rvd6ya" path="res://assets/prefabs/machines/blender.tscn" id="3_55pgl"]
 [ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="3_mxkio"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aa7yg"]
@@ -11,7 +12,7 @@ radius = 0.267473
 
 [node name="Item" instance=ExtResource("1_erpjy")]
 script = ExtResource("2_lblia")
-machine = null
+machine = ExtResource("3_55pgl")
 machine_type = 1
 item_data = ExtResource("3_mxkio")
 

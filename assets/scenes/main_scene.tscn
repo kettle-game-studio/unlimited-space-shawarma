@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=26 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -6,19 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://hr3ejr51xyux" path="res://assets/prefabs/room.tscn" id="3_4ipvi"]
 [ext_resource type="PackedScene" uid="uid://cy20o8tmobnno" path="res://assets/prefabs/ui.tscn" id="5_dyrqf"]
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="5_y71fp"]
-[ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="7_ipgvi"]
-[ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="7_mo6mv"]
-[ext_resource type="Theme" uid="uid://cmsa4vkamvyi2" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
+[ext_resource type="Theme" uid="uid://bary8s8khgg7l" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
-[ext_resource type="PackedScene" uid="uid://cfntpuieyiwp4" path="res://assets/prefabs/items/item_multifruit_tree.tscn" id="9_tpamu"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]
-[ext_resource type="PackedScene" uid="uid://2g7ib2rvd6ya" path="res://assets/prefabs/machines/blender.tscn" id="10_kghge"]
 [ext_resource type="PackedScene" uid="uid://dlheukyllgvt5" path="res://assets/prefabs/machines/power_outlet.tscn" id="11_gkti0"]
-[ext_resource type="PackedScene" uid="uid://hnrh27wt66pr" path="res://assets/prefabs/items/item_blender.tscn" id="12_wqwnt"]
-[ext_resource type="PackedScene" uid="uid://bukds5s23wce7" path="res://assets/prefabs/items/item_multivegetable_tree.tscn" id="16_o7b4r"]
-[ext_resource type="PackedScene" uid="uid://dwvn7f4y0eusi" path="res://assets/prefabs/items/item_microwave.tscn" id="17_myq18"]
-[ext_resource type="PackedScene" uid="uid://nw464mch7bk4" path="res://assets/prefabs/items/item_mixer.tscn" id="18_s8t7w"]
-[ext_resource type="PackedScene" uid="uid://c4t1l3fkw2e1m" path="res://assets/prefabs/items/item_fruit_paste.tscn" id="20_65aao"]
+[ext_resource type="PackedScene" uid="uid://bx4jk77acdqos" path="res://assets/prefabs/cheat_all_items.tscn" id="12_w1oj3"]
+[ext_resource type="Texture2D" uid="uid://cviu82m1t6crm" path="res://assets/writings/blender_recipes.png" id="13_5tiix"]
+[ext_resource type="Script" path="res://assets/scripts/notes.gd" id="13_77kc1"]
+[ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="14_od37p"]
+[ext_resource type="Texture2D" uid="uid://b7vblmiirys0a" path="res://assets/writings/microwave_recipes.png" id="14_wfqsv"]
+[ext_resource type="Resource" uid="uid://dy7byaw71k3nx" path="res://assets/prefabs/items/data/mixer.tres" id="15_4y3qc"]
+[ext_resource type="Texture2D" uid="uid://dafa46r8ccgw7" path="res://assets/writings/mixer_recipes.png" id="15_on2cj"]
+[ext_resource type="Resource" uid="uid://cvoevjh1pwyvg" path="res://assets/prefabs/items/data/microwave.tres" id="16_i10jq"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
@@ -98,39 +97,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.907683)
 [node name="UI" parent="Canvas" instance=ExtResource("5_dyrqf")]
 theme = ExtResource("7_rkjf5")
 
-[node name="Item2" parent="." instance=ExtResource("7_mo6mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 0)
-
-[node name="Item3" parent="." instance=ExtResource("7_mo6mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 0.625688)
-
-[node name="Item4" parent="." instance=ExtResource("7_mo6mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 1.2067)
-
-[node name="Item5" parent="." instance=ExtResource("7_mo6mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57382, -2.2793, 1.77357)
-
-[node name="Item" parent="." instance=ExtResource("7_ipgvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00896, -2.49923, -0.465194)
-
-[node name="Item8" parent="." instance=ExtResource("9_tpamu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84087, -2.29399, -0.9819)
-
-[node name="TreePot1" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, -1.5)
-
-[node name="TreePot2" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 1.5)
-
-[node name="TreePot3" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 0)
-
-[node name="TreePot4" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, -0.747767)
-
-[node name="TreePot5" parent="." instance=ExtResource("9_hq280")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, 0.796893)
-
 [node name="Trading" parent="." node_paths=PackedStringArray("door", "ship") instance=ExtResource("10_32e7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
 door = NodePath("../Door")
@@ -141,28 +107,6 @@ transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0
 
 [node name="Table" parent="Trading" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840007, -1.73281)
-
-[node name="PowerOutlet" parent="." instance=ExtResource("11_gkti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74905, -2.25209, 1.25715)
-
-[node name="PowerOutlet2" parent="." instance=ExtResource("11_gkti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74905, -2.25209, -0.74285)
-
-[node name="Item9" parent="." instance=ExtResource("12_wqwnt")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.43497, -2.23764, -1.7709)
-machine = ExtResource("10_kghge")
-
-[node name="Item6" parent="." instance=ExtResource("16_o7b4r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55015, -2.32504, -0.100862)
-
-[node name="Item7" parent="." instance=ExtResource("17_myq18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77915, -2.25123, 0.491869)
-
-[node name="Item10" parent="." instance=ExtResource("18_s8t7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37207, -2.244, 1.9432)
-
-[node name="Item11" parent="." instance=ExtResource("20_65aao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28944, -2.2378, -1.04267)
 
 [node name="Paths" type="Node3D" parent="."]
 
@@ -189,6 +133,58 @@ curve = SubResource("Curve3D_re6m5")
 [node name="Path2" type="Path3D" parent="Paths"]
 transform = Transform3D(1, 9.30747e-11, 9.90053e-14, -9.30747e-11, 0.999998, 0.0021293, 9.90053e-14, -0.0021293, 0.999998, 0, 0, 101.22)
 curve = SubResource("Curve3D_5lvea")
+
+[node name="TreePots" type="Node3D" parent="."]
+
+[node name="TreePot1" parent="TreePots" instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, -1.5)
+
+[node name="TreePot2" parent="TreePots" instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 1.5)
+
+[node name="TreePot3" parent="TreePots" instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.61306, 0, 0)
+
+[node name="TreePot4" parent="TreePots" instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, -0.747767)
+
+[node name="TreePot5" parent="TreePots" instance=ExtResource("9_hq280")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.613, -1.29653, 0.796893)
+
+[node name="PowerOutlets" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45875, -2.252, 0)
+
+[node name="PowerOutlet1" parent="PowerOutlets" instance=ExtResource("11_gkti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4)
+
+[node name="PowerOutlet2" parent="PowerOutlets" instance=ExtResource("11_gkti0")]
+
+[node name="PowerOutlet3" parent="PowerOutlets" instance=ExtResource("11_gkti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
+
+[node name="CheatAllItems" parent="." instance=ExtResource("12_w1oj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41604, -5.97052, 0.896308)
+
+[node name="Notes" type="Node3D" parent="." node_paths=PackedStringArray("notes")]
+script = ExtResource("13_77kc1")
+items = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("14_od37p"), ExtResource("15_4y3qc"), ExtResource("16_i10jq")])
+notes = [NodePath("BlenderRecipes"), NodePath("MixerRecipes"), NodePath("MicrowaveRecipes")]
+
+[node name="BlenderRecipes" type="Sprite3D" parent="Notes"]
+transform = Transform3D(-1.31625e-08, 4.26112e-12, 1, 0.0259694, 0.298874, 3.78386e-09, -0.298874, 0.0259694, -4.37114e-08, -4.36019, 1.62224, 1.01557)
+texture = ExtResource("13_5tiix")
+
+[node name="MicrowaveRecipes" type="Sprite3D" parent="Notes"]
+transform = Transform3D(-1.30018e-08, -2.05009e-09, 1, -0.0209948, 0.299264, 3.78386e-09, -0.299264, -0.0209948, -4.37114e-08, -4.36019, 1.67717, -1.12849)
+texture = ExtResource("14_wfqsv")
+
+[node name="MixerRecipes" type="Sprite3D" parent="Notes"]
+transform = Transform3D(-1.31596e-08, -2.7415e-10, 1, 0.0196418, 0.299356, 3.78386e-09, -0.299356, 0.0196418, -4.37114e-08, -4.36019, 0.66552, 0.0415147)
+texture = ExtResource("15_on2cj")
+
+[connection signal="item_placed" from="PowerOutlets/PowerOutlet1" to="Notes" method="_on_item_placed"]
+[connection signal="item_placed" from="PowerOutlets/PowerOutlet2" to="Notes" method="_on_item_placed"]
+[connection signal="item_placed" from="PowerOutlets/PowerOutlet3" to="Notes" method="_on_item_placed"]
 
 [editable path="Trading"]
 [editable path="Trading/Table/ItemInMachine"]
