@@ -8,3 +8,4 @@ script = ExtResource("2_rp4t6")
 item_name = "Soup"
 icon = ExtResource("1_rsaos")
 prefab = "res://assets/prefabs/items/item_soup.tscn"
+food = 7.0
