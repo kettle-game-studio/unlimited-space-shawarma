@@ -17,6 +17,8 @@ var can_decline: bool = true
 
 var items_recieved: Dictionary = {}
 
+var last_encounter_result: bool
+
 func _ready():
 	door.connect("is_open", _is_open)
 	door.connect("is_closed", _is_closed)
@@ -69,7 +71,8 @@ func _cancel_button_activated(player):
 	if !can_decline:
 		self.ui_controller.add_dialog("You", "I don't think I can decline such an offer")
 		return
-		
+	
+	last_encounter_result = false
 	state = State.SWITCHING
 	stop_trading()
 
@@ -80,6 +83,7 @@ func _ok_button_activated(player):
 	if !recipe:
 		return
 	
+	last_encounter_result = true
 	state = State.SWITCHING
 	for i in slots.size():
 		var out = null;
@@ -104,6 +108,8 @@ func replace_item(item: ItemInMachine, res: ItemData, must_stop_trading: bool):
 		item.scale_item(1 - moved)
 	if res:
 		item.instantiate_item(res.get_prefab())
+	else:
+		item.instantiate_item(null)
 	time = 0;
 	while time < total_time:
 		time += delta_time

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://vtmkgtkiwkq1"]
+
+[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="1_guwuy"]
+[ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="2_h21tb"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_oxshx"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="4_ago4a"]
+
+[sub_resource type="Resource" id="Resource_8qdj0"]
+script = ExtResource("3_oxshx")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_guwuy")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_h21tb")])
+
+[resource]
+script = ExtResource("4_ago4a")
+recipes = Array[ExtResource("3_oxshx")]([SubResource("Resource_8qdj0")])
+alien_says = "Hey wow! Nice cell you have here! Hope you find your savior soon, i would like to order a bottle of juice. I will pay with this multivegetabe sapling"
+player_says = ""

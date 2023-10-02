@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://cni8rxrwg14k4"]
 
-[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="1_5fmit"]
-[ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="2_dtu2j"]
+[ext_resource type="Resource" uid="uid://d1wukeqqtr2le" path="res://assets/prefabs/items/data/shawarma_fruit.tres" id="1_fnmns"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="2_xvym0"]
 [ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_uedla"]
 [ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="4_5y8ve"]
 
-[sub_resource type="Resource" id="Resource_8qdj0"]
+[sub_resource type="Resource" id="Resource_8ti0e"]
 script = ExtResource("3_uedla")
-input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_5fmit")])
-output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_dtu2j")])
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_fnmns")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_xvym0")])
 
 [resource]
 script = ExtResource("4_5y8ve")
-recipes = Array[ExtResource("3_uedla")]([SubResource("Resource_8qdj0")])
-alien_says = "Hey wow! Nice cell you have here! Hope you find your savior soon, i would like to order a bottle of juice. I will pay with this multivegetabe sapling"
+recipes = Array[ExtResource("3_uedla")]([SubResource("Resource_8ti0e")])
+alien_says = "Nice to see you. I have a nice shiny multifruite sapling. Would you like to get one? Then give me one fruit shawarma, please!"
 player_says = ""
