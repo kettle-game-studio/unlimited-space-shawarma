@@ -81,6 +81,7 @@ func _ok_button_activated(player):
 		return
 	var recipe = Recipe.find_recipe(slots, recipes)
 	if !recipe:
+		self.ui_controller.add_dialog("You", "I don't think this is a valid trade")
 		return
 	
 	last_encounter_result = true

@@ -14,12 +14,19 @@ static func find_recipe(slots: Array[ItemInMachine], r: Array[Recipe]) -> Recipe
 	return longest_recipe
 
 static func check_recipe(slots: Array[ItemInMachine], recipe: Recipe) -> bool:
+	var slots_items: Array[ItemData] = []
+	for slot in slots:
+		if slot.item:
+			slots_items.push_back(slot.item.item_data)
 	for item in recipe.input:
-		if !has_enough(slots, recipe.input, item):
+		if !has_enough(slots_items, recipe.input, item):
+			return false
+	for item in slots_items:
+		if !has_enough(recipe.input, slots_items, item):
 			return false
 	return true
 
-static func has_enough(slots: Array[ItemInMachine], recipe: Array[ItemData], item: ItemData) -> bool:
+static func has_enough(slots: Array[ItemData], recipe: Array[ItemData], item: ItemData) -> bool:
 	var count_in_recipe = 0
 	for i in recipe:
 		if i.item_name == item.item_name:
@@ -27,10 +34,10 @@ static func has_enough(slots: Array[ItemInMachine], recipe: Array[ItemData], ite
 			
 	var count_on_table = 0
 	for s in slots:
-		if s.item && s.item.item_name == item.item_name:
+		if s && s.item_name == item.item_name:
 			count_on_table += 1
 	
-	print("item = ", item.item_name)
-	print("count_in_recipe = ", count_in_recipe)
-	print("count_on_table = ", count_on_table)
+	# print("item = ", item.item_name)
+	# print("count_in_recipe = ", count_in_recipe)
+	# print("count_on_table = ", count_on_table)
 	return count_in_recipe == count_on_table

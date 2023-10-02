@@ -1,24 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dor3e4m7tixih"]
+[gd_scene load_steps=7 format=3 uid="uid://cnwdpci6v2ks6"]
 
-[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_5ii74"]
-[ext_resource type="Resource" uid="uid://cn6v1534340qn" path="res://assets/prefabs/items/data/shawarma_vegetable.tres" id="2_7k814"]
-[ext_resource type="Material" uid="uid://gmos0f2reu4n" path="res://assets/materials/vegetable_paste_material.tres" id="3_70u45"]
+[ext_resource type="PackedScene" uid="uid://bdx0kqrt6ryae" path="res://assets/prefabs/items/item.tscn" id="1_eg2q0"]
+[ext_resource type="Resource" uid="uid://cn6v1534340qn" path="res://assets/prefabs/items/data/shawarma_vegetable.tres" id="2_21ihy"]
+[ext_resource type="Material" uid="uid://b7syrbsti7uyd" path="res://assets/materials/fruit_paste_material.tres" id="3_sr3mj"]
+[ext_resource type="PackedScene" uid="uid://b4p2l6q3o526p" path="res://assets/Room/Models/Sawarma/shawarma.tscn" id="4_aioeu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tml63"]
+height = 1.43929
+radius = 0.275521
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_u83tv"]
 
-[node name="Item" instance=ExtResource("1_5ii74")]
-item_data = ExtResource("2_7k814")
+[node name="Item" instance=ExtResource("1_eg2q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item_data = ExtResource("2_21ihy")
 
 [node name="Area3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0680701, 0)
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311089, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.513218, 0)
+shape = SubResource("CylinderShape3D_tml63")
 
 [node name="CSGMesh3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.174156, 0, 0, 0, 1, 0, 0.218413, 0)
+visible = false
 mesh = SubResource("CylinderMesh_u83tv")
-material = ExtResource("3_70u45")
+material = ExtResource("3_sr3mj")
 
 [node name="Top" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844031, 0)
+
+[node name="Shawarma" parent="." index="4" instance=ExtResource("4_aioeu")]
+transform = Transform3D(-0.7, 6.11959e-08, -3.0598e-08, -3.0598e-08, 1.33748e-15, 0.7, 6.11959e-08, 0.7, 1.33748e-15, 0, 0.541776, 0)
