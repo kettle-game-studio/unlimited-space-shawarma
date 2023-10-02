@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hr3ejr51xyux"]
+[gd_scene load_steps=13 format=3 uid="uid://hr3ejr51xyux"]
 
 [ext_resource type="PackedScene" uid="uid://c052crh6e17ge" path="res://assets/prefabs/room_parts/floor.tscn" id="1_5rspi"]
 [ext_resource type="PackedScene" uid="uid://bavvfyood7whp" path="res://assets/prefabs/room_parts/wall_1.tscn" id="2_d4a1x"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://baeiufd8vyjyp" path="res://assets/Room/Models/Stuff/red_marker.tscn" id="10_s6k42"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pve2l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pp7mf"]
 
 [node name="room" type="Node3D"]
 
@@ -62,3 +64,7 @@ transform = Transform3D(0.337319, 0, -0.496201, 0, 0.6, 0, 0.496201, 0, 0.337319
 
 [node name="Marker4" parent="." instance=ExtResource("10_s6k42")]
 transform = Transform3D(-0.460146, -0.274243, 0.27029, 0.270045, -0.530073, -0.0780955, 0.274484, 0.0617583, 0.529948, -2.30639, -2.18664, -0.890013)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(8.5465, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5393, -3.53547)
+mesh = SubResource("BoxMesh_pp7mf")

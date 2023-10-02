@@ -3,25 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://46k7pi72w0l4" path="res://assets/prefabs/machines/computer_ui_point.tscn" id="1_4xesu"]
 [ext_resource type="Script" path="res://assets/scripts/computer_ui.gd" id="1_8dv8w"]
 
-[node name="ComputerUI" type="CanvasLayer" node_paths=PackedStringArray("ui_recipe_points")]
+[node name="ComputerUI" type="CanvasLayer" node_paths=PackedStringArray("ui_recipe_points", "color_front", "color_back")]
 script = ExtResource("1_8dv8w")
-ui_recipe_points = [NodePath("Eq1"), NodePath("Eq2"), NodePath("Eq3")]
+ui_recipe_points = [NodePath("ColorFront/Eq1"), NodePath("ColorFront/Eq2"), NodePath("ColorFront/Eq3")]
+color_front = NodePath("ColorFront")
+color_back = NodePath("ColorBack")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorBack" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.0232445, 0.0976169, 0.0697281, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Eq1" parent="." instance=ExtResource("1_4xesu")]
+[node name="ColorFront" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 324)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.36162, 0.771051, 0.542492, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Eq1" parent="ColorFront" instance=ExtResource("1_4xesu")]
+layout_mode = 1
 offset_top = -183.0
 offset_bottom = -111.0
 
-[node name="Eq2" parent="." instance=ExtResource("1_4xesu")]
+[node name="Eq2" parent="ColorFront" instance=ExtResource("1_4xesu")]
+layout_mode = 1
 offset_top = -61.0
 offset_bottom = 11.0
 
-[node name="Eq3" parent="." instance=ExtResource("1_4xesu")]
+[node name="Eq3" parent="ColorFront" instance=ExtResource("1_4xesu")]
+layout_mode = 1
 offset_top = 59.0
 offset_bottom = 131.0

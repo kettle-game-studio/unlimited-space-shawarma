@@ -42,6 +42,7 @@ func stop_trading():
 	ship.fly_away()
 	state = State.DISABLED
 	set_activatable(false)
+	computer_ui.disable()
 	ship.person.set_talking(false)
 	
 func _is_open():
