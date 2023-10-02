@@ -12,12 +12,12 @@ func _ready():
 	story_routine()
 
 func story_routine():
-	# await part_1()
-	# await part_2()
-	# await part_3()
-	# await part_4()
-	# await part_5()
-	# await part_6()
+	await part_1()
+	await part_2()
+	await part_3()
+	await part_4()
+	await part_5()
+	await part_6()
 	await free_play()
 
 # Eating our first apple
