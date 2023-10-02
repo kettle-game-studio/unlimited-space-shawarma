@@ -1,14 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0wdr8fx5x8p0"]
+[gd_scene load_steps=26 format=3 uid="uid://b0wdr8fx5x8p0"]
 
 [ext_resource type="Script" path="res://assets/scripts/random_part_picker.gd" id="1_7glfr"]
 [ext_resource type="Script" path="res://assets/scripts/person.gd" id="1_526a2"]
 [ext_resource type="Texture2D" uid="uid://ddnj6rwamknmg" path="res://assets/people/body_1.png" id="1_p1kqc"]
 [ext_resource type="Texture2D" uid="uid://b5ifwxe8fj4q2" path="res://assets/people/head_1.png" id="2_ow31k"]
 [ext_resource type="Texture2D" uid="uid://bkevym25kmoov" path="res://assets/people/mouth_1.png" id="3_e0bhs"]
+[ext_resource type="Texture2D" uid="uid://dg5qfdmjdfkui" path="res://assets/people/body_2.png" id="4_0ewm6"]
 [ext_resource type="Texture2D" uid="uid://cmi50gt2aydj6" path="res://assets/people/mouth_2.png" id="4_x2snr"]
+[ext_resource type="Texture2D" uid="uid://dbmwnmf3oowso" path="res://assets/people/body_3.png" id="5_bw636"]
 [ext_resource type="Texture2D" uid="uid://d3m84pbgifco4" path="res://assets/people/mouth_3.png" id="5_nq6qj"]
 [ext_resource type="Texture2D" uid="uid://gejh1umbed6p" path="res://assets/people/mouth_4.png" id="6_4ipjv"]
+[ext_resource type="Texture2D" uid="uid://d4bs3gfeq0an7" path="res://assets/people/body_4.png" id="6_gx5xi"]
 [ext_resource type="Texture2D" uid="uid://de1pxnxd7d0qv" path="res://assets/people/face_1.png" id="7_nyrj6"]
+[ext_resource type="Texture2D" uid="uid://danf7lakyqtlk" path="res://assets/people/head_2.png" id="8_hbf4a"]
+[ext_resource type="Texture2D" uid="uid://oh1kqbi1vvy3" path="res://assets/people/head_3.png" id="9_jq8ju"]
+[ext_resource type="Texture2D" uid="uid://bock8k4unlfdt" path="res://assets/people/head_4.png" id="10_hrf6w"]
 [ext_resource type="AudioStream" uid="uid://cm0gkkj7yls6v" path="res://assets/sounds/speech_01.mp3" id="10_ojpkd"]
 [ext_resource type="AudioStream" uid="uid://dd2yj1ao1o08l" path="res://assets/sounds/speech_02.mp3" id="11_fdnxl"]
 [ext_resource type="AudioStream" uid="uid://bn3xyddiatrou" path="res://assets/sounds/speech_03.mp3" id="12_fdomj"]
@@ -16,6 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://bi4hfv83fpmm8" path="res://assets/sounds/speech_05.mp3" id="14_ktoec"]
 [ext_resource type="AudioStream" uid="uid://c6i4prk47jmd2" path="res://assets/sounds/speech_06.mp3" id="15_1g7xr"]
 [ext_resource type="AudioStream" uid="uid://bwcb1ix5j4rxl" path="res://assets/sounds/speech_07.mp3" id="16_oqxek"]
+[ext_resource type="Texture2D" uid="uid://c5meql24htxf0" path="res://assets/people/face_2.png" id="16_v5og4"]
+[ext_resource type="Texture2D" uid="uid://b2bsu4yhlfr3k" path="res://assets/people/face_3.png" id="17_5fabo"]
+[ext_resource type="Texture2D" uid="uid://vg4mxh6m2sod" path="res://assets/people/face_4.png" id="18_gd8jk"]
 
 [node name="Person" type="Node3D" node_paths=PackedStringArray("body_parts", "mouth", "speech_sounds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731327, 0, 0)
@@ -25,25 +34,53 @@ mouth = NodePath("Mouth")
 speech_sounds = [NodePath("SpeechSounds/Speech1"), NodePath("SpeechSounds/Speech2"), NodePath("SpeechSounds/Speech3"), NodePath("SpeechSounds/Speech4"), NodePath("SpeechSounds/Speech5"), NodePath("SpeechSounds/Speech6"), NodePath("SpeechSounds/Speech7")]
 
 [node name="Body" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_7glfr")
 
 [node name="Body1" type="Sprite3D" parent="Body"]
+visible = false
 texture = ExtResource("1_p1kqc")
 
+[node name="Body2" type="Sprite3D" parent="Body"]
+visible = false
+texture = ExtResource("4_0ewm6")
+
+[node name="Body3" type="Sprite3D" parent="Body"]
+texture = ExtResource("5_bw636")
+
+[node name="Body4" type="Sprite3D" parent="Body"]
+visible = false
+texture = ExtResource("6_gx5xi")
+
 [node name="Head" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.369615, 0)
 script = ExtResource("1_7glfr")
 
 [node name="Head1" type="Sprite3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51889, 0)
 texture = ExtResource("2_ow31k")
 
+[node name="Head2" type="Sprite3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51889, 0)
+visible = false
+texture = ExtResource("8_hbf4a")
+
+[node name="Head3" type="Sprite3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51889, 0)
+visible = false
+texture = ExtResource("9_jq8ju")
+
+[node name="Head4" type="Sprite3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51889, 0)
+visible = false
+texture = ExtResource("10_hrf6w")
+
 [node name="Mouth" type="Node3D" parent="." node_paths=PackedStringArray("default")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0831192, 2.19041, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0831192, 2.02076, 0)
 script = ExtResource("1_7glfr")
 default = NodePath("Mouth1")
 
 [node name="Mouth1" type="Sprite3D" parent="Mouth"]
-visible = false
 sorting_offset = 1.0
 texture = ExtResource("3_e0bhs")
 
@@ -58,16 +95,32 @@ sorting_offset = 1.0
 texture = ExtResource("5_nq6qj")
 
 [node name="Mouth4" type="Sprite3D" parent="Mouth"]
+visible = false
 sorting_offset = 1.0
 texture = ExtResource("6_4ipjv")
 
 [node name="Face" type="Node3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.0944774, 2.5272, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0339936, 2.36675, 0)
 script = ExtResource("1_7glfr")
 
 [node name="Face1" type="Sprite3D" parent="Face"]
 sorting_offset = 1.0
 texture = ExtResource("7_nyrj6")
+
+[node name="Face2" type="Sprite3D" parent="Face"]
+visible = false
+sorting_offset = 1.0
+texture = ExtResource("16_v5og4")
+
+[node name="Face3" type="Sprite3D" parent="Face"]
+visible = false
+sorting_offset = 1.0
+texture = ExtResource("17_5fabo")
+
+[node name="Face4" type="Sprite3D" parent="Face"]
+visible = false
+sorting_offset = 1.0
+texture = ExtResource("18_gd8jk")
 
 [node name="SpeechSounds" type="Node" parent="."]
 
