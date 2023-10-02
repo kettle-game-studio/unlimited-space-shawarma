@@ -4,6 +4,7 @@ class_name UIController
 @export var textLabel: RichTextLabel
 @export var dialog_box: RichTextLabel
 @export var dialog_timeout: float = 10
+@export var hunger_bar: ProgressBar
 
 var name_color = Color(0, 1, 0)
 var text_color = Color(1, 1, 1)
