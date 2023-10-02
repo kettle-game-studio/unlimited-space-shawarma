@@ -22,7 +22,7 @@ func _process(delta: float):
 
 func is_npc_talking() -> bool:
 	for text in dialog_text:
-		if text.name != "You":
+		if text.name != "You" && text.name != "Hint":
 			return true
 	return false
 
@@ -30,25 +30,28 @@ class DialogNode:
 	var name: String
 	var text: String
 	var time: float
+	var color
 	
-	func _init(name: String, text: String, time: float):
+	func _init(name: String, text: String, time: float, color):
 		self.name = name
 		self.text = text
 		self.time = time
+		self.color = color
 
 var dialog_text: Array[DialogNode] = []
 
 func build_text():
 	var res = ""
 	for txt in dialog_text:
-		var nme_color = Color(name_color, txt.time / dialog_timeout).to_html(true)
+		var color = txt.color if txt.color else name_color
+		var nme_color = Color(color, txt.time / dialog_timeout).to_html(true)
 		var txt_color = Color(text_color, txt.time / dialog_timeout).to_html(true)
-		res += "[center][color=%s][b]%s:[/b][/color][color=%s]%s[/color][/center]" % [nme_color, txt.name, txt_color, txt.text]
+		res += "[center][color=%s][b]%s:[/b] [/color][color=%s]%s[/color][/center]" % [nme_color, txt.name, txt_color, txt.text]
 
 	dialog_box.text = res
 
-func add_dialog(name: String, text: String):
-	var dialog = DialogNode.new(name, text, dialog_timeout)
+func add_dialog(name: String, text: String, color = null):
+	var dialog = DialogNode.new(name, text, dialog_timeout, color)
 	dialog_text.push_back(dialog)
 
 func set_help_text(text: String) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=36 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -25,7 +25,10 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="Script" path="res://assets/scripts/story.gd" id="27_hjn8g"]
+[ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
+[ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="29_msbef"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
 
@@ -197,6 +200,17 @@ texture = ExtResource("20_t0j0i")
 
 [node name="radio" parent="." instance=ExtResource("23_fj5av")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.472, -2.90766)
+
+[node name="Story" type="Node3D" parent="." node_paths=PackedStringArray("trading_machine", "ui_controller")]
+script = ExtResource("27_hjn8g")
+trading_machine = NodePath("../TradingMachine")
+ui_controller = NodePath("../Canvas/UI")
+
+[node name="FloatingItemLocation" parent="." instance=ExtResource("28_48qyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766344, 0, 7.05931)
+auto_set_origin = true
+
+[node name="Item" parent="FloatingItemLocation" instance=ExtResource("29_msbef")]
 
 [connection signal="item_placed" from="TreePots/TreePot1" to="Notes" method="_on_item_placed"]
 [connection signal="item_placed" from="TreePots/TreePot2" to="Notes" method="_on_item_placed"]

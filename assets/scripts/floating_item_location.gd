@@ -1,6 +1,8 @@
 extends Node3D
 class_name FloatingItemLocation
 
+@export var auto_set_origin: bool = false
+
 var speed: float;
 var start_position: Vector3
 var start_rotation: Vector3
@@ -11,6 +13,8 @@ func _ready():
 	var rng = RandomNumberGenerator.new()
 	salt = rng.randf_range(-PI, PI)
 	speed = rng.randf_range(0.1, 0.3)
+	if auto_set_origin:
+		set_origin()
 
 func set_origin():
 	start_position = self.transform.origin - make_position()
