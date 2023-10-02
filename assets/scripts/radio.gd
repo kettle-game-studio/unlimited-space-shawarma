@@ -12,6 +12,7 @@ func volume_as_progress() -> float:
 	return (music.volume_db-min_volume)/(max_volume-min_volume)
 
 func _ready():
+	music.volume_db = default_volume
 	progress_sprite.set_progress(volume_as_progress())
 	music.play()
 

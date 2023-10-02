@@ -4,6 +4,12 @@ extends Node
 @export var camera: Camera3D
 
 @export var camera_speed: float = 0.01
+@export var eating_sounds_root: Node;
+
+var eating_sounds: Array[Node]
+
+func _ready():
+	eating_sounds = eating_sounds_root.get_children()
 
 func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
@@ -18,6 +24,7 @@ func _input(event: InputEvent):
 	if Input.is_action_just_pressed("Eat"):
 		var item = player.item_manager.item_in_hand
 		if item && item.item_data.food > 0:
+			eating_sounds.pick_random().play()
 			player.items_eaten += 1
 			player.item_manager.destroy_current_item()
 
