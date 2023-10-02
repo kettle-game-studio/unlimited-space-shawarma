@@ -45,7 +45,9 @@ func fly():
 	self.random_ship()
 	var progress = 0
 	
+	self.progress_ratio = 0
 	self.visible = true
+	
 	fly_sound.play()
 	while progress < 1:
 		time += delta_time
