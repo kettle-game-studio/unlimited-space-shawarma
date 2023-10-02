@@ -21,7 +21,7 @@ size = Vector3(2.69933, 1.77495, 2.01742)
 
 [node name="Microwave" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
 script = ExtResource("1_anaob")
-time_to_finish = 1.0
+time_to_finish = 5.0
 item_animation_target_size = 1.0
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_o7o27"), ExtResource("3_b1ilj"), ExtResource("4_2et5x")])
 noun = "Microwave"

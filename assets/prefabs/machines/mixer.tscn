@@ -27,7 +27,7 @@ radius = 0.742081
 
 [node name="Mixer" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
 script = ExtResource("1_l7lvb")
-time_to_finish = 1.0
+time_to_finish = 5.0
 item_animation_target_size = 1.0
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_5n6vb"), ExtResource("3_bu3sv"), ExtResource("4_ukua6"), ExtResource("5_qs7ga")])
 noun = "Mixer"

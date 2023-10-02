@@ -6,9 +6,9 @@ extends Node
 @export var camera_speed: float = 0.01
 @export var eating_sounds_root: Node
 @export var max_hunger: float = 10.0
-@export var hunger_seconds_total: float = 5 * 60 * 3
+@export var hunger_seconds_total: float = 9 * 60
 
-var hunger: float = 5
+var hunger: float = 3
 
 var eating_sounds: Array[Node]
 

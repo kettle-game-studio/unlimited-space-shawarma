@@ -13,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://cw8o2vrw6bdo0" path="res://assets/recipes/trading_2.tres" id="10_iu3em"]
 [ext_resource type="PackedScene" uid="uid://dlheukyllgvt5" path="res://assets/prefabs/machines/power_outlet.tscn" id="11_gkti0"]
 [ext_resource type="Resource" uid="uid://b8n1dvndphit1" path="res://assets/recipes/trading_3.tres" id="11_t3u67"]
-[ext_resource type="PackedScene" uid="uid://bx4jk77acdqos" path="res://assets/prefabs/cheat_all_items.tscn" id="12_w1oj3"]
 [ext_resource type="Texture2D" uid="uid://cviu82m1t6crm" path="res://assets/writings/blender_recipes.png" id="13_5tiix"]
 [ext_resource type="Script" path="res://assets/scripts/notes.gd" id="13_77kc1"]
 [ext_resource type="Resource" uid="uid://d03qgchh1q34j" path="res://assets/prefabs/items/data/blender.tres" id="14_od37p"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://di02oa08re6wu" path="res://assets/prefabs/ships_count.tscn" id="27_eblt5"]
 [ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
+[ext_resource type="PackedScene" uid="uid://cer2rgxv8v2rn" path="res://assets/prefabs/items/item_water.tscn" id="31_jt3fl"]
 [ext_resource type="PackedScene" uid="uid://cnwdpci6v2ks6" path="res://assets/prefabs/items/item_shawarma_vegetable.tscn" id="31_p2ufa"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ho8qv"]
@@ -177,9 +177,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4)
 [node name="PowerOutlet3" parent="PowerOutlets" instance=ExtResource("11_gkti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
 
-[node name="CheatAllItems" parent="." instance=ExtResource("12_w1oj3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41604, -5.97052, 0.896308)
-
 [node name="Notes" type="Node3D" parent="." node_paths=PackedStringArray("notes")]
 script = ExtResource("13_77kc1")
 items = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("14_od37p"), ExtResource("15_4y3qc"), ExtResource("16_i10jq"), ExtResource("17_6h6fb"), ExtResource("18_76lsf")])
@@ -221,6 +218,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766344, 0, 7.05931)
 auto_set_origin = true
 
 [node name="Item2" parent="FloatingItemLocation" instance=ExtResource("31_p2ufa")]
+
+[node name="FloatingItemLocation2" parent="." instance=ExtResource("28_48qyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16481, -1.4351, 7.05931)
+auto_set_origin = true
+
+[node name="Item" parent="FloatingItemLocation2" instance=ExtResource("31_jt3fl")]
+
+[node name="FloatingItemLocation4" parent="." instance=ExtResource("28_48qyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.486718, -2.82624, 7.05931)
+auto_set_origin = true
+
+[node name="Item" parent="FloatingItemLocation4" instance=ExtResource("31_jt3fl")]
+
+[node name="FloatingItemLocation3" parent="." instance=ExtResource("28_48qyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22808, 2.58064, 7.05931)
+auto_set_origin = true
+
+[node name="Item" parent="FloatingItemLocation3" instance=ExtResource("31_jt3fl")]
 
 [connection signal="item_placed" from="TreePots/TreePot1" to="Notes" method="_on_item_placed"]
 [connection signal="item_placed" from="TreePots/TreePot2" to="Notes" method="_on_item_placed"]

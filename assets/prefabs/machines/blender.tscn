@@ -20,7 +20,7 @@ size = Vector3(1.52979, 1, 1.3773)
 
 [node name="Blender" type="Node3D" node_paths=PackedStringArray("animation_tree", "item_in_machine", "progress_bar", "blending_sound", "opening_sound", "closing_sound")]
 script = ExtResource("1_2xnpc")
-time_to_finish = 1.0
+time_to_finish = 4.0
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("2_18hhh"), ExtResource("3_8jddn")])
 animation_tree = NodePath("Blender/AnimationTree")
 item_in_machine = [NodePath("Blender/ItemInMachine")]
