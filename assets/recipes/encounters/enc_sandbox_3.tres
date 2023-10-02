@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://075gp72que17"]
+
+[ext_resource type="Resource" uid="uid://bkotdxrahxusa" path="res://assets/prefabs/items/data/baked_multifruit.tres" id="1_hnphh"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="2_1kjcj"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_hvuxl"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="4_gvuku"]
+
+[sub_resource type="Resource" id="Resource_mw5oa"]
+script = ExtResource("3_hvuxl")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_hnphh"), ExtResource("1_hnphh")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_1kjcj")])
+
+[resource]
+script = ExtResource("4_gvuku")
+recipes = Array[ExtResource("3_hvuxl")]([SubResource("Resource_mw5oa")])
+alien_says = "Hello! I need two baked multifruits as fast as possible! Mu old ship uses them as fuel, and my fuel supply is dwindling! I will give you a multifruit sampling in exchange"
+player_says = ""

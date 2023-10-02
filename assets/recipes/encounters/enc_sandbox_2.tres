@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=6 format=3 uid="uid://5cng8y5p265o"]
+
+[ext_resource type="Resource" uid="uid://c4d8gk1vunjee" path="res://assets/prefabs/items/data/vegetable_paste.tres" id="1_vynop"]
+[ext_resource type="Resource" uid="uid://cvoevjh1pwyvg" path="res://assets/prefabs/items/data/microwave.tres" id="2_uqx2q"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_de28d"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="4_t7yvu"]
+
+[sub_resource type="Resource" id="Resource_fdw6o"]
+script = ExtResource("3_de28d")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_vynop")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("2_uqx2q")])
+
+[resource]
+script = ExtResource("4_t7yvu")
+recipes = Array[ExtResource("3_de28d")]([SubResource("Resource_fdw6o")])
+alien_says = "Hi! I decided to eat healthy, so I need some vegetable paste. I can give you a whole microwave in exchange!"
+player_says = ""

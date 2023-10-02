@@ -12,9 +12,10 @@ func _ready():
 	story_routine()
 
 func story_routine():
-	# await part_1()
-	# await part_2()
+	await part_1()
+	await part_2()
 	await part_3()
+	await part_4()
 
 # Eating our first apple
 func part_1():
@@ -56,12 +57,40 @@ func part_2():
 var blender_encounter_idx = 0
 var blender_item_data = preload("res://assets/prefabs/items/data/blender.tres")
 
+# BLENDER
 func part_3():
 	while !trading_machine.items_recieved.has(blender_item_data.item_name):
+		await get_tree().create_timer(10.0).timeout
 		await play_encounter(blender_encounters[blender_encounter_idx])
 		blender_encounter_idx = (blender_encounter_idx + 1) % blender_encounters.size()
 		await wait_for_ship_fly_away()
+
+@export var sandbox_encounters: Array[Encounter] 
+@export var sandbox_random_encounters: Array[Encounter] 
+var sandbox_encounte_idx = 0
+
+var microwave_item_data = preload("res://assets/prefabs/items/data/microwave.tres")
+var mixer_item_data = preload("res://assets/prefabs/items/data/mixer.tres")
+var fruit_tree_item_data = preload("res://assets/prefabs/items/data/baked_multifruit.tres")
+var vegetable_item_data = preload("res://assets/prefabs/items/data/multivegetable_tree.tres")
+
+# sandboxing
+func part_4():
+	while sandbox_encounters.size() != 0:
+		sandbox_encounte_idx = sandbox_encounte_idx % sandbox_encounters.size()
+		# await get_tree().create_timer(10.0).timeout
+		await play_encounter(sandbox_encounters[sandbox_encounte_idx])
+		await wait_for_ship_fly_away()
+		
+		if trading_machine.last_encounter_result:
+			sandbox_encounters.remove_at(sandbox_encounte_idx)
+			print("sandbox_encounters.size() = ", sandbox_encounters.size())
+		else:
+			sandbox_encounte_idx += 1
+	
 		await get_tree().create_timer(10.0).timeout
+		await play_encounter(sandbox_random_encounters.pick_random())
+		await wait_for_ship_fly_away()
 
 func wait_for(f: Callable, time_limit: float) -> bool:
 	const time_step = 1.0 / 24.0 
@@ -85,8 +114,42 @@ func wait_for_ship_fly_away():
 func play_encounter(encounter: Encounter, can_refuse: bool = true):
 	trading_machine.start_encounter(encounter.recipes, can_refuse)
 	await wait_for_ship()
-	ui_controller.add_dialog("Alien", encounter.alien_says)
+	if encounter.alien_says == "":
+		ui_controller.add_dialog("Alien", make_dummy_alien_text(encounter))
+	else:
+		ui_controller.add_dialog("Alien", encounter.alien_says)
+		
 	if encounter.player_says != "":
 		await get_tree().create_timer(5.0).timeout
 		ui_controller.add_dialog("You", encounter.player_says)
 		
+func make_dummy_alien_text(encounter: Encounter) -> String:
+	var res = "Hello! I propse an exchange: "
+	for idx in encounter.recipes.size():
+		res += make_dummy_for_recipe(encounter.recipes[idx], idx)
+	return res
+
+const STARTS = ["You give me ", "Or you give me ", "Lastly you can give me "]
+const FOR_EMPTY = ["Get ", "Or you can get", "Lastly you can get "]
+const ENDS = [" and get ", " and i return ", " and recieve "]
+
+func make_dummy_for_recipe(recipe: Recipe, idx: int) -> String:
+	if recipe.input.size() == 0:
+		return FOR_EMPTY[idx] + make_dummy_for_ingr_list(recipe.output) + " for free! "
+	return STARTS[idx] + make_dummy_for_ingr_list(recipe.input) + ENDS[idx] + make_dummy_for_ingr_list(recipe.output) + ". "
+	
+func make_dummy_for_ingr_list(list: Array[ItemData]) -> String:
+	if list.size() == 0:
+		return "absolutely nothing"
+	if list.size() == 1:
+		return list[0].item_name.to_lower()
+	var res = ""
+	
+	for idx in list.size():
+		if idx == list.size() - 1:
+			res += " and " + list[idx].item_name.to_lower()
+		else:
+			res += " " + list[idx].item_name.to_lower()
+	
+	return res
+	

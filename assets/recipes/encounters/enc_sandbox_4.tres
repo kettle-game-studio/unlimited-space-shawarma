@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=7 format=3 uid="uid://ct0jss1tl8dkp"]
+
+[ext_resource type="Resource" uid="uid://b1qjs5ckwbhlo" path="res://assets/prefabs/items/data/fruit_paste.tres" id="1_mxd2f"]
+[ext_resource type="Resource" uid="uid://cbfnu75g32d0b" path="res://assets/prefabs/items/data/baked_multivegetable.tres" id="2_ley5l"]
+[ext_resource type="Resource" uid="uid://dy7byaw71k3nx" path="res://assets/prefabs/items/data/mixer.tres" id="3_nuf2u"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="3_py6ij"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="4_xfprs"]
+
+[sub_resource type="Resource" id="Resource_ybdce"]
+script = ExtResource("3_py6ij")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_mxd2f"), ExtResource("2_ley5l")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("3_nuf2u")])
+
+[resource]
+script = ExtResource("4_xfprs")
+recipes = Array[ExtResource("3_py6ij")]([SubResource("Resource_ybdce")])
+alien_says = "Hey! I am peddling in advanced electronics. I can give you a real mixer for a fruit paste and a baked multivegetable"
+player_says = ""

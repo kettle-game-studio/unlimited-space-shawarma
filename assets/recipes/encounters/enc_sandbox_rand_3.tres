@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=8 format=3 uid="uid://djf8pmo8esq0f"]
+
+[ext_resource type="Resource" uid="uid://bgd8rtbc2ek36" path="res://assets/prefabs/items/data/water.tres" id="1_0ydiv"]
+[ext_resource type="Script" path="res://assets/scripts/recipe.gd" id="2_b5cby"]
+[ext_resource type="Resource" uid="uid://wct5g8jqil48" path="res://assets/prefabs/items/data/multifruit.tres" id="3_ljhlg"]
+[ext_resource type="Resource" uid="uid://bv1abn5cwwgtx" path="res://assets/prefabs/items/data/juice.tres" id="4_qen0w"]
+[ext_resource type="Script" path="res://assets/scripts/encounter.gd" id="5_kgo5m"]
+
+[sub_resource type="Resource" id="Resource_rumyu"]
+script = ExtResource("2_b5cby")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_0ydiv")])
+
+[sub_resource type="Resource" id="Resource_i1shr"]
+script = ExtResource("2_b5cby")
+input = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("3_ljhlg")])
+output = Array[Resource("res://assets/scripts/item_data.gd")]([ExtResource("1_0ydiv"), ExtResource("4_qen0w")])
+
+[resource]
+script = ExtResource("5_kgo5m")
+recipes = Array[ExtResource("2_b5cby")]([SubResource("Resource_rumyu"), SubResource("Resource_i1shr")])
+alien_says = ""
+player_says = ""
