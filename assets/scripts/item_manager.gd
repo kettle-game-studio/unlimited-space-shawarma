@@ -9,7 +9,9 @@ var item_in_hand: Item : set = _set_item_in_hand
 
 func _set_item_in_hand(item: Item):
 	item_in_hand = item
-	if item && item.item_data.item_name == tree_data.item_name:
+	if !item:
+		return 
+	if item.item_data.item_name == tree_data.item_name:
 		player.trees_taken += 1
 
 func item_is(item_name: String) -> bool:

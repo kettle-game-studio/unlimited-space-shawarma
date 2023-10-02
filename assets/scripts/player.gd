@@ -7,3 +7,5 @@ class_name Player
 
 var items_eaten: int = 0
 var trees_taken: int = 0
+
+var items_taken: Dictionary = Dictionary()

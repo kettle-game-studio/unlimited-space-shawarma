@@ -10,6 +10,7 @@ static func find_recipe(slots: Array[ItemInMachine], r: Array[Recipe]) -> Recipe
 	for recipe in r:
 		if check_recipe(slots, recipe) && recipe.input.size() > length:
 			longest_recipe = recipe
+			length = recipe.input.size()
 	return longest_recipe
 
 static func check_recipe(slots: Array[ItemInMachine], recipe: Recipe) -> bool:
