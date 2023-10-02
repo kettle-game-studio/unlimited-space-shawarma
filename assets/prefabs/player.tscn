@@ -39,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664274, -0.974591, -1.29824
 script = ExtResource("1_75gyu")
 player = NodePath("..")
 camera = NodePath("../Camera3D")
+camera_speed = 0.004
 eating_sounds_root = NodePath("../EatingSounds")
 
 [node name="PlayerRaycast" type="Node" parent="." node_paths=PackedStringArray("activatorRaycast", "fridgeRaycast", "player")]
