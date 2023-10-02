@@ -6,7 +6,7 @@
 
 [node name="ShipsCount" type="Node3D" node_paths=PackedStringArray("line_counts", "header")]
 script = ExtResource("1_bk64m")
-line_counts = [NodePath("LineCount"), NodePath("LineCount2"), NodePath("LineCount3")]
+line_counts = [NodePath("LineCount"), NodePath("LineCount2"), NodePath("LineCount3"), NodePath("LineCount4"), NodePath("LineCount5"), NodePath("LineCount6"), NodePath("LineCount7")]
 header = NodePath("Header")
 
 [node name="Header" type="Sprite3D" parent="."]

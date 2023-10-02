@@ -27,7 +27,6 @@ func _input(event: InputEvent):
 			eating_sounds.pick_random().play()
 			player.items_eaten += 1
 			player.item_manager.destroy_current_item()
-		get_tree().change_scene_to_file("res://assets/scenes/YouWin.tscn")
 
 func rotate_camera(vector: Vector2):
 	camera.rotation.x = clamp(camera.rotation.x - vector.y * camera_speed, -PI/2, PI/2)

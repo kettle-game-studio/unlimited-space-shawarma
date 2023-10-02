@@ -16,7 +16,9 @@ func story_routine():
 	await part_2()
 	await part_3()
 	await part_4()
-	await freeplay()
+	await part_5()
+	await part_6()
+	await free_play()
 
 # Eating our first apple
 func part_1():
@@ -94,9 +96,32 @@ func part_4():
 		await wait_for_ship_fly_away()
 
 @export var freeplay_encounters: Array[Encounter]
+@export var ships_to_win: int = 15
 
-func freeplay():
+func part_5():
 	freeplay_encounters.append_array(sandbox_random_encounters)
+	while trading_machine.ships_count.lines < ships_to_win:
+		await get_tree().create_timer(7.0).timeout
+		await play_encounter(freeplay_encounters.pick_random())
+		await wait_for_ship_fly_away()
+		
+		await get_tree().create_timer(10.0).timeout
+		await play_encounter(freeplay_encounters.pick_random())
+		await wait_for_ship_fly_away()
+
+@export var save_encounter: Encounter
+
+func part_6():
+	await get_tree().create_timer(15.0).timeout
+	await play_encounter(save_encounter)
+	await wait_for_trade_to_stop()
+	if trading_machine.last_encounter_result:
+		get_tree().change_scene_to_file("res://assets/scenes/YouWin.tscn")
+	else:
+		await wait_for_ship_fly_away()
+		
+
+func free_play():
 	while true:
 		await get_tree().create_timer(7.0).timeout
 		await play_encounter(freeplay_encounters.pick_random())
@@ -121,6 +146,10 @@ func wait_for_ship():
 	while !await wait_for(func(): return trading_machine.state == TradingMachine.State.CAN_TRADE, 10.0):
 		pass
 	
+func wait_for_trade_to_stop():
+	while !await wait_for(func(): return trading_machine.state == TradingMachine.State.SWITCHING, 10.0):
+		pass
+
 func wait_for_ship_fly_away():
 	while !await wait_for(func(): return trading_machine.state == TradingMachine.State.DISABLED, 10.0):
 		pass
