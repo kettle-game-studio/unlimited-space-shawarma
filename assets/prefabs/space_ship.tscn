@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://tqi5dw3n0sam"]
+[gd_scene load_steps=33 format=3 uid="uid://tqi5dw3n0sam"]
 
 [ext_resource type="Script" path="res://assets/scripts/space_ship.gd" id="1_iaggv"]
 [ext_resource type="Material" uid="uid://ckm1lq8aid5hv" path="res://assets/materials/patricle_fire_material.tres" id="2_k156s"]
@@ -22,6 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://dptlv0dew155x" path="res://assets/Room/Models/Spaceship/sluice.tscn" id="14_7c3is"]
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="21_6h77k"]
 [ext_resource type="AudioStream" uid="uid://crg0loi35lf3f" path="res://assets/sounds/growning.mp3" id="22_kyr6o"]
+[ext_resource type="AudioStream" uid="uid://cm0gkkj7yls6v" path="res://assets/sounds/speech_01.mp3" id="23_qk4jn"]
+[ext_resource type="AudioStream" uid="uid://dd2yj1ao1o08l" path="res://assets/sounds/speech_02.mp3" id="24_1slme"]
+[ext_resource type="AudioStream" uid="uid://bn3xyddiatrou" path="res://assets/sounds/speech_03.mp3" id="25_knh2c"]
+[ext_resource type="AudioStream" uid="uid://d24y2sptbpb3" path="res://assets/sounds/speech_04.mp3" id="26_1ha32"]
+[ext_resource type="AudioStream" uid="uid://bi4hfv83fpmm8" path="res://assets/sounds/speech_05.mp3" id="27_gpg5v"]
+[ext_resource type="AudioStream" uid="uid://c6i4prk47jmd2" path="res://assets/sounds/speech_06.mp3" id="28_3iclk"]
+[ext_resource type="AudioStream" uid="uid://bwcb1ix5j4rxl" path="res://assets/sounds/speech_07.mp3" id="29_j8c0u"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ymlqv"]
 material = ExtResource("2_k156s")
@@ -36,7 +43,7 @@ point_count = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_4kpeq"]
 
-[node name="SpaceShip" type="PathFollow3D" node_paths=PackedStringArray("door", "random_parts", "fly_sound")]
+[node name="SpaceShip" type="PathFollow3D" node_paths=PackedStringArray("door", "random_parts", "fly_sound", "speech_sounds")]
 visible = false
 script = ExtResource("1_iaggv")
 door = NodePath("ShipRoot/Door")
@@ -47,6 +54,7 @@ color_material = ExtResource("3_r1lqj")
 textures = Array[Texture]([ExtResource("3_16wnf"), ExtResource("4_6u5pb"), ExtResource("6_hu564"), ExtResource("5_mkcor")])
 colors = Array[Color]([Color(0.25098, 0.635294, 0.529412, 1), Color(0.203922, 0.243137, 0.670588, 1), Color(0.792157, 0.729412, 0.25098, 1), Color(0.882353, 0.12549, 0.215686, 1)])
 fly_sound = NodePath("Fly")
+speech_sounds = [NodePath("SpeechSounds/Speech1"), NodePath("SpeechSounds/Speech2"), NodePath("SpeechSounds/Speech3"), NodePath("SpeechSounds/Speech4"), NodePath("SpeechSounds/Speech5"), NodePath("SpeechSounds/Speech6"), NodePath("SpeechSounds/Speech7")]
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -14.3219)
@@ -216,5 +224,35 @@ surface_material_override/0 = ExtResource("3_r1lqj")
 stream = ExtResource("22_kyr6o")
 volume_db = -0.964
 bus = &"Ship"
+
+[node name="SpeechSounds" type="Node" parent="."]
+
+[node name="Speech1" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("23_qk4jn")
+bus = &"Inner"
+
+[node name="Speech2" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("24_1slme")
+bus = &"Blender"
+
+[node name="Speech3" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("25_knh2c")
+bus = &"Inner"
+
+[node name="Speech4" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("26_1ha32")
+bus = &"Inner"
+
+[node name="Speech5" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("27_gpg5v")
+bus = &"Inner"
+
+[node name="Speech6" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("28_3iclk")
+bus = &"Inner"
+
+[node name="Speech7" type="AudioStreamPlayer3D" parent="SpeechSounds"]
+stream = ExtResource("29_j8c0u")
+bus = &"Inner"
 
 [editable path="ShipRoot/Door"]

@@ -15,17 +15,28 @@ signal disappeared
 @export var colors: Array[Color]
 
 @export var fly_sound: AudioStreamPlayer3D
+@export var speech_sounds: Array[AudioStreamPlayer3D]
 
 var time = 0.0 
 var rng = RandomNumberGenerator.new()
 
+var current_speech: AudioStreamPlayer3D
+
 func _ready():
 	door.connect("is_closed", _on_door_is_closed)
+
+func start_speech():
+	current_speech.play()
+
+func stop_speech():
+	current_speech.stop()
 
 func random_ship():
 	print("Random ship")
 	for part in random_parts:
 		part.random_part()
+	
+	current_speech = speech_sounds.pick_random()
 	
 	self.position = Vector3()
 	var path_idx = rng.randi_range(0, self.paths.size() - 1)

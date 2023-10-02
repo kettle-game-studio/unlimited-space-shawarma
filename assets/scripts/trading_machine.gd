@@ -31,12 +31,14 @@ func _on_ship_disappeared():
 func start_trading():
 	door.open()
 	computer_ui.set_recipes(recipes)
+	ship.start_speech()
 
 func stop_trading():
 	door.close()
 	ship.fly_away()
 	state = State.DISABLED
 	set_activatable(false)
+	ship.stop_speech()
 	
 func _is_open():
 	state = State.CAN_TRADE
