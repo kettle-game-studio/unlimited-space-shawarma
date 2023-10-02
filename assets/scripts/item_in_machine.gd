@@ -35,10 +35,10 @@ func desctory_current() -> void:
 	set_activatable(true)
 
 func _item_picked():
-	picked.emit()
 	set_activatable(true)
 	item.disconnect("picked", self._item_picked)
 	item = null
+	picked.emit()
 
 func on_item_swap(new_item: Item):
 	place_item(new_item)
