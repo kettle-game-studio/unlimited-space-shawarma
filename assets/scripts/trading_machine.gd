@@ -19,11 +19,14 @@ func _ready():
 	set_activatable(false)
 	
 	ship.connect("arrived", _on_ship_arrived)
-	ship.random_ship()
+	ship.connect("disappeared", _on_ship_disappeared)
 	ship.fly()
 
 func _on_ship_arrived():
 	start_trading()
+
+func _on_ship_disappeared():
+	ship.fly()
 
 func start_trading():
 	door.open()

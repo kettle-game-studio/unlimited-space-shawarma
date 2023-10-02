@@ -2,6 +2,7 @@ extends PathFollow3D
 class_name SpaceShip
 
 signal arrived
+signal disappeared
 
 @export var door: DoorScript
 @export var random_parts: Array[RandomPartPicker]
@@ -28,18 +29,21 @@ func random_ship():
 		part.random_part()
 	
 	self.position = Vector3()
-	var path_idx = rng.randi_range(0, textures.size() - 1)
+	var path_idx = rng.randi_range(0, self.paths.size() - 1)
 	self.reparent(self.paths[path_idx])
 	
 	var idx = rng.randi_range(0, textures.size() - 1)
 	material.set_texture(BaseMaterial3D.TEXTURE_ALBEDO, textures[idx])
 	color_material.albedo_color = colors[idx]
-	print("set material idx = ", idx, ", total textures = ", textures.size(), ", total colors = ", colors.size())
 
 func fly():
-	self.visible = true
 	const delta_time = 1.0 / 60.0
+	
+	await get_tree().create_timer(delta_time).timeout
+	self.random_ship()
 	var progress = 0
+	
+	self.visible = true
 	fly_sound.play()
 	while progress < 1:
 		time += delta_time
@@ -47,7 +51,7 @@ func fly():
 		progress += delta_time / seconds_to_fly
 		self.progress_ratio = 1 - progress
 	self.progress_ratio = 0
-	fly_sound.stop()	
+	fly_sound.stop()
 	await get_tree().create_timer(1.0).timeout
 	arrived.emit()
 	door.open()
@@ -62,8 +66,13 @@ func fly_away_routine():
 	const delta_time = 1.0 / 60.0
 	var time = 0;
 	var speed = 20
-	var progress = 0
-	while progress < 1:
+	
+	fly_sound.play()
+	
+	while time < 3:
 		time += delta_time
 		await get_tree().create_timer(delta_time).timeout
 		self.position += Vector3(-speed * delta_time, 0, -speed * delta_time)
+	
+	fly_sound.stop()
+	disappeared.emit()
