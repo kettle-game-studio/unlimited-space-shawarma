@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://di31vekefloj" path="res://assets/item_icons/apple.png" id="1_o23mv"]
 
 [node name="Eq1" type="Label" node_paths=PackedStringArray("in_plus", "in_textures", "out_plus", "out_textures")]
+use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,11 +26,13 @@ out_plus = [NodePath("Out/Plus2"), NodePath("Out/Plus1")]
 out_textures = [NodePath("Out/In3"), NodePath("Out/In2"), NodePath("Out/In1")]
 
 [node name="In" type="Control" parent="."]
+use_parent_material = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Plus1" type="Label" parent="In"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,6 +50,7 @@ theme_override_font_sizes/font_size = 50
 text = "+"
 
 [node name="Plus2" type="Label" parent="In"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,6 +68,7 @@ theme_override_font_sizes/font_size = 50
 text = "+"
 
 [node name="In1" type="TextureRect" parent="In"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,6 +87,7 @@ texture = ExtResource("1_o23mv")
 expand_mode = 1
 
 [node name="In2" type="TextureRect" parent="In"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,6 +106,7 @@ texture = ExtResource("1_o23mv")
 expand_mode = 1
 
 [node name="In3" type="TextureRect" parent="In"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,12 +125,14 @@ texture = ExtResource("1_o23mv")
 expand_mode = 1
 
 [node name="Out" type="Control" parent="."]
+use_parent_material = true
 anchors_preset = 0
 offset_left = 426.5
 offset_right = 466.5
 offset_bottom = 40.0
 
 [node name="Plus1" type="Label" parent="Out"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,6 +150,7 @@ theme_override_font_sizes/font_size = 50
 text = "+"
 
 [node name="Plus2" type="Label" parent="Out"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,6 +168,7 @@ theme_override_font_sizes/font_size = 50
 text = "+"
 
 [node name="In1" type="TextureRect" parent="Out"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,6 +187,7 @@ texture = ExtResource("1_o23mv")
 expand_mode = 1
 
 [node name="In2" type="TextureRect" parent="Out"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -194,6 +206,7 @@ texture = ExtResource("1_o23mv")
 expand_mode = 1
 
 [node name="In3" type="TextureRect" parent="Out"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
