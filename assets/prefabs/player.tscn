@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://4h7b3tnixhgm"]
+[gd_scene load_steps=11 format=3 uid="uid://4h7b3tnixhgm"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_6l13g"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_75gyu"]
 [ext_resource type="Script" path="res://assets/scripts/player_raycast.gd" id="2_h24xp"]
 [ext_resource type="Script" path="res://assets/scripts/item_manager.gd" id="4_hiefl"]
+[ext_resource type="AudioStream" uid="uid://co1s81k67s5ra" path="res://assets/sounds/apple_eat_1.mp3" id="5_p0p8n"]
+[ext_resource type="AudioStream" uid="uid://b8i21hq4627a" path="res://assets/sounds/apple_eat_2.mp3" id="6_7a8ou"]
+[ext_resource type="AudioStream" uid="uid://b10f75nhngko8" path="res://assets/sounds/apple_eat_3.mp3" id="7_10f10"]
+[ext_resource type="AudioStream" uid="uid://bry3qmrjbfc7k" path="res://assets/sounds/apple_eat_4.mp3" id="8_vqwlf"]
+[ext_resource type="AudioStream" uid="uid://b87gmve41ym5v" path="res://assets/sounds/apple_eat_5.mp3" id="9_mwp2t"]
+[ext_resource type="AudioStream" uid="uid://twounuu4a5h4" path="res://assets/sounds/apple_eat_6.mp3" id="10_1g52g"]
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("item_manager", "player_raycast")]
 script = ExtResource("1_6l13g")
@@ -28,10 +34,11 @@ collide_with_bodies = false
 [node name="Hand" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664274, -0.974591, -1.29824)
 
-[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "camera")]
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "camera", "eating_sounds_root")]
 script = ExtResource("1_75gyu")
 player = NodePath("..")
 camera = NodePath("../Camera3D")
+eating_sounds_root = NodePath("../EatingSounds")
 
 [node name="PlayerRaycast" type="Node" parent="." node_paths=PackedStringArray("activatorRaycast", "fridgeRaycast", "player")]
 script = ExtResource("2_h24xp")
@@ -42,3 +49,23 @@ player = NodePath("..")
 [node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("4_hiefl")
 hand = NodePath("../Camera3D/Hand")
+
+[node name="EatingSounds" type="Node" parent="."]
+
+[node name="EatSound1" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("5_p0p8n")
+
+[node name="EatSound2" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("6_7a8ou")
+
+[node name="EatSound3" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("7_10f10")
+
+[node name="EatSound4" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("8_vqwlf")
+
+[node name="EatSound5" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("9_mwp2t")
+
+[node name="EatSound6" type="AudioStreamPlayer" parent="EatingSounds"]
+stream = ExtResource("10_1g52g")

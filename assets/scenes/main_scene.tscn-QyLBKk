@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
 [ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
-[ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
+[ext_resource type="Script" path="res://assets/scripts/story.gd" id="27_hjn8g"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="29_msbef"]
 
@@ -186,42 +186,4 @@ notes = [NodePath("BlenderRecipes"), NodePath("MixerRecipes"), NodePath("Microwa
 transform = Transform3D(-1.31625e-08, 4.26112e-12, 1, 0.0259694, 0.298874, 3.78386e-09, -0.298874, 0.0259694, -4.37114e-08, -4.36019, 1.62224, 1.01557)
 texture = ExtResource("13_5tiix")
 
-[node name="MicrowaveRecipes" type="Sprite3D" parent="Notes"]
-transform = Transform3D(-1.30018e-08, -2.05009e-09, 1, -0.0209948, 0.299264, 3.78386e-09, -0.299264, -0.0209948, -4.37114e-08, -4.36019, 1.67717, -1.12849)
-texture = ExtResource("14_wfqsv")
-
-[node name="MixerRecipes" type="Sprite3D" parent="Notes"]
-transform = Transform3D(-1.31596e-08, -2.7415e-10, 1, 0.0196418, 0.299356, 3.78386e-09, -0.299356, 0.0196418, -4.37114e-08, -4.36019, 0.66552, 0.0415147)
-texture = ExtResource("15_on2cj")
-
-[node name="WaterThePlants" type="Sprite3D" parent="Notes"]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.98411, 3.03582, -2.17482)
-texture = ExtResource("20_t0j0i")
-
-[node name="radio" parent="." instance=ExtResource("23_fj5av")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.472, -2.90766)
-
-[node name="Story" parent="." node_paths=PackedStringArray("trading_machine", "ui_controller", "player") instance=ExtResource("27_s3eyp")]
-trading_machine = NodePath("../TradingMachine")
-ui_controller = NodePath("../Canvas/UI")
-player = NodePath("../Player")
-
-[node name="FloatingItemLocation" parent="." instance=ExtResource("28_48qyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766344, 0, 7.05931)
-auto_set_origin = true
-
-[node name="Item" parent="FloatingItemLocation" instance=ExtResource("29_msbef")]
-
-[connection signal="item_placed" from="TreePots/TreePot1" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="TreePots/TreePot2" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="TreePots/TreePot3" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="TreePots/TreePot4" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="TreePots/TreePot5" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="PowerOutlets/PowerOutlet1" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="PowerOutlets/PowerOutlet2" to="Notes" method="_on_item_placed"]
-[connection signal="item_placed" from="PowerOutlets/PowerOutlet3" to="Notes" method="_on_item_placed"]
-
-[editable path="TradingMachine"]
-[editable path="TradingMachine/Table/ItemInMachine"]
-[editable path="TradingMachine/Table/ItemInMachine2"]
-[editable path="TradingMachine/Table/ItemInMachine3"]
+[node name="MicrowaveRecipes" t

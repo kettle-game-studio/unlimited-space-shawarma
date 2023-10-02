@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbl33sryefuw"]
+
+[ext_resource type="Script" path="res://assets/scripts/story.gd" id="1_j04x4"]
+[ext_resource type="Resource" uid="uid://bxetr3h06krdl" path="res://assets/recipes/encounters/enc_free_fruit_tree.tres" id="2_alqry"]
+
+[node name="Story" type="Node3D"]
+script = ExtResource("1_j04x4")
+free_fruit_tree = ExtResource("2_alqry")

@@ -46,6 +46,7 @@ font_size = 36
 script = ExtResource("1_ij06s")
 music = NodePath("Music")
 progress_sprite = NodePath("ProgressSprite")
+default_volume = -15
 
 [node name="Music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_hmxft")
