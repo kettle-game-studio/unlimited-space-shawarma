@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://71x8sn2suk4x"]
+
+[ext_resource type="Material" uid="uid://owiw4p135uw3" path="res://assets/materials/computer_ui.tres" id="1_ov1re"]
+
+[node name="YouWin" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_ov1re")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.367683, 0.598002, 0.407784, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+use_parent_material = true
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]You Are Saved![/center]"
+fit_content = true

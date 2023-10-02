@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=38 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -25,8 +25,9 @@
 [ext_resource type="Resource" uid="uid://xgmrhlbky15i" path="res://assets/prefabs/items/data/multivegetable_tree.tres" id="18_76lsf"]
 [ext_resource type="Texture2D" uid="uid://dl5nfptixupgh" path="res://assets/writings/plants_help.png" id="20_t0j0i"]
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
+[ext_resource type="PackedScene" uid="uid://rb3q3dmggp12" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
 [ext_resource type="Texture2D" uid="uid://cosr0ho4wwkx0" path="res://assets/writings/store_items_here.png" id="23_tec54"]
+[ext_resource type="PackedScene" uid="uid://di02oa08re6wu" path="res://assets/prefabs/ships_count.tscn" id="27_eblt5"]
 [ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
 [ext_resource type="PackedScene" uid="uid://bdmqifp834ejp" path="res://assets/prefabs/items/item_multifruit.tscn" id="29_msbef"]
@@ -108,12 +109,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.907683)
 [node name="UI" parent="Canvas" instance=ExtResource("5_dyrqf")]
 theme = ExtResource("7_rkjf5")
 
-[node name="TradingMachine" parent="." node_paths=PackedStringArray("door", "ship", "ui_controller") instance=ExtResource("10_32e7o")]
+[node name="TradingMachine" parent="." node_paths=PackedStringArray("door", "ship", "ui_controller", "ships_count") instance=ExtResource("10_32e7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
 door = NodePath("../Door")
 recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("9_rwnof"), ExtResource("10_iu3em"), ExtResource("11_t3u67")])
 ship = NodePath("../Paths/Path5/SpaceShip")
 ui_controller = NodePath("../Canvas/UI")
+ships_count = NodePath("../Notes/ShipsCount")
 
 [node name="Computer" parent="TradingMachine" index="0"]
 transform = Transform3D(-1, 7.01181e-08, -5.2213e-08, -8.74228e-08, -0.802057, 0.597247, 8.88178e-16, 0.597247, 0.802057, 0, 0, 0)
@@ -202,6 +204,9 @@ texture = ExtResource("15_on2cj")
 [node name="WaterThePlants" type="Sprite3D" parent="Notes"]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.98411, 3.03582, -2.17482)
 texture = ExtResource("20_t0j0i")
+
+[node name="ShipsCount" parent="Notes" instance=ExtResource("27_eblt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54644, 1.47495, -2.99928)
 
 [node name="radio" parent="." instance=ExtResource("23_fj5av")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3.472, -2.87648)
