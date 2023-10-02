@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://d1wukeqqtr2le"]
 
-[ext_resource type="Texture2D" uid="uid://ch7tsd1e4gp2y" path="res://assets/item_icons/unknown.png" id="1_b0am1"]
+[ext_resource type="Texture2D" uid="uid://b6c0kw16yw4o2" path="res://assets/item_icons/fruit_shawarma.png" id="1_t0c1i"]
 [ext_resource type="Script" path="res://assets/scripts/item_data.gd" id="2_1ho73"]
 
 [resource]
 script = ExtResource("2_1ho73")
 item_name = "Fruit Shawarma"
-icon = ExtResource("1_b0am1")
+icon = ExtResource("1_t0c1i")
 prefab = "res://assets/prefabs/items/item_shawarma_fruit.tscn"

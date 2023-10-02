@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4ur4w8uh5i2d"]
+[gd_scene load_steps=32 format=3 uid="uid://4ur4w8uh5i2d"]
 
 [ext_resource type="Environment" uid="uid://cfdjcfoshx56f" path="res://assets/scenes/main_environment.tres" id="1_ac5gt"]
 [ext_resource type="PackedScene" uid="uid://4h7b3tnixhgm" path="res://assets/prefabs/player.tscn" id="2_e4bg4"]
@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://csjp6tg2psdb0" path="res://assets/prefabs/door.tscn" id="5_y71fp"]
 [ext_resource type="Theme" uid="uid://bary8s8khgg7l" path="res://assets/scenes/main_theme.theme" id="7_rkjf5"]
 [ext_resource type="PackedScene" uid="uid://c1oh4kg7bn2ee" path="res://assets/prefabs/machines/tree_pot.tscn" id="9_hq280"]
+[ext_resource type="Resource" uid="uid://ck8j083r5u238" path="res://assets/recipes/trading_1.tres" id="9_rwnof"]
 [ext_resource type="PackedScene" uid="uid://1q8gbhk1j3hb" path="res://assets/prefabs/machines/trading_machine.tscn" id="10_32e7o"]
+[ext_resource type="Resource" uid="uid://cw8o2vrw6bdo0" path="res://assets/recipes/trading_2.tres" id="10_iu3em"]
 [ext_resource type="PackedScene" uid="uid://dlheukyllgvt5" path="res://assets/prefabs/machines/power_outlet.tscn" id="11_gkti0"]
+[ext_resource type="Resource" uid="uid://b8n1dvndphit1" path="res://assets/recipes/trading_3.tres" id="11_t3u67"]
 [ext_resource type="PackedScene" uid="uid://bx4jk77acdqos" path="res://assets/prefabs/cheat_all_items.tscn" id="12_w1oj3"]
 [ext_resource type="Texture2D" uid="uid://cviu82m1t6crm" path="res://assets/writings/blender_recipes.png" id="13_5tiix"]
 [ext_resource type="Script" path="res://assets/scripts/notes.gd" id="13_77kc1"]
@@ -103,6 +106,7 @@ theme = ExtResource("7_rkjf5")
 [node name="TradingMachine" parent="." node_paths=PackedStringArray("door", "ship", "ui_controller") instance=ExtResource("10_32e7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69032, -1.94878)
 door = NodePath("../Door")
+recipes = Array[Resource("res://assets/scripts/recipe.gd")]([ExtResource("9_rwnof"), ExtResource("10_iu3em"), ExtResource("11_t3u67")])
 ship = NodePath("../Paths/Path5/SpaceShip")
 ui_controller = NodePath("../Canvas/UI")
 
