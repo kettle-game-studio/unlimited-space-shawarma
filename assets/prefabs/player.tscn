@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://4h7b3tnixhgm"]
+[gd_scene load_steps=12 format=3 uid="uid://4h7b3tnixhgm"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_6l13g"]
 [ext_resource type="Script" path="res://assets/scripts/player_controller.gd" id="1_75gyu"]
 [ext_resource type="Script" path="res://assets/scripts/player_raycast.gd" id="2_h24xp"]
 [ext_resource type="Script" path="res://assets/scripts/item_manager.gd" id="4_hiefl"]
 [ext_resource type="AudioStream" uid="uid://co1s81k67s5ra" path="res://assets/sounds/apple_eat_1.mp3" id="5_p0p8n"]
+[ext_resource type="Resource" uid="uid://dx1k50482d1o5" path="res://assets/prefabs/items/data/multifruit_tree.tres" id="5_vkyex"]
 [ext_resource type="AudioStream" uid="uid://b8i21hq4627a" path="res://assets/sounds/apple_eat_2.mp3" id="6_7a8ou"]
 [ext_resource type="AudioStream" uid="uid://b10f75nhngko8" path="res://assets/sounds/apple_eat_3.mp3" id="7_10f10"]
 [ext_resource type="AudioStream" uid="uid://bry3qmrjbfc7k" path="res://assets/sounds/apple_eat_4.mp3" id="8_vqwlf"]
@@ -46,9 +47,11 @@ activatorRaycast = NodePath("../Camera3D/ActivatorRay")
 fridgeRaycast = NodePath("../Camera3D/FridgeRay")
 player = NodePath("..")
 
-[node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("hand")]
+[node name="ItemManager" type="Node" parent="." node_paths=PackedStringArray("hand", "player")]
 script = ExtResource("4_hiefl")
 hand = NodePath("../Camera3D/Hand")
+player = NodePath("..")
+tree_data = ExtResource("5_vkyex")
 
 [node name="EatingSounds" type="Node" parent="."]
 

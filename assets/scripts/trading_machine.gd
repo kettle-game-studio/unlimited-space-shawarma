@@ -32,7 +32,7 @@ func _on_ship_arrived():
 	start_trading()
 
 func _on_ship_disappeared():
-	pass
+	state = State.DISABLED
 
 func _process(float):
 	if state == State.CAN_TRADE:
@@ -45,7 +45,7 @@ func start_trading():
 func stop_trading():
 	door.close()
 	ship.fly_away()
-	state = State.DISABLED
+	state = State.SWITCHING
 	set_activatable(false)
 	computer_ui.disable()
 	ship.person.set_talking(false)
@@ -67,8 +67,10 @@ func _cancel_button_activated(player):
 	if !can_decline:
 		self.ui_controller.add_dialog("You", "I don't think I can decline such an offer")
 		return
+		
+	state = State.SWITCHING
 	stop_trading()
-	
+
 func _ok_button_activated(player):
 	if state != State.CAN_TRADE:
 		return
@@ -76,6 +78,7 @@ func _ok_button_activated(player):
 	if !recipe:
 		return
 	
+	state = State.SWITCHING
 	for i in slots.size():
 		var out = null;
 		if i < recipe.output.size():
