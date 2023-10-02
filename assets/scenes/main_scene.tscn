@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://tqi5dw3n0sam" path="res://assets/prefabs/space_ship.tscn" id="21_2ndht"]
 [ext_resource type="PackedScene" path="res://assets/prefabs/radio.tscn" id="23_fj5av"]
 [ext_resource type="Texture2D" uid="uid://cosr0ho4wwkx0" path="res://assets/writings/store_items_here.png" id="23_tec54"]
-[ext_resource type="PackedScene" path="res://assets/prefabs/ships_count.tscn" id="27_eblt5"]
+[ext_resource type="PackedScene" uid="uid://di02oa08re6wu" path="res://assets/prefabs/ships_count.tscn" id="27_eblt5"]
 [ext_resource type="PackedScene" uid="uid://cwbl33sryefuw" path="res://assets/prefabs/story.tscn" id="27_s3eyp"]
 [ext_resource type="PackedScene" uid="uid://ba1wbu3mtpra5" path="res://assets/prefabs/floating_item_location.tscn" id="28_48qyx"]
 [ext_resource type="PackedScene" uid="uid://cnwdpci6v2ks6" path="res://assets/prefabs/items/item_shawarma_vegetable.tscn" id="31_p2ufa"]

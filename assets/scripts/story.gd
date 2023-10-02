@@ -12,12 +12,12 @@ func _ready():
 	story_routine()
 
 func story_routine():
-	await part_1()
-	await part_2()
-	await part_3()
-	await part_4()
-	await part_5()
-	await part_6()
+	# await part_1()
+	# await part_2()
+	# await part_3()
+	# await part_4()
+	# await part_5()
+	# await part_6()
 	await free_play()
 
 # Eating our first apple
@@ -28,7 +28,7 @@ func part_1():
 	await get_tree().create_timer(5.0).timeout
 	
 	if !player_have_eaten():
-		ui_controller.add_dialog("You", "I think, i have a multifruit in the space-storage, I should eat it now.")
+		ui_controller.add_dialog("You", "I think, i have a shawarma in the space-storage, I should eat it now.")
 		ui_controller.add_dialog("Hint", "Use <E> or <LMB> to pick an item. Use <Space> to eat it.", Color.BLUE)
 		
 		while !await wait_for(player_have_eaten , 6.0):
